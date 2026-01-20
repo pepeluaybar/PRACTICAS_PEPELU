@@ -69,12 +69,12 @@ public class Vehiculo {
     @Override
         public String toString() {
             String cadena = "Matricula: " + matricula +
-                            ", Marca: " + marca +
+                           ", Marca: " + marca +
                             ", Modelo: " + modelo +
                             ", Disponible: ";
 
             if (cocheDisponible) {
-                cadena += "sí";
+                cadena += "si";
             } else {
                 cadena += "no";
             }
