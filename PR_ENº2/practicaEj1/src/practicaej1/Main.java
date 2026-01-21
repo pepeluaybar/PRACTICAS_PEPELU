@@ -43,7 +43,19 @@ public class Main {
         System.out.println(v1.toString());
         System.out.println(v2.toString());
         System.out.println(v3.toString());
+     
         
-    }
-    
+        /*
+        a.incorporarVehiculo(a.getVehiculosRegistrados(), v1);
+        a.incorporarVehiculo(a.getVehiculosRegistrados(), v3);
+        */
+        
+        a.alquilarVehiculo(a.getAlquiler(), v2);
+        
+        for (Vehiculo v : a.getAlquiler()) {
+            System.out.println(v);
+        }
+        
+        System.out.println(a.toString());
+    }   
 }

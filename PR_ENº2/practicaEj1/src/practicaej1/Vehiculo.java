@@ -47,9 +47,9 @@ public class Vehiculo {
     public String getModelo(){
         return this.modelo;
     }    
-    public boolean getCocheDisponible(){
-        return this.cocheDisponible;
-    }    
+    public boolean isCocheDisponible() {
+    return this.cocheDisponible;
+}    
 // Declaración de setters (1 por atributo)
     public void setMatricula(String matricula){
          this.matricula = matricula;
