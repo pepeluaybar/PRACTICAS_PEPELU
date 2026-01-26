@@ -15,7 +15,15 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Cuenta cu1 = new Cuenta();
+        cu1.setSaldo(100);
+        cu1.setnIdent(0);
+        Cliente cli = new Cliente();
+        cli.setAccount(cu1);
+        
+        cli.ingresarSaldo(100, cu1.getSaldo());
+        
+        cli.consultarSaldo(cu1.getSaldo());
+        
     }
-    
 }
