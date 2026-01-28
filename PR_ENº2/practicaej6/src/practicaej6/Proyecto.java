@@ -67,25 +67,25 @@ public class Proyecto {
     public boolean asignarEmpleado(Empleado empleado, int horas) {
         if (empleado == null || horas < 0) return false;
 
-        if (numParticipaciones >= participaciones.length) {
-            Participacion[] nuevo = new Participacion[participaciones.length + 1];
-            for (int i = 0; i < participaciones.length; i++) {
-                nuevo[i] = participaciones[i];
+        if (this.numParticipaciones >= this.participaciones.length) {
+            Participacion[] nuevo = new Participacion[this.participaciones.length + 1];
+            for (int i = 0; i < this.participaciones.length; i++) {
+                nuevo[i] = this.participaciones[i];
             }
-            participaciones = nuevo;
+            this.participaciones = nuevo;
         }
 
-        participaciones[numParticipaciones] = new Participacion(empleado, this, horas);
-        numParticipaciones++;
+        this.participaciones[this.numParticipaciones] = new Participacion(empleado, this, horas);
+        this.numParticipaciones++;
         return true;
     }
 
     public double calcularCosteTotal() {
         double total = 0;
 
-        for (int i = 0; i < numParticipaciones; i++) {
-            if (participaciones[i] != null) {
-                total += participaciones[i].calcularCoste();
+        for (int i = 0; i < this.numParticipaciones; i++) {
+            if (this.participaciones[i] != null) {
+                total += this.participaciones[i].calcularCoste();
             }
         }
 
