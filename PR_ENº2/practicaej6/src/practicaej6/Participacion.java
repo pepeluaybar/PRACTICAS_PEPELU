@@ -55,7 +55,7 @@ public class Participacion {
     }
 
     // Método personalizado: coste de ESTA participación
-    // (horas trabajadas * salario del empleado)
+    // (horas trabajadas * salario del empleado) asumo 
     public double calcularCoste() {
         if (this.empleado == null) return 0;
         return this.horas * this.empleado.getSalario();
