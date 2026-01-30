@@ -18,7 +18,7 @@ public class RegistrarseTest {
         Socio s = new Socio("Pepe", 1);
         Actividad a = new Actividad(4, 99); // 4 horas
         Registrarse r = new Registrarse(s, a, 10); // 10€/hora
-        
+
         assertEquals(40, r.ingresoRecaudado());
     }
 
