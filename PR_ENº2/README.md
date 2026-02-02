@@ -4,22 +4,22 @@
 
 ---
 
-## 🧭 Índice
-- [🎯 Objetivo](#-objetivo)
-- [🗂️ Estructura del proyecto](#️-estructura-del-proyecto)
-- [📅 Periodo de trabajo](#-periodo-de-trabajo)
-- [🧱 Prácticas actuales](#-prácticas-actuales)
-- [🧾 Documentos (PDF)](#-documentos-pdf)
-- [📝 Historial de actualizaciones (commits)](#-historial-de-actualizaciones-commits)
+##  Índice
+- [ Objetivo](#-objetivo)
+- [ Estructura del proyecto](#️-estructura-del-proyecto)
+- [ Periodo de trabajo](#-periodo-de-trabajo)
+- [ Prácticas actuales](#-prácticas-actuales)
+- [ Documentos (PDF)](#-documentos-pdf)
+- [ Historial de actualizaciones (commits)](#-historial-de-actualizaciones-commits)
 
 ---
 
-## 🎯 Objetivo
+##  Objetivo
 Este espacio recopila mis **prácticas de clase** en las asignaturas de **Entornos de Desarrollo** y **Programación**, con una organización clara y fácil de ampliar en el futuro.
 
 ---
 
-## 🗂️ Estructura del proyecto
+##  Estructura del proyecto
 | Carpeta / Archivo | Descripción |
 | --- | --- |
 | `practicaEj1/` | Proyecto Java con `src/` y `test/`. |
@@ -30,13 +30,13 @@ Este espacio recopila mis **prácticas de clase** en las asignaturas de **Entorn
 
 ---
 
-## 📅 Periodo de trabajo
+##  Periodo de trabajo
 - **Inicio:** 16/01/2026
 - **Última actualización:** 30/01/2026
 
 ---
 
-## 🧱 Prácticas actuales
+##  Prácticas actuales
 > Cada práctica incluye código fuente, configuración del proyecto y pruebas cuando aplica.
 
 - ✅ **Práctica 1** → `practicaEj1/`
@@ -47,7 +47,7 @@ Este espacio recopila mis **prácticas de clase** en las asignaturas de **Entorn
 
 ---
 
-## 🧾 Documentos (PDF)
+##  Documentos (PDF)
 | Archivo | Descripción |
 | --- | --- |
 | `1TDAW_ED_Tema5_parte3.pdf` | Material/entrega de Entornos de Desarrollo (incluye los diagramas). |
@@ -57,7 +57,7 @@ Este espacio recopila mis **prácticas de clase** en las asignaturas de **Entorn
 
 ---
 
-## 📝 Historial de actualizaciones (commits)
+##  Historial de actualizaciones (commits)
 > Resumen de cambios realizados en este repositorio.
 
 - **2026-01-30** — `update` → Ajustes generales finales del repositorio.
