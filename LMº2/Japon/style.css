@@ -1,0 +1,533 @@
+/* Google Fonts loaded from CSS (as you do in class). */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+
+/* =========================
+   Design tokens (your system)
+   ========================= */
+:root{
+  /* Core colors */
+  --bg: #0e0e0e;
+  --fg: #f5f5f5;
+  --muted: #9a9a9a;
+  --line: rgba(255,255,255,.12);
+
+  /* Accent (we can tune later if you want) */
+  --accent: #c0392b;
+
+  /* Layout */
+  --radius: 18px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 64px;
+  --container: 1100px;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Base reset-ish */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+/* Links */
+a{ color: inherit; text-decoration: none; }
+a:focus-visible{ outline: 2px solid var(--fg); outline-offset: 3px; }
+
+/* Containers + helpers */
+.container{
+  width: min(100% - 2*var(--space-3), var(--container));
+  margin-inline: auto;
+}
+.muted{ color: var(--muted); }
+.section{ padding: var(--space-5) 0; }
+.section-head{ margin-bottom: var(--space-3); }
+
+.eyebrow{
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+/* Accessibility: skip link */
+.skip-link{
+  position: absolute;
+  left: -9999px;
+  top: var(--space-2);
+  background: var(--fg);
+  color: var(--bg);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 10px;
+}
+.skip-link:focus{ left: var(--space-2); z-index: 999; }
+
+/* =========================
+   Header (Flex layout)
+   ========================= */
+.site-header{
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: rgba(14,14,14,.9);
+  backdrop-filter: blur(8px);
+}
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+
+  padding: var(--space-2) var(--space-3);
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.brand{
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+.brand-mark{
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.brand-text{
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Desktop nav */
+.nav-list{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-3);
+}
+.nav-link{
+  color: var(--muted);
+  padding: 10px 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-link:hover{ color: var(--fg); }
+.nav-link.is-active{
+  color: var(--fg);
+  border-bottom-color: var(--fg);
+}
+
+/* Hamburger (hidden on desktop) */
+.nav-toggle{ display: none; }
+.nav-toggle-btn{
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.nav-toggle-btn span{
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--fg);
+  opacity: .9;
+}
+
+/* =========================
+   Hero
+   ========================= */
+.hero{
+  min-height: 66vh;
+  display: flex;
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero--home{
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.2), rgba(14,14,14,.92)),
+    url("assets/img/hero-home.jpg") center/cover no-repeat;
+}
+/* Spring hero image */
+.hero--spring{
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.25), rgba(14,14,14,.92)),
+    url("assets/img/hero-spring.jpg") center/cover no-repeat;
+}
+
+.hero-content{ padding: var(--space-5) 0; }
+
+h1{
+  font-size: 3rem;
+  line-height: 1.05;
+  margin: var(--space-2) 0;
+  font-weight: 800;
+}
+h2{ font-size: 2rem; margin: 0 0 var(--space-1); font-weight: 600; }
+h3{ font-size: 1.1rem; margin: 0 0 var(--space-1); font-weight: 600; }
+
+.lead{
+  max-width: 65ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.hero-actions{
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+.btn--primary{
+  background: var(--fg);
+  color: var(--bg);
+}
+.btn--ghost{
+  border-color: var(--line);
+  color: var(--fg);
+}
+
+/* =========================
+   Seasons Grid (Grid showcase)
+   ========================= */
+.seasons-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.card{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255,255,255,.02);
+}
+.card-link{ display: block; }
+
+.card-media{
+  height: 180px;
+
+  /* Default overlay, image is set per season modifier below */
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.12), rgba(14,14,14,.9));
+}
+
+/* Season-specific images (so each card can have a different photo) */
+.card-media--spring{
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.12), rgba(14,14,14,.9)),
+    url("../assets/img/hero-spring.jpg") center/cover no-repeat;
+}
+.card-media--summer{
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.12), rgba(14,14,14,.9)),
+    url("../assets/img/hero-summer.jpg") center/cover no-repeat;
+}
+.card-media--autumn{
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.12), rgba(14,14,14,.9)),
+    url("../assets/img/hero-aw.jpg") center/cover no-repeat;
+}
+.card-media--winter{
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.12), rgba(14,14,14,.9)),
+    url("../assets/img/hero-aw.jpg") center/cover no-repeat;
+}
+
+.card-body{ padding: var(--space-2); }
+
+.tag{
+  display: inline-block;
+  font-size: .85rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin: 0 0 var(--space-2);
+}
+
+/* =========================
+   Footer (Flex)
+   ========================= */
+.site-footer{ border-top: 1px solid var(--line); }
+
+.footer-inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+}
+
+.footer-links{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-3);
+}
+.footer-links a{ color: var(--muted); }
+.footer-links a:hover{ color: var(--fg); }
+
+/* =========================
+   Breakpoints (Desktop-first)
+   ========================= */
+@media (max-width: 900px){
+  h1{ font-size: 2.4rem; }
+  .seasons-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px){
+  .header-inner{ padding: var(--space-2); }
+
+  /* Hide desktop nav, show hamburger */
+  .nav-toggle-btn{ display: inline-flex; }
+
+  .site-nav{
+    position: absolute;
+    top: 64px;
+    right: var(--space-2);
+    left: var(--space-2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(14,14,14,.98);
+    display: none;
+  }
+
+  .nav-list{ flex-direction: column; gap: 0; }
+  .nav-link{
+    display: block;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Checkbox controls the menu visibility */
+  .nav-toggle:checked ~ .site-nav{ display: block; }
+
+  h1{ font-size: 2rem; }
+  .hero-actions{ flex-direction: column; align-items: stretch; }
+
+  .seasons-grid{ grid-template-columns: 1fr; }
+  .footer-inner{ flex-direction: column; align-items: flex-start; }
+}
+/* =========================
+   THEME SYSTEM (per page)
+   Put class on <body>: theme--spring / theme--summer / theme--autumn / theme--winter
+   ========================= */
+.theme{
+  /* shared defaults */
+  --accent: #c0392b;
+  --hero-img: url("assets/img/hero-home.jpg");
+  --hero-pos: center 30%;
+}
+
+/* Per-season accents + hero images */
+.theme--spring{
+  --accent: #d36c7d; /* sakura muted */
+  --hero-img: url("assets/img/hero-spring.jpg");
+  --hero-pos: center 35%;
+}
+.theme--summer{
+  --accent: #3a8fb7; /* deep coastal blue */
+  --hero-img: url("assets/img/hero-summer.jpg");
+  --hero-pos: center 40%;
+}
+.theme--autumn{
+  --accent: #b56a2a; /* amber */
+  --hero-img: url("assets/img/hero-autumn.jpg");
+  --hero-pos: center 45%;
+}
+.theme--winter{
+  --accent: #7aa6c2; /* cold blue */
+  --hero-img: url("assets/img/hero-winter.jpg");
+  --hero-pos: center 35%;
+}
+
+/* Use accent where it matters */
+.tag{
+  border-color: rgba(255,255,255,.18);
+}
+.tag--accent{
+  color: var(--fg);
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.04);
+}
+
+/* Buttons: make primary react to theme accent */
+.btn--primary{
+  background: var(--fg);
+  color: var(--bg);
+}
+.btn--ghost{
+  border-color: rgba(255,255,255,.18);
+}
+
+/* =========================
+   HERO: uses theme variables
+   ========================= */
+.hero{
+  min-height: 60vh;
+}
+.hero--themed{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14,14,14,0.12) 0%,
+      rgba(14,14,14,0.42) 55%,
+      rgba(14,14,14,0.88) 100%
+    ),
+    var(--hero-img) var(--hero-pos) / cover no-repeat;
+}
+
+/* Make eyebrow a bit more “premium” */
+.eyebrow{
+  letter-spacing: .18em;
+}
+
+/* =========================
+   VISUAL GRIDS (Home presence)
+   ========================= */
+.grid{
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* Mosaic grid (strong visual identity) */
+.mosaic{
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-auto-rows: 220px;
+}
+.mosaic__item{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(14,14,14,.10), rgba(14,14,14,.92));
+  position: relative;
+}
+.mosaic__item--big{
+  grid-row: span 2;
+  grid-column: span 1;
+  min-height: 460px;
+}
+.mosaic__label{
+  position: absolute;
+  left: var(--space-2);
+  bottom: var(--space-2);
+  right: var(--space-2);
+}
+.mosaic__label h3{
+  margin: 0 0 6px;
+}
+.mosaic__label p{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Attach images to mosaic items via utility classes */
+.bg-spring{ background:
+  linear-gradient(180deg, rgba(14,14,14,.10), rgba(14,14,14,.92)),
+  url("assets/img/spring-01.jpg") center/cover no-repeat; }
+.bg-summer{ background:
+  linear-gradient(180deg, rgba(14,14,14,.10), rgba(14,14,14,.92)),
+  url("assets/img/summer-01.jpg") center/cover no-repeat; }
+.bg-autumn{ background:
+  linear-gradient(180deg, rgba(14,14,14,.10), rgba(14,14,14,.92)),
+  url("assets/img/autumn-01.jpg") center/cover no-repeat; }
+.bg-winter{ background:
+  linear-gradient(180deg, rgba(14,14,14,.10), rgba(14,14,14,.92)),
+  url("assets/img/winter-01.jpg") center/cover no-repeat; }
+
+/* Editorial split (2 columns on desktop) */
+.split{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+.panel{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  background: rgba(255,255,255,.02);
+}
+.kpi{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.kpi div{
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: var(--space-2);
+  background: rgba(255,255,255,.02);
+}
+.kpi strong{ font-size: 1.2rem; }
+
+/* Seasons card grid: more presence */
+.seasons-grid{
+  grid-template-columns: repeat(4, 1fr);
+}
+.card-media{
+  height: 220px;
+}
+
+/* =========================
+   Responsive adjustments
+   ========================= */
+@media (max-width: 900px){
+  .mosaic{
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 220px;
+  }
+  .mosaic__item--big{
+    grid-column: span 2;
+    grid-row: span 1;
+    min-height: 260px;
+  }
+  .split{
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .seasons-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px){
+  .mosaic{
+    grid-template-columns: 1fr;
+  }
+  .mosaic__item--big{
+    grid-column: span 1;
+    min-height: 260px;
+  }
+  .seasons-grid{
+    grid-template-columns: 1fr;
+  }
+}
