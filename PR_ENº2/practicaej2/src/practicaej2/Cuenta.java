@@ -8,7 +8,8 @@ public class Cuenta {
         this.saldo = saldo;
     }
      public Cuenta(){
-        this.nIdent = 0/*aqui va una funcion*/;
+        // Se inicializa el identificador en cero porque no hay generador definido.
+        this.nIdent = 0;
         this.saldo = 0;
      }
     public Cuenta(Cuenta cu){

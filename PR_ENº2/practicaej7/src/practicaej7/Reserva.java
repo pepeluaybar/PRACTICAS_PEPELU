@@ -69,8 +69,8 @@ public class Reserva {
         return Math.max(0, dias);
     }
 
-    // Importe a pagar: dias * precioPorDia
-    // (el enunciado no da precio; lo pasamos como parámetro)
+    // Importe a pagar: dias * precioPorDia.
+    // Se recibe el precio como parámetro porque no hay tarifa en el modelo.
     public double calcularImporte(double precioPorDia) {
         return calcularDias() * Math.max(0, precioPorDia);
     }
