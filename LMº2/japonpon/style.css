@@ -1,0 +1,82 @@
+
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+  /* Base “cabina” (home) */
+  --bg-0: #07090c;          /* negro profundo */
+  --bg-1: #0c1016;          /* noche */
+  --panel: rgba(20, 24, 30, 0.72);  /* cristal/overlay */
+  --panel-2: rgba(14, 16, 20, 0.78);
+
+  /* Texto */
+  --text: #eef2f7;
+  --muted: rgba(238, 242, 247, 0.68);
+
+  /* Madera + latón */
+  --wood-0: #3b2415;
+  --wood-1: #6a3f22;
+  --brass: #caa86a;
+  --amber: #ffcf7a;
+
+  /* Acentos temáticos (puedes cambiarlos por página) */
+  --sakura: #f2a8c5;
+  --temples: #e2503f;
+  --traditions: #e0b86b;
+  --city: #6bd5ff;
+
+  /* Bordes / sombras */
+  --stroke: rgba(255,255,255,0.10);
+  --stroke-strong: rgba(255,255,255,0.16);
+  --shadow: 0 18px 50px rgba(0,0,0,.50);
+}
+
+/* HEADER */
+#header{
+    height: 80vh;
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#logo{
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: .05rem;
+}
+
+/* NAV TREN */
+#nav-tren{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.vagon{
+    display: flex;
+    align-items: flex-end;
+}
+
+.vagon img{
+    height: 150px;
+    transition: .15s ease;
+}
+
+.vagon:hover img{
+    transform: translateY(-4px);
+}
+
+.vagon[aria-current="page"] img{
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,.22));
+}
+body{
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
+}
+
+
