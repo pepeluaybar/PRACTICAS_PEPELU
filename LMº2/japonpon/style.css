@@ -509,10 +509,251 @@
   background-size: cover;
   background-position: end;
 }
-
-.templo-top,
-.templo-bottom {
+.closing-templos{
+  position: relative;
   min-height: 100vh;
+
+  background-image: url("./img/tu-imagen-final.webp");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+
+
+.closing-box{
+  position: absolute;
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+/* BLOQUES GRANDES */
+.closing-box.big{
+  width: 420px;
+}
+
+.closing-box.big.left{
+  top: 12%;
+  left: 8%;
+}
+
+.closing-box.big.right{
+  top: 12%;
+  right: 8%;
+}
+
+/* BLOQUES PEQUEÑOS */
+.closing-box.small{
+  width: 280px;
+}
+
+.closing-box.small.left{
+  bottom: 18%;
+  left: 12%;
+}
+
+.closing-box.small.right{
+  bottom: 18%;
+  right: 12%;
+}
+
+
+.closing-kanji{
+  display: flex;
+  flex-direction: column;
+  line-height: .9;
+}
+
+.kanji-main{
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+}
+
+.kanji-sub{
+  font-size: 3.5rem;
+  color: rgba(255,255,255,.55);
+}
+
+.kanji-small{
+  font-size: 3rem;
+  color: rgba(255,255,255,.7);
+}
+
+.closing-text h2{
+  font-size: 1.5rem;
+  margin-bottom: .4rem;
+}
+
+.closing-text p{
+  color: rgba(238,242,247,.8);
+  line-height: 1.6;
+}
+
+
+.closing-text{
+  justify-self: end;
+  align-self: start;
+  margin-top: 10vh;
+
+  width: min(420px, 90%);
+  text-align: left;
+}
+
+.closing-text h2{
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  margin-bottom: .6rem;
+}
+
+.closing-text p{
+  color: rgba(238,242,247,.78);
+  line-height: 1.7;
+  max-width: 42ch;
+}
+
+.footer-templos{
+  /* no ponemos background sólido: se funde con la piedra */
+  padding: 5.2rem 6vw 2.2rem;
+  position: relative;
+}
+
+/* “Humo”/oscurecido desde abajo, para que el texto sea legible sin matar la imagen */
+.footer-templos::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.72) 0%,
+    rgba(0,0,0,.40) 35%,
+    rgba(0,0,0,0) 70%
+  );
+}
+
+/* rejilla editorial */
+.footer-inner{
+  position: relative;
+  z-index: 2;
+
+  width: min(1100px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1.6fr 1fr;
+  gap: 1.8rem;
+  align-items: end;
+}
+
+/* marca */
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap: .9rem;
+}
+
+.footer-kanji{
+  font-size: 3.2rem;
+  line-height: 1;
+  color: rgba(238,242,247,.88);
+
+  /* efecto “grabado” sutil */
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.65),
+    0 10px 30px rgba(0,0,0,.55);
+  opacity: .9;
+}
+
+.footer-title{
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: .95rem;
+  color: rgba(238,242,247,.90);
+}
+
+.footer-sub{
+  margin-top: .25rem;
+  color: rgba(238,242,247,.70);
+  font-size: .95rem;
+}
+
+/* nav */
+.footer-nav{
+  display:flex;
+  flex-wrap: wrap;
+  gap: .7rem 1.1rem;
+  justify-content: center;
+}
+
+.footer-nav a{
+  text-decoration:none;
+  color: rgba(238,242,247,.75);
+  font-weight: 700;
+  letter-spacing: .02em;
+  position: relative;
+}
+
+.footer-nav a:hover{
+  color: rgba(238,242,247,.92);
+}
+
+/* subrayado “latón” al hover */
+.footer-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background: rgba(224,184,107,.9); /* brass/traditions vibe */
+  transition: width .18s ease;
+  opacity: .9;
+}
+
+.footer-nav a:hover::after{
+  width:100%;
+}
+
+/* activo */
+.footer-nav .is-active{
+  color: rgba(224,184,107,.95);
+}
+
+/* meta */
+.footer-meta{
+  display:flex;
+  flex-direction: column;
+  gap: .6rem;
+  align-items: end;
+}
+
+.footer-top{
+  text-decoration:none;
+  font-weight: 800;
+  color: rgba(238,242,247,.88);
+  opacity: .85;
+}
+.footer-top:hover{ opacity: 1; }
+
+.footer-copy{
+  color: rgba(238,242,247,.60);
+  font-size: .9rem;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .footer-inner{
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .footer-nav{
+    justify-content: flex-start;
+  }
+  .footer-meta{
+    align-items: start;
+  }
 }
 
 /*media*/
@@ -605,4 +846,16 @@
 /* responsive cards*/
 @media (max-width: 900px){
   .cards{ grid-template-columns: 1fr; }
+}
+/* responsive kanji*/
+@media (max-width: 900px){
+  .closing-templos{
+    grid-template-columns: 1fr;
+    padding: 4.2rem 1.2rem 4rem;
+  }
+
+  .closing-text{
+    justify-self: start;
+    margin-top: 1.4rem;
+  }
 }
