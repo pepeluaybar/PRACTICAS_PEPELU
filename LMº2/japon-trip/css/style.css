@@ -1,0 +1,924 @@
+/* =========================================================
+   JAPÓN TRIP — style.css (1 archivo)
+   01 Reset / Base
+   02 Variables
+   03 Global / Tipografía
+   04 Layout helpers
+   05 Logo fijo
+   06 Topnav Kanji + Hamburguesa (sin JS)
+   07 Vagones (nav-tren)
+   08 Hero (Home + base)
+   09 Botones / Details
+   10 Home: secciones + grids
+   11 Cards (details)
+   12 Closing templos (si lo usas)
+   13 Footer
+   14 Media queries (AL FINAL)
+   ========================================================= */
+
+/* 01 Reset / Base */
+*{ margin:0; padding:0; box-sizing:border-box; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+html{ scroll-behavior:smooth; }
+
+/* 02 Variables */
+:root{
+  --bg-0:#07090c;
+  --bg-1:#0c1016;
+
+  --text:#eef2f7;
+  --muted: rgba(238,242,247,.68);
+
+  --wood-0:#3b2415;
+  --wood-1:#6a3f22;
+  --brass:#caa86a;
+
+  --temples:#e2503f;
+  --sakura:#f2a8c5;
+  --traditions:#e0b86b;
+  --city:#6bd5ff;
+
+  --stroke: rgba(255,255,255,.10);
+  --stroke-soft: rgba(255,255,255,.06);
+  --shadow: 0 18px 50px rgba(0,0,0,.50);
+
+  --r1: 14px;
+  --r2: 18px;
+  --r3: 20px;
+}
+
+/* 03 Global / Tipografía */
+body{
+  font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg-0);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* 04 Layout helpers */
+.container{ width:min(1100px,100%); margin:0 auto; padding:0 1rem; }
+.container.narrow{ width:min(860px,100%); }
+
+.section{
+  padding: clamp(3.2rem, 6vw, 6rem) 0;
+  position: relative;
+}
+
+.section-head{
+  width:min(980px,100%);
+  margin:0 auto 1.2rem;
+  padding: 0 1rem;
+}
+
+.section-title{
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -.01em;
+}
+
+.section-subtitle{
+  margin-top:.45rem;
+  color: var(--muted);
+  max-width:70ch;
+  line-height: 1.6;
+}
+
+/* 05 Logo fijo (único que acompaña) */
+#logo{
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: .05rem;
+  text-decoration: none;
+}
+
+/* 06 Topnav Kanji + Hamburguesa (sin JS) */
+.topnav{
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 9000;
+  display:flex;
+  align-items:center;
+  gap: .9rem;
+}
+
+/* Desktop kanji nav: SIN CAJA, SIN FONDO, SIN BLUR */
+.kanji-nav{
+  display:flex;
+  gap:.7rem;
+  align-items:center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.kanji-link{
+  font-weight: 900;
+  opacity: .82;
+  padding: .15rem .35rem;
+  border-radius: 10px;
+  line-height: 1;
+}
+
+.kanji-link:hover{ opacity: 1; }
+.kanji-link.is-active{ opacity: 1; }
+
+/* Burger */
+.nav-toggle{ position:absolute; left:-9999px; }
+
+.burger{
+  width: 42px;
+  height: 42px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction: column;   /* <-- CLAVE */
+  gap: 4px;                 /* <-- en vez de margin-top */
+  border-radius: var(--r1);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  cursor:pointer;
+}
+
+.burger span{
+  display:block;
+  width: 18px;
+  height: 2px;
+  background: rgba(238,242,247,.90);
+  border-radius: 999px;
+}
+
+/* quita esto si lo tienes */
+.burger span + span{ margin-top: 0; }
+
+/* Menú móvil (aquí sí hay panel) */
+.mobile-menu{
+  display:none;
+  position: absolute;
+  top: 52px;
+  left: 0;
+  width: 240px;
+  padding: .6rem;
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.40);
+  backdrop-filter: blur(12px);
+}
+
+.nav-toggle:checked ~ .mobile-menu{ display:block; }
+
+.m-item{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  padding: .6rem .65rem;
+  border-radius: var(--r1);
+  color: rgba(238,242,247,.82);
+  font-weight: 800;
+}
+
+.m-item:hover{ background: rgba(255,255,255,.06); color: rgba(238,242,247,.92); }
+.m-item.is-active{ background: rgba(255,255,255,.08); color: rgba(238,242,247,.96); }
+
+.m-kanji{ font-size: 1.35rem; width: 28px; text-align:center; }
+.m-text{ font-size: .98rem; }
+
+/* 07 Vagones (nav-tren) */
+#nav-tren{
+  display:flex;#nav-tren{
+    display:flex;
+    flex-wrap: nowrap;
+    align-items:flex-end;
+    gap:.35rem;
+
+    overflow-x: auto;
+    padding: 0 .6rem .25rem;   /* aire lateral para que no “mueran” en el borde */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  #nav-tren::-webkit-scrollbar{ display:none; }
+
+  .vagon{ flex: 0 0 auto; scroll-snap-align: start; }
+
+  /* En el hero, dale ancho real para que el scroll tenga sentido */
+  .hero-vagones #nav-tren{
+    width: 100%;
+    max-width: min(980px, 92%);
+    margin: 0 auto;
+  }
+
+  /* “Indica” que hay más contenido a los lados (efecto fade) */
+  .hero-vagones #nav-tren{
+    -webkit-mask-image: linear-gradient(to right,
+      transparent 0%,
+      #000 6%,
+      #000 94%,
+      transparent 100%);
+    mask-image: linear-gradient(to right,
+      transparent 0%,
+      #000 6%,
+      #000 94%,
+      transparent 100%);
+  }
+
+  flex-wrap: nowrap;        
+  justify-content:center;
+  align-items:flex-end;
+  gap:.35rem;
+
+  max-width: 100%;
+  overflow-x: auto;         
+  padding-bottom: .25rem;
+
+  scrollbar-width: none;    
+}
+
+#nav-tren::-webkit-scrollbar{ display:none; }
+
+.vagon{
+  display:flex;
+  align-items:flex-end;
+  opacity:.55;
+  flex: 0 0 auto;
+}
+
+.vagon img{ height: 120px; width:auto; }
+.vagon:hover{ opacity:.85; }
+.vagon.active{ opacity: 1; filter: drop-shadow(0 10px 18px rgba(0,0,0,.28)); }
+
+/* Vagones al fondo del hero: SIN panel */
+.hero-vagones{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom: 46px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-vagones #nav-tren{
+  pointer-events: auto;
+  width: min(980px, 92%);
+  margin: 0 auto;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+
+/* Home: vagones más pequeños */
+.hero-vagones .vagon img{ height: 76px; }
+
+/* 08 Hero (base + home) */
+.hero{
+  height: 85vh;
+  min-height: 560px;
+  padding: clamp(1.1rem, 2.5vw, 2rem);
+  display:flex;
+  align-items:center;
+  position: relative;
+
+  background:
+    radial-gradient(circle at 20% 45%, rgba(0,0,0,.05), rgba(0,0,0,.55) 55%, rgba(0,0,0,.75) 100%),
+    linear-gradient(to right, rgba(0,0,0,.75) 0%, rgba(0,0,0,.35) 50%, rgba(0,0,0,0) 75%);
+}
+
+.hero-content{
+  width: min(560px, 92%);
+  display:flex;
+  flex-direction:column;
+  gap:.85rem;
+  z-index: 2;
+}
+
+.hero-kicker{
+  letter-spacing:.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.hero-title{
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  line-height: 1.05;
+  font-weight: 900;
+}
+.hero-title span{ color: var(--brass); }
+
+.hero-lead{
+  color: rgba(238,242,247,.82);
+  line-height: 1.65;
+  font-size: 1.02rem;
+  max-width: 58ch;
+}
+
+.hero-actions{
+  margin-top:.4rem;
+  display:flex;
+  gap:.7rem;
+  flex-wrap:wrap;
+}
+
+/* HOME hero: sin “bandas raras” */
+.hero-home{
+  min-height: 92vh;
+  background-image:
+    /* oscurece esquina inferior (asienta tren + botones) */
+    linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.30) 55%, rgba(0,0,0,0) 80%),
+    /* oscurece lateral izquierdo para texto legible */
+    linear-gradient(to right, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%),
+    /* imagen */
+    url(../img/home/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero-templos{
+  min-height: 92vh;
+  background-image:
+    /* oscurece esquina inferior (asienta tren + botones) */
+    linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.30) 55%, rgba(0,0,0,0) 80%),
+    /* oscurece lateral izquierdo para texto legible */
+    linear-gradient(to right, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%),
+    /* imagen */
+    url(../img/templos/preview-templos.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* overlay: literalmente nada (evita texturas) */
+.hero-overlay{ display:none; }
+
+/* scroll hint */
+.scroll-hint{
+  position:absolute;
+  left:50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.25);
+
+  font-weight: 900;
+  opacity: .85;
+}
+.scroll-hint:hover{ opacity: 1; }
+
+/* 09 Botones / Details */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: .78rem 1.05rem;
+  border-radius: var(--r1);
+  font-weight: 800;
+  letter-spacing:.02em;
+
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.04);
+
+  transition: transform .15s ease, opacity .15s ease;
+}
+.btn:active{ transform: translateY(1px); }
+.btn:hover{ opacity:.95; }
+
+.btn-primary{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+}
+.btn-ghost{
+  background: rgba(255,255,255,.03);
+  color: rgba(238,242,247,.90);
+}
+
+.soft-detail{
+  border: 1px solid var(--stroke-soft);
+  background: rgba(255,255,255,.03);
+  border-radius: 16px;
+  padding: .9rem 1rem;
+}
+.soft-detail summary{
+  cursor:pointer;
+  font-weight: 900;
+  color: rgba(238,242,247,.86);
+}
+.soft-detail p{
+  margin-top:.65rem;
+  color: rgba(238,242,247,.72);
+  line-height: 1.75;
+}
+
+/* 10 Home: secciones + grids */
+.section-pause{
+  background:
+    radial-gradient(circle at 50% 25%, rgba(255,255,255,.03), rgba(0,0,0,0) 62%),
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.72));
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.home-quote{
+  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+  font-weight: 900;
+  line-height: 1.35;
+  color: rgba(238,242,247,.90);
+  margin-bottom: 1.1rem;
+}
+.home-quote span{ color: rgba(238,242,247,.68); }
+
+.pause-details{ display:grid; gap:.85rem; }
+
+.section-home-stations{ background: rgba(255,255,255,.02); }
+
+.home-stations-grid{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.home-station{
+  position: relative;
+  border-radius: var(--r3);
+  border: 1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+
+  min-height: 230px;
+  padding: 1.1rem;
+
+  display:flex;
+  align-items:flex-end;
+
+  box-shadow: 0 14px 40px rgba(0,0,0,.22);
+
+  background:
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,.04), rgba(0,0,0,0) 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.04), rgba(0,0,0,.22));
+}
+.home-station:hover{ border-color: rgba(255,255,255,.14); }
+
+.hs-kanji{
+  position:absolute;
+  top: 14px;
+  left: 14px;
+
+  font-size: 3.2rem;
+  font-weight: 900;
+  opacity: .28;
+}
+
+.hs-text h3{ font-size: 1.15rem; font-weight: 950; }
+.hs-text p{ margin-top:.25rem; color: rgba(238,242,247,.72); }
+.hs-cta{ display:inline-block; margin-top:.55rem; font-weight: 900; opacity:.85; }
+
+.home-station.is-templos{
+  background:
+    radial-gradient(circle at 70% 20%, rgba(226,80,63,.18), rgba(0,0,0,0) 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.22));
+}
+.home-station.is-sakura{
+  background:
+    radial-gradient(circle at 70% 20%, rgba(242,168,197,.16), rgba(0,0,0,0) 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.22));
+}
+.home-station.is-tradiciones{
+  background:
+    radial-gradient(circle at 70% 20%, rgba(224,184,107,.16), rgba(0,0,0,0) 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.22));
+}
+.home-station.is-ciudad{
+  background:
+    radial-gradient(circle at 70% 20%, rgba(107,213,255,.14), rgba(0,0,0,0) 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.22));
+}
+
+/* guide */
+.section-home-guide{
+  background:
+    radial-gradient(circle at 70% 25%, rgba(255,255,255,.03), rgba(0,0,0,0) 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55));
+}
+
+.guide-grid{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.guide-card{
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  padding: 1rem;
+}
+.guide-card h3{ font-weight: 950; font-size: 1.05rem; }
+.g-kanji{ display:inline-block; width: 1.8rem; text-align:center; opacity:.75; }
+.guide-card p{ margin-top:.45rem; color: rgba(238,242,247,.74); line-height:1.7; }
+.g-list{ margin-top:.7rem; padding-left: 1.05rem; color: rgba(238,242,247,.72); line-height: 1.75; }
+
+.guide-card.is-templos{ border-color: rgba(226,80,63,.22); }
+.guide-card.is-sakura{ border-color: rgba(242,168,197,.22); }
+.guide-card.is-tradiciones{ border-color: rgba(224,184,107,.22); }
+.guide-card.is-ciudad{ border-color: rgba(107,213,255,.20); }
+
+/* --- Home: previews visuales de estaciones (NO cards) --- */
+.station-previews{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.station-preview{
+  position: relative;
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  overflow:hidden;
+
+  height: clamp(30vh, 34vh, 40vh);
+  min-height: 260px;
+
+  display:flex;
+  align-items:flex-end;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+
+.station-preview:hover{
+  border-color: rgba(255,255,255,.16);
+}
+
+/* overlay para legibilidad del texto */
+.sp-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,0) 85%),
+    linear-gradient(to right, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 60%);
+}
+
+.sp-content{
+  position: relative;
+  z-index: 1;
+  padding: 1.1rem 1.1rem 1rem;
+  width: min(520px, 92%);
+}
+
+.sp-kanji{
+  font-size: 2.4rem;
+  font-weight: 900;
+  opacity: .9;
+  line-height: 1;
+  margin-bottom: .35rem;
+}
+
+.sp-title{
+  font-size: 1.45rem;
+  font-weight: 950;
+  line-height: 1.1;
+}
+
+.sp-text{
+  margin-top: .35rem;
+  color: rgba(238,242,247,.76);
+  line-height: 1.65;
+  max-width: 52ch;
+}
+
+.sp-cta{
+  display:inline-block;
+  margin-top: .6rem;
+  font-weight: 900;
+  opacity: .9;
+}
+
+/* fondos: usa los mismos hero.webp que tus headers */
+.station-preview.is-templos{ background-image: url(../img/templos/preview-templos.webp); }
+.station-preview.is-sakura{ background-image: url(../img/sakura/preview-sakura.webp); }
+.station-preview.is-tradiciones{ background-image: url(../img/tradiciones/preview-tradiciones.webp); }
+.station-preview.is-ciudad{ background-image: url(../img/ciudad/preview.webp); }
+
+/* itinerario */
+.section-itinerary{
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.itinerary{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display:grid;
+  grid-template-columns: 1.4fr .6fr;
+  gap: 1rem;
+  align-items:start;
+}
+
+.it-days{
+  list-style:none;
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  overflow:hidden;
+}
+.it-days li{
+  display:flex;
+  gap: .8rem;
+  padding: .9rem 1rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.it-days li:first-child{ border-top:none; }
+
+.day{ font-weight: 950; width: 70px; color: rgba(238,242,247,.92); }
+.plan{ color: rgba(238,242,247,.74); }
+
+.it-preview{
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  padding: 1rem;
+}
+.it-title{ font-weight: 950; font-size: 1.05rem; }
+.it-sub{ margin-top:.35rem; color: rgba(238,242,247,.72); line-height: 1.7; }
+.it-preview .btn{ margin-top: .8rem; }
+
+/* 11 Cards (details) */
+.cards{
+  width: min(980px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card{
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(to bottom, rgba(255,255,255,.04), rgba(15,18,24,.65));
+  box-shadow: 0 18px 50px rgba(0,0,0,.28);
+  overflow:hidden;
+}
+
+.card summary{ list-style:none; }
+.card summary::-webkit-details-marker{ display:none; }
+
+.card-summary{
+  cursor:pointer;
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap:1rem;
+  padding: 1.1rem 1.1rem 1rem;
+}
+
+.card-main{ display:flex; flex-direction:column; gap:.35rem; }
+
+.card-tag{
+  letter-spacing:.22em;
+  text-transform: uppercase;
+  font-size:.78rem;
+  color: var(--brass);
+}
+.card-title{ font-size:1.25rem; }
+.card-text{ color: rgba(238,242,247,.78); line-height:1.65; }
+
+.card-body{
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.card-list{
+  margin-top:.9rem;
+  padding-left: 1.05rem;
+  color: rgba(238,242,247,.78);
+  line-height: 1.75;
+}
+.card-list strong{ color: rgba(238,242,247,.92); }
+
+.card-note{ margin-top:.8rem; color: rgba(238,242,247,.72); line-height: 1.6; }
+
+.card-chevron{
+  color: rgba(238,242,247,.75);
+  font-size: 1.4rem;
+  transform: translateY(.15rem);
+  transition: transform .15s ease, opacity .15s ease;
+  opacity: .7;
+}
+.card[open] .card-chevron{
+  transform: rotate(180deg) translateY(-.15rem);
+  opacity: 1;
+}
+
+/* 12 Closing templos (si lo usas tal cual) */
+.templos{
+  min-height: 200vh;
+  margin: 0;
+  background: rgba(0,0,0,.35);
+  background-image: url(../img/templos/bg-templos.webp);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+
+.closing-templos{ position: relative; min-height: 100vh; }
+
+.closing-box{
+  position:absolute;
+  display:flex;
+  gap: 1.2rem;
+  align-items:flex-start;
+}
+.closing-box.big{ width: 420px; }
+.closing-box.big.left{ top: 12%; left: 8%; }
+.closing-box.big.right{ top: 12%; right: 8%; }
+.closing-box.small{ width: 280px; }
+.closing-box.small.left{ bottom: 18%; left: 12%; }
+.closing-box.small.right{ bottom: 18%; right: 12%; }
+
+.closing-kanji{ display:flex; flex-direction:column; line-height: .9; }
+.kanji-main{ font-size: 5.5rem; font-weight: 800; color: rgba(255,255,255,.85); }
+.kanji-sub{ font-size: 3.5rem; color: rgba(255,255,255,.55); }
+.kanji-small{ font-size: 3rem; color: rgba(255,255,255,.70); }
+
+.closing-text{
+  margin-top: 10vh;
+  width: min(420px, 90%);
+  text-align:left;
+}
+.closing-text h2{
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  margin-bottom:.6rem;
+  font-weight: 900;
+}
+.closing-text p{
+  color: rgba(238,242,247,.78);
+  line-height:1.7;
+  max-width: 42ch;
+}
+
+/* 13 Footer */
+.footer{
+  padding: 3.2rem 1rem 2rem;
+  background: rgba(0,0,0,.55);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.footer-inner{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+
+  display:grid;
+  grid-template-columns: 1.2fr 1.6fr 1fr;
+  gap: 1.2rem;
+  align-items:end;
+}
+
+.footer-brand{ display:flex; align-items:center; gap:.9rem; }
+
+.footer-kanji{
+  font-size: 3.0rem;
+  line-height:1;
+  opacity: .9;
+  text-shadow: 0 10px 30px rgba(0,0,0,.55);
+}
+
+.footer-title{
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: .95rem;
+  color: rgba(238,242,247,.90);
+}
+.footer-sub{
+  margin-top:.25rem;
+  color: rgba(238,242,247,.70);
+  font-size: .95rem;
+}
+
+.footer-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap: .7rem 1.1rem;
+  justify-content:center;
+}
+.footer-nav a{
+  color: rgba(238,242,247,.75);
+  font-weight: 900;
+}
+.footer-nav a:hover{ color: rgba(238,242,247,.92); }
+
+.footer-meta{
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  align-items:end;
+}
+.footer-top{
+  font-weight: 950;
+  color: rgba(238,242,247,.88);
+  opacity: .85;
+}
+.footer-top:hover{ opacity: 1; }
+.footer-copy{ color: rgba(238,242,247,.60); font-size:.9rem; }
+
+/* acentos footer */
+.footer-inicio .footer-kanji{ color: var(--brass); }
+.footer-templos .footer-kanji{ color: var(--temples); }
+.footer-sakura .footer-kanji{ color: var(--sakura); }
+.footer-tradiciones .footer-kanji{ color: var(--traditions); }
+.footer-ciudad .footer-kanji{ color: var(--city); }
+
+/* =========================================================
+   14 Media queries (AL FINAL)
+   ========================================================= */
+
+@media (max-width: 1000px){
+  .home-stations-grid{ grid-template-columns: 1fr 1fr; }
+  .guide-grid{ grid-template-columns: 1fr 1fr; }
+  .itinerary{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px){
+  .cards{ grid-template-columns: 1fr; }
+
+  .footer-inner{ grid-template-columns: 1fr; align-items:start; }
+  .footer-nav{ justify-content:flex-start; }
+  .footer-meta{ align-items:flex-start; }
+
+  .vagon img{ height: 110px; }
+}
+
+@media (max-width: 700px){
+  .burger{ display:flex; }
+  .kanji-nav{ display:none; }
+
+  #logo{ font-size: 3.0rem; }
+
+  .hero-vagones{ bottom: 22px; }
+  .hero-vagones #nav-tren{ width: min(520px, 92%); }
+
+  .page-home .hero-vagones .vagon img{ height: 76px; }
+}
+
+@media (max-width: 1200px){
+  .hero-vagones #nav-tren{ justify-content:flex-start; }
+}
+
+@media (max-width: 520px){
+  .home-stations-grid{ grid-template-columns: 1fr; }
+  .guide-grid{ grid-template-columns: 1fr; }
+
+  .vagon img{ height: 92px; }
+  #logo{ font-size: 2.85rem; }
+
+  /* closing templos */
+  .closing-box{ position: static; }
+  .closing-templos{ padding: 4.2rem 1.2rem 4rem; }
+  .closing-box.big, .closing-box.small{ width: 100%; margin-bottom: 1.2rem; }
+  .closing-text{ margin-top: 0; }
+
+  #nav-tren{ justify-content:flex-start; }
+}
+
+@media (max-width: 900px){
+  .station-previews{ grid-template-columns: 1fr; }
+}

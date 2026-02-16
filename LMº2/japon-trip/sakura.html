@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Sakura · JAPÓN TRIP</title>
+</head>
+
+<body class="page-sakura">
+  <div id="top"></div>
+
+  <a href="#top" id="logo" aria-label="Volver arriba">愛</a>
+
+  <header id="header-sakura" aria-label="Cabecera Sakura">
+    <nav id="nav-tren" aria-label="Navegación principal: estaciones">
+      <a class="vagon cabina" href="index.html">
+        <img src="img/ui/wagon-cabina.png" alt="Inicio: cabina del conductor">
+      </a>
+
+      <a class="vagon" href="templos.html">
+        <img src="img/ui/wagon-templos.png" alt="Templos">
+      </a>
+
+      <a class="vagon active" href="sakura.html" aria-current="page">
+        <img src="img/ui/wagon-sakura.png" alt="Sakura">
+      </a>
+
+      <a class="vagon" href="tradiciones.html">
+        <img src="img/ui/wagon-tradiciones.png" alt="Tradiciones">
+      </a>
+
+      <a class="vagon ultimo" href="ciudad.html">
+        <img src="img/ui/wagon-ciudad.png" alt="Japón contemporáneo">
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" aria-label="Introducción a sakura">
+      <div class="hero-content">
+        <p class="hero-kicker">Sakura</p>
+
+        <h1 class="hero-title">
+          Cuando florece el sakura,
+          <span>Japón respira primavera</span>
+        </h1>
+
+        <p class="hero-lead">
+          Durante pocas semanas, los cerezos pintan de rosa parques y avenidas.
+          Es el momento del hanami: parar, mirar y celebrar bajo los pétalos.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#lista-sakura">Ver lugares</a>
+          <a class="btn btn-ghost" href="#hanami">¿Qué es hanami?</a>
+        </div>
+      </div>
+
+      <div class="hero-img">
+        <img src="img/sakura/sakura.png" alt="Ilustración de sakura">
+      </div>
+    </section>
+
+    <section id="lista-sakura" class="section section-sakura">
+      <div class="section-head">
+        <h2 class="section-title">Tres lugares para verlo bien</h2>
+        <p class="section-subtitle">Sakura es ritmo lento: mira la luz y el aire.</p>
+      </div>
+
+      <div class="cards">
+
+        <details class="card">
+          <summary class="card-summary">
+            <div class="card-main">
+              <p class="card-tag">Tokio</p>
+              <h3 class="card-title">Meguro River</h3>
+              <p class="card-text">Canal, faroles y pétalos. Noche suave si no hay viento fuerte.</p>
+            </div>
+            <span class="card-chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="card-body">
+            <ul class="card-list">
+              <li><strong>Mejor momento:</strong> tarde-noche</li>
+              <li><strong>Qué mirar:</strong> reflejos y faroles</li>
+              <li><strong>Detalle:</strong> pétalos sobre el agua</li>
+            </ul>
+            <p class="card-note">Consejo: evita hora punta y camina sin prisa.</p>
+          </div>
+        </details>
+
+        <details class="card">
+          <summary class="card-summary">
+            <div class="card-main">
+              <p class="card-tag">Kyoto</p>
+              <h3 class="card-title">Philosopher’s Path</h3>
+              <p class="card-text">Paseo clásico, luz limpia por la mañana. Minimal y fotogénico.</p>
+            </div>
+            <span class="card-chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="card-body">
+            <ul class="card-list">
+              <li><strong>Mejor momento:</strong> mañana</li>
+              <li><strong>Qué mirar:</strong> líneas del canal</li>
+              <li><strong>Detalle:</strong> sombras y ramas</li>
+            </ul>
+            <p class="card-note">Consejo: busca tramos silenciosos, no el centro.</p>
+          </div>
+        </details>
+
+        <details class="card">
+          <summary class="card-summary">
+            <div class="card-main">
+              <p class="card-tag">Osaka</p>
+              <h3 class="card-title">Osaka Castle Park</h3>
+              <p class="card-text">Sakura + arquitectura. Plano general potente al atardecer.</p>
+            </div>
+            <span class="card-chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="card-body">
+            <ul class="card-list">
+              <li><strong>Mejor momento:</strong> atardecer</li>
+              <li><strong>Qué mirar:</strong> contraste castillo/rosa</li>
+              <li><strong>Detalle:</strong> praderas y grupos hanami</li>
+            </ul>
+            <p class="card-note">Consejo: haz primero plano general, luego detalles.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <section id="hanami" class="section section-pause" aria-label="Hanami">
+      <div class="container narrow">
+        <p class="home-quote">Hanami es parar. <span>No “ver sakura”, sino estar.</span></p>
+
+        <div class="pause-details">
+          <details class="soft-detail">
+            <summary>Qué se hace</summary>
+            <p>Comer, conversar y mirar cómo cae la luz entre los pétalos.</p>
+          </details>
+          <details class="soft-detail">
+            <summary>Qué llevar</summary>
+            <p>Manta ligera, bebida y paciencia. El mejor plano llega sin correr.</p>
+          </details>
+          <details class="soft-detail">
+            <summary>Qué evitar</summary>
+            <p>Horas punta y lugares “obligatorios”. Sakura funciona mejor en calma.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer footer-sakura">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-kanji">花</span>
+        <div class="footer-brand-text">
+          <p class="footer-title">JAPÓN TRIP</p>
+          <p class="footer-sub">Sakura • hanami • primavera</p>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Enlaces del sitio">
+        <a href="index.html">Inicio</a>
+        <a href="templos.html">Templos</a>
+        <a href="sakura.html" class="is-active">Sakura</a>
+        <a href="tradiciones.html">Tradiciones</a>
+        <a href="ciudad.html">Ciudad</a>
+      </nav>
+
+      <div class="footer-meta">
+        <a href="#top" class="footer-top">Volver arriba</a>
+        <p class="footer-copy">© 2026 · José Luis Aybar</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

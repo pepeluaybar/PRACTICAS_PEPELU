@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>JAPÓN TRIP</title>
+</head>
+
+<body class="page-home">
+  <div id="top"></div>
+
+  <!-- Logo fijo -->
+  <a href="#top" id="logo" aria-label="Volver arriba">愛</a>
+
+  <!-- NAV SUPERIOR: kanjis + hamburguesa (sin JS) -->
+  <header class="topnav" aria-label="Navegación superior">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+
+    <label class="burger" for="nav-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="kanji-nav" aria-label="Estaciones (kanji)">
+      <a class="kanji-link is-active" href="index.html" aria-current="page">愛</a>
+      <a class="kanji-link" href="templos.html">寺</a>
+      <a class="kanji-link" href="sakura.html">花</a>
+      <a class="kanji-link" href="tradiciones.html">礼</a>
+      <a class="kanji-link" href="ciudad.html">夜</a>
+    </nav>
+
+    <nav class="mobile-menu" aria-label="Menú móvil">
+      <a class="m-item is-active" href="index.html" aria-current="page"><span class="m-kanji">愛</span><span class="m-text">Inicio</span></a>
+      <a class="m-item" href="templos.html"><span class="m-kanji">寺</span><span class="m-text">Templos</span></a>
+      <a class="m-item" href="sakura.html"><span class="m-kanji">花</span><span class="m-text">Sakura</span></a>
+      <a class="m-item" href="tradiciones.html"><span class="m-kanji">礼</span><span class="m-text">Tradiciones</span></a>
+      <a class="m-item" href="ciudad.html"><span class="m-kanji">夜</span><span class="m-text">Ciudad</span></a>
+    </nav>
+  </header>
+
+  <!-- HERO HOME -->
+  <section class="hero hero-home" aria-label="Hero Japón Trip">
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-kicker">JAPÓN TRIP</p>
+
+      <h1 class="hero-title">
+        Un viaje por atmósferas,
+        <span>no por listas</span>
+      </h1>
+
+      <p class="hero-lead">
+        Elige una estación y entra por lo que te atrae: silencio, flor, ritual o neón.
+        Luego construye un itinerario de 7 días con intención.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#estaciones">Empezar viaje</a>
+        <a class="btn btn-ghost" href="#itinerario">Ver itinerario</a>
+      </div>
+    </div>
+
+    <!-- VAGONES ABAJO DEL HERO: SIN FONDO, EN LÍNEA, MÁS PEQUEÑOS -->
+    <div class="hero-vagones" aria-label="Vagones (home)">
+      <nav id="nav-tren" aria-label="Estaciones (vagones)">
+        <a class="vagon cabina active" href="index.html" aria-current="page">
+          <img src="img/ui/wagon-cabina.png" alt="Inicio: cabina del conductor">
+        </a>
+
+        <a class="vagon" href="templos.html">
+          <img src="img/ui/wagon-templos.png" alt="Templos">
+        </a>
+
+        <a class="vagon" href="sakura.html">
+          <img src="img/ui/wagon-sakura.png" alt="Sakura">
+        </a>
+
+        <a class="vagon" href="tradiciones.html">
+          <img src="img/ui/wagon-tradiciones.png" alt="Tradiciones">
+        </a>
+
+        <a class="vagon ultimo" href="ciudad.html">
+          <img src="img/ui/wagon-ciudad.png" alt="Japón contemporáneo">
+        </a>
+      </nav>
+    </div>
+
+    <a class="scroll-hint" href="#pausa" aria-label="Bajar">↓</a>
+  </section>
+
+  <main>
+    <!-- PAUSA -->
+    <section id="pausa" class="section section-pause" aria-label="Pausa">
+      <div class="container narrow">
+        <p class="home-quote">Japón no se visita. <span>Se atraviesa en capas.</span></p>
+
+        <div class="pause-details">
+          <details class="soft-detail">
+            <summary>¿Qué significa “capas”?</summary>
+            <p>Tradición, naturaleza, ritual y ciudad conviven a la vez. Aquí puedes explorarlos por separado o mezclarlos.</p>
+          </details>
+          <details class="soft-detail">
+            <summary>¿Por qué 7 días?</summary>
+            <p>Porque te obliga a elegir bien: calma + energía sin convertir el viaje en una carrera.</p>
+          </details>
+          <details class="soft-detail">
+            <summary>Cómo usar esta web</summary>
+            <p>Empieza por una estación. Si te engancha, pasa a otra. Luego usa el preview de itinerario para montar tu ruta.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELIGE TU ESTACIÓN -->
+    <section id="estaciones" class="section section-home-stations" aria-label="Estaciones">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Elige tu estación</h2>
+          <p class="section-subtitle">No hay orden correcto. Hay una parte de Japón que te engancha primero.</p>
+        </div>
+
+        <div class="home-stations-grid">
+          <a class="home-station is-templos" href="templos.html">
+            <span class="hs-kanji" aria-hidden="true">寺</span>
+            <div class="hs-text">
+              <h3>Templos</h3>
+              <p>Proporción, madera, sombra.</p>
+              <span class="hs-cta">Viajar →</span>
+            </div>
+          </a>
+
+          <a class="home-station is-sakura" href="sakura.html">
+            <span class="hs-kanji" aria-hidden="true">花</span>
+            <div class="hs-text">
+              <h3>Sakura</h3>
+              <p>Luz suave y tiempo breve.</p>
+              <span class="hs-cta">Viajar →</span>
+            </div>
+          </a>
+
+          <a class="home-station is-tradiciones" href="tradiciones.html">
+            <span class="hs-kanji" aria-hidden="true">礼</span>
+            <div class="hs-text">
+              <h3>Tradiciones</h3>
+              <p>Ritual vivo. Gestos.</p>
+              <span class="hs-cta">Viajar →</span>
+            </div>
+          </a>
+
+          <a class="home-station is-ciudad" href="ciudad.html">
+            <span class="hs-kanji" aria-hidden="true">夜</span>
+            <div class="hs-text">
+              <h3>Ciudad</h3>
+              <p>Neón, ritmo, contraste.</p>
+              <span class="hs-cta">Viajar →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: explicar más cada estación (editorial) -->
+    <section class="section section-home-guide" aria-label="Guía por estaciones">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Guía rápida por estaciones</h2>
+          <p class="section-subtitle">Qué te aporta cada una y cómo encaja en una ruta realista.</p>
+        </div>
+
+        <div class="station-previews" aria-label="Previews de estaciones">
+          <a class="station-preview is-templos" href="templos.html">
+          <div class="sp-overlay" aria-hidden="true"></div>
+            <div class="sp-content">
+              <p class="sp-kanji">寺</p>
+              <h3 class="sp-title">Templos</h3>
+              <p class="sp-text">Calma, proporción, madera y sombra.</p>
+              <span class="sp-cta">Entrar →</span>
+            </div>
+          </a>
+
+          <a class="station-preview is-sakura" href="sakura.html">
+            <div class="sp-overlay" aria-hidden="true"></div>
+            <div class="sp-content">
+              <p class="sp-kanji">花</p>
+              <h3 class="sp-title">Sakura</h3>
+              <p class="sp-text">Luz suave. Si no es primavera: naturaleza.</p>
+              <span class="sp-cta">Entrar →</span>
+            </div>
+          </a>
+
+          <a class="station-preview is-tradiciones" href="tradiciones.html">
+            <div class="sp-overlay" aria-hidden="true"></div>
+            <div class="sp-content">
+              <p class="sp-kanji">礼</p>
+              <h3 class="sp-title">Tradiciones</h3>
+              <p class="sp-text">Rituales, etiqueta, costumbres vivas.</p>
+              <span class="sp-cta">Entrar →</span>
+            </div>
+          </a>
+
+          <a class="station-preview is-ciudad" href="ciudad.html">
+            <div class="sp-overlay" aria-hidden="true"></div>
+            <div class="sp-content">
+              <p class="sp-kanji">夜</p>
+              <h3 class="sp-title">Ciudad</h3>
+              <p class="sp-text">Neón, densidad, contraste nocturno.</p>
+              <span class="sp-cta">Entrar →</span>
+            </div>
+          </a>
+        </div>
+
+    </section>
+
+    <!-- PREVIEW ITINERARIO (sin JS) -->
+    <section id="itinerario" class="section section-itinerary" aria-label="Preview itinerario">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Preview: itinerario de 7 días</h2>
+          <p class="section-subtitle">Un esquema base para que se entienda el enfoque. Luego lo personalizas.</p>
+        </div>
+
+        <div class="itinerary">
+          <ol class="it-days">
+            <li><span class="day">Día 1</span><span class="plan">Llegada + primer barrio (ciudad suave)</span></li>
+            <li><span class="day">Día 2</span><span class="plan">Templos + paseo lento</span></li>
+            <li><span class="day">Día 3</span><span class="plan">Tradiciones + mercado / ceremonia</span></li>
+            <li><span class="day">Día 4</span><span class="plan">Naturaleza / Sakura (según estación)</span></li>
+            <li><span class="day">Día 5</span><span class="plan">Ciudad (neón) + fotografía nocturna</span></li>
+            <li><span class="day">Día 6</span><span class="plan">Día libre: mezcla de estaciones</span></li>
+            <li><span class="day">Día 7</span><span class="plan">Cierre: calma + regreso</span></li>
+          </ol>
+
+          <aside class="it-preview" aria-label="Preview tarjeta">
+            <p class="it-title">Tu ruta, por capas</p>
+            <p class="it-sub">Templos → Tradiciones → Naturaleza → Ciudad</p>
+            <a class="btn btn-primary" href="itinerario.html">Planear 7 días</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer footer-inicio">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-kanji">愛</span>
+        <div class="footer-brand-text">
+          <p class="footer-title">JAPÓN TRIP</p>
+          <p class="footer-sub">Inicio · ruta · estaciones</p>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Enlaces del sitio">
+        <a href="index.html" class="is-active">Inicio</a>
+        <a href="templos.html">Templos</a>
+        <a href="sakura.html">Sakura</a>
+        <a href="tradiciones.html">Tradiciones</a>
+        <a href="ciudad.html">Ciudad</a>
+      </nav>
+
+      <div class="footer-meta">
+        <a href="#top" class="footer-top">Volver arriba</a>
+        <p class="footer-copy">© 2026 · José Luis Aybar</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
