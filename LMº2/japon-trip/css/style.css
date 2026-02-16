@@ -1,8 +1,8 @@
 /* =========================================================
-   JAPÓN TRIP — style.css (1 archivo)
+   JAPÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œN TRIP ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â style.css (1 archivo)
    01 Reset / Base
    02 Variables
-   03 Global / Tipografía
+   03 Global / TipografÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a
    04 Layout helpers
    05 Logo fijo
    06 Topnav Kanji + Hamburguesa (sin JS)
@@ -15,6 +15,8 @@
    13 Footer
    14 Media queries (AL FINAL)
    ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap");
 
 /* 01 Reset / Base */
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -48,7 +50,7 @@ html{ scroll-behavior:smooth; }
   --r3: 20px;
 }
 
-/* 03 Global / Tipografía */
+/* 03 Global / TipografÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a */
 body{
   font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg-0);
@@ -84,7 +86,7 @@ body{
   line-height: 1.6;
 }
 
-/* 05 Logo fijo (único que acompaña) */
+/* 05 Logo fijo (ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºnico que acompaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±a) */
 #logo{
   position: fixed;
   top: 14px;
@@ -158,7 +160,7 @@ body{
 /* quita esto si lo tienes */
 .burger span + span{ margin-top: 0; }
 
-/* Menú móvil (aquí sí hay panel) */
+/* MenÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âº mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³vil (aquÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ sÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ hay panel) */
 .mobile-menu{
   display:none;
   position: absolute;
@@ -192,58 +194,43 @@ body{
 
 /* 07 Vagones (nav-tren) */
 #nav-tren{
-  display:flex;#nav-tren{
-    display:flex;
-    flex-wrap: nowrap;
-    align-items:flex-end;
-    gap:.35rem;
-
-    overflow-x: auto;
-    padding: 0 .6rem .25rem;   /* aire lateral para que no “mueran” en el borde */
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none;
-  }
-
-  #nav-tren::-webkit-scrollbar{ display:none; }
-
-  .vagon{ flex: 0 0 auto; scroll-snap-align: start; }
-
-  /* En el hero, dale ancho real para que el scroll tenga sentido */
-  .hero-vagones #nav-tren{
-    width: 100%;
-    max-width: min(980px, 92%);
-    margin: 0 auto;
-  }
-
-  /* “Indica” que hay más contenido a los lados (efecto fade) */
-  .hero-vagones #nav-tren{
-    -webkit-mask-image: linear-gradient(to right,
-      transparent 0%,
-      #000 6%,
-      #000 94%,
-      transparent 100%);
-    mask-image: linear-gradient(to right,
-      transparent 0%,
-      #000 6%,
-      #000 94%,
-      transparent 100%);
-  }
-
-  flex-wrap: nowrap;        
+  display:flex;
+  flex-wrap: nowrap;
   justify-content:center;
   align-items:flex-end;
   gap:.35rem;
 
   max-width: 100%;
-  overflow-x: auto;         
-  padding-bottom: .25rem;
-
-  scrollbar-width: none;    
+  overflow-x: auto;
+  padding: 0 .6rem .25rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
 #nav-tren::-webkit-scrollbar{ display:none; }
+
+/* En el hero, dale ancho real para que el scroll tenga sentido */
+.hero-vagones #nav-tren{
+  width: 100%;
+  max-width: min(980px, 92%);
+  margin: 0 auto;
+}
+
+/* Indica que hay mas contenido a los lados (efecto fade) */
+.hero-vagones #nav-tren{
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%);
+  mask-image: linear-gradient(to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%);
+}
+.vagon{ flex: 0 0 auto; scroll-snap-align: start; }
 
 .vagon{
   display:flex;
@@ -278,7 +265,7 @@ body{
 }
 
 
-/* Home: vagones más pequeños */
+/* Home: vagones mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s pequeÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±os */
 .hero-vagones .vagon img{ height: 76px; }
 
 /* 08 Hero (base + home) */
@@ -331,7 +318,7 @@ body{
   flex-wrap:wrap;
 }
 
-/* HOME hero: sin “bandas raras” */
+/* HOME hero: sin ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“bandas rarasÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â */
 .hero-home{
   min-height: 92vh;
   background-image:
@@ -354,6 +341,50 @@ body{
     linear-gradient(to right, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%),
     /* imagen */
     url(../img/templos/preview-templos.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-sakura{
+  min-height: 92vh;
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,.80) 0%, rgba(0,0,0,.34) 54%, rgba(0,0,0,0) 82%),
+    linear-gradient(to right, rgba(0,0,0,.72) 0%, rgba(0,0,0,.22) 56%, rgba(0,0,0,0) 80%),
+    url(../img/sakura/preview-sakura.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-tradiciones{
+  min-height: 92vh;
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,.80) 0%, rgba(0,0,0,.34) 54%, rgba(0,0,0,0) 82%),
+    linear-gradient(to right, rgba(0,0,0,.72) 0%, rgba(0,0,0,.24) 56%, rgba(0,0,0,0) 80%),
+    url(../img/tradiciones/preview-tradiciones.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-ciudad{
+  min-height: 92vh;
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,.84) 0%, rgba(0,0,0,.38) 56%, rgba(0,0,0,0) 82%),
+    linear-gradient(to right, rgba(0,0,0,.78) 0%, rgba(0,0,0,.26) 56%, rgba(0,0,0,0) 80%),
+    url(../img/ciudad/preview.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-itinerario{
+  min-height: 92vh;
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,.84) 0%, rgba(0,0,0,.36) 56%, rgba(0,0,0,0) 82%),
+    linear-gradient(to right, rgba(0,0,0,.78) 0%, rgba(0,0,0,.24) 56%, rgba(0,0,0,0) 80%),
+    url(../img/home/hero.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -867,9 +898,276 @@ body{
 .footer-tradiciones .footer-kanji{ color: var(--traditions); }
 .footer-ciudad .footer-kanji{ color: var(--city); }
 
+/* 13.5 Templos (encapsulado para no afectar Home) */
+.page-templos{
+  --templo-wood-dark: #2b1a11;
+  --templo-wood-mid: #6f4729;
+  --templo-paper: rgba(255,236,196,.14);
+  --templo-glow: rgba(255,200,110,.26);
+  --templo-tradicion-photo: none;
+}
+
+.page-templos .hero-templos{
+  min-height: 92vh;
+  background-image:
+    linear-gradient(to top, rgba(20,12,8,.88) 0%, rgba(38,23,14,.52) 54%, rgba(0,0,0,0) 84%),
+    linear-gradient(110deg, rgba(14,9,7,.86) 0%, rgba(53,31,19,.36) 48%, rgba(0,0,0,0) 78%),
+    radial-gradient(circle at 72% 32%, rgba(252,193,102,.19), rgba(0,0,0,0) 42%),
+    url(../img/templos/preview-templos.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-templos .hero-vagones{
+  bottom: 38px;
+}
+
+.page-templos .hero-vagones #nav-tren{
+  width: min(980px, 94%);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: .35rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 1.1rem .3rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+}
+
+.page-templos .hero-vagones #nav-tren::-webkit-scrollbar{
+  display: none;
+}
+
+.page-templos .section-templos-tradicion{
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-top: clamp(2.6rem, 5vw, 4rem);
+  padding-bottom: clamp(1.4rem, 3vw, 2.4rem);
+  border-top: 1px solid rgba(255,225,170,.10);
+  border-bottom: 1px solid rgba(255,225,170,.06);
+  background-image:
+    radial-gradient(ellipse at 50% 14%, var(--templo-glow) 0%, rgba(255,200,110,.07) 38%, rgba(0,0,0,0) 70%),
+    linear-gradient(to top, rgba(102,65,35,.24) 0%, rgba(0,0,0,0) 25%),
+    linear-gradient(to bottom, rgba(18,12,9,.96), rgba(23,15,10,.82)),
+    var(--templo-tradicion-photo);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-templos .section-templos-tradicion::before,
+.page-templos .section-templos-tradicion::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: min(24vw, 260px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: .84;
+  background:
+    linear-gradient(to bottom, rgba(255,245,220,.10), rgba(255,245,220,.03)),
+    repeating-linear-gradient(
+      to right,
+      rgba(40,25,16,.74) 0 7px,
+      rgba(140,98,61,.50) 7px 10px,
+      rgba(245,225,188,.14) 10px 22px
+    ),
+    linear-gradient(to bottom, rgba(48,30,18,.82), rgba(24,16,10,.92));
+  border-left: 1px solid rgba(255,236,196,.18);
+  border-right: 1px solid rgba(255,236,196,.12);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.22);
+}
+
+.page-templos .section-templos-tradicion::before{
+  left: -1px;
+}
+
+.page-templos .section-templos-tradicion::after{
+  right: -1px;
+  transform: scaleX(-1);
+}
+
+.page-templos .templos-tradicion-grid{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 1.3rem;
+  align-items: end;
+}
+
+.page-templos .templos-tradicion-figure{
+  margin: 0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  min-height: 320px;
+  position: relative;
+}
+
+.page-templos .templos-tradicion-figure::after{
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 8px;
+  height: 24px;
+  border-radius: 999px;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.52) 0%, rgba(0,0,0,0) 70%);
+}
+
+.page-templos .templos-tradicion-figure img{
+  position: relative;
+  z-index: 1;
+  width: min(100%, 500px);
+  height: clamp(260px, 35vw, 460px);
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 12px 26px rgba(0,0,0,.42)) saturate(1.05) contrast(1.02);
+}
+
+.page-templos .templos-tradicion-copy{
+  align-self: center;
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  border-radius: 18px;
+  border: 1px solid rgba(255,228,180,.14);
+  background: linear-gradient(135deg, rgba(16,10,8,.74), rgba(58,36,22,.52));
+  box-shadow: 0 18px 45px rgba(0,0,0,.24);
+}
+
+.page-templos .templos-tradicion-copy p{
+  margin-top: .75rem;
+  color: rgba(245,238,228,.84);
+  line-height: 1.75;
+}
+
+.page-templos .templos-tradicion-copy .section-title{
+  color: rgba(255,238,212,.95);
+}
+
+.page-templos .section-templos-feature{
+  background:
+    radial-gradient(circle at 75% 20%, rgba(226,80,63,.14), rgba(0,0,0,0) 55%),
+    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.30));
+}
+
+.page-templos .templos-feature-grid{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.page-templos .feature-kicker,
+.page-templos .closing-kicker{
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  font-weight: 900;
+  color: rgba(238,242,247,.68);
+  margin-bottom: .45rem;
+}
+
+.page-templos .templos-feature-copy p{
+  margin-top: .75rem;
+  color: rgba(238,242,247,.80);
+  line-height: 1.75;
+}
+
+.page-templos .templos-feature-media{
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.page-templos .templos-feature-media img{
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+.page-templos .section-templos-stops{
+  background: rgba(255,255,255,.015);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.page-templos .templos-card-img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  margin-top: .8rem;
+}
+
+.page-templos .section-templos-closing{
+  min-height: 56vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.72)),
+    url(../img/templos/bg-templos.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-templos .templos-closing-wrap{
+  padding: clamp(2.2rem, 5vw, 4rem) 1rem;
+}
+
+.page-templos .section-templos-closing .section-title{
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: .08em;
+}
+
+.page-templos .section-templos-closing .section-subtitle{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* =========================================================
    14 Media queries (AL FINAL)
    ========================================================= */
+
+@media (max-width: 1000px){
+  .page-templos .section-templos-tradicion::before,
+  .page-templos .section-templos-tradicion::after{
+    width: min(22vw, 130px);
+    opacity: .56;
+  }
+
+  .page-templos .templos-tradicion-grid{
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .page-templos .templos-tradicion-figure{
+    min-height: 260px;
+  }
+
+  .page-templos .templos-tradicion-copy{
+    align-self: start;
+    padding: 1rem 1rem 1.1rem;
+  }
+
+  .page-templos .templos-feature-grid{
+    grid-template-columns: 1fr;
+  }
+}
 
 @media (max-width: 1000px){
   .home-stations-grid{ grid-template-columns: 1fr 1fr; }
@@ -888,6 +1186,11 @@ body{
 }
 
 @media (max-width: 700px){
+  .page-templos .section-templos-tradicion::before,
+  .page-templos .section-templos-tradicion::after{
+    display: none;
+  }
+
   .burger{ display:flex; }
   .kanji-nav{ display:none; }
 

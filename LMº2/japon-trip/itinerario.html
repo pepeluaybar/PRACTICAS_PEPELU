@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Itinerario &middot; JAPON TRIP</title>
+</head>
+<body class="page-itinerario">
+  <div id="top"></div>
+
+  <a href="#top" id="logo" aria-label="Volver arriba">&#24859;</a>
+
+  <header class="topnav" aria-label="Navegacion superior">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label class="burger" for="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></label>
+
+    <nav class="kanji-nav" aria-label="Estaciones (kanji)">
+      <a class="kanji-link is-active" href="index.html" aria-current="page">&#24859;</a>
+      <a class="kanji-link" href="templos.html">&#23546;</a>
+      <a class="kanji-link" href="sakura.html">&#33457;</a>
+      <a class="kanji-link" href="tradiciones.html">&#31036;</a>
+      <a class="kanji-link" href="ciudad.html">&#22812;</a>
+    </nav>
+
+    <nav class="mobile-menu" aria-label="Menu movil">
+      <a class="m-item is-active" href="index.html" aria-current="page"><span class="m-kanji">&#24859;</span><span class="m-text">Inicio</span></a>
+      <a class="m-item" href="templos.html"><span class="m-kanji">&#23546;</span><span class="m-text">Templos</span></a>
+      <a class="m-item" href="sakura.html"><span class="m-kanji">&#33457;</span><span class="m-text">Sakura</span></a>
+      <a class="m-item" href="tradiciones.html"><span class="m-kanji">&#31036;</span><span class="m-text">Tradiciones</span></a>
+      <a class="m-item" href="ciudad.html"><span class="m-kanji">&#22812;</span><span class="m-text">Ciudad</span></a>
+    </nav>
+  </header>
+
+  <section class="hero hero-itinerario" aria-label="Hero Itinerario">
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-kicker">Itinerario</p>
+      <h1 class="hero-title">7 dias con sentido: <span>equilibrio entre calma y energia</span></h1>
+      <p class="hero-lead">Plan base para no convertir el viaje en una carrera. Ajusta ritmo y estaciones segun temporada.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#plan-7">Ver plan</a>
+        <a class="btn btn-ghost" href="#tips">Tips de ajuste</a>
+      </div>
+    </div>
+
+    <div class="hero-vagones" aria-label="Vagones">
+      <nav id="nav-tren" aria-label="Estaciones (vagones)">
+        <a class="vagon cabina active" href="index.html" aria-current="page"><img src="img/ui/wagon-cabina.png" alt="Inicio" /></a>
+        <a class="vagon" href="templos.html"><img src="img/ui/wagon-templos.png" alt="Templos" /></a>
+        <a class="vagon" href="sakura.html"><img src="img/ui/wagon-sakura.png" alt="Sakura" /></a>
+        <a class="vagon" href="tradiciones.html"><img src="img/ui/wagon-tradiciones.png" alt="Tradiciones" /></a>
+        <a class="vagon ultimo" href="ciudad.html"><img src="img/ui/wagon-ciudad.png" alt="Ciudad" /></a>
+      </nav>
+    </div>
+
+    <a class="scroll-hint" href="#plan-7" aria-label="Bajar">&darr;</a>
+  </section>
+
+  <main>
+    <section id="plan-7" class="section section-itinerary" aria-label="Plan de 7 dias">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Plan base de 7 dias</h2>
+          <p class="section-subtitle">Ruta equilibrada con margen para respirar y adaptar segun clima o temporada.</p>
+        </div>
+
+        <div class="itinerary">
+          <ol class="it-days">
+            <li><span class="day">Dia 1</span><span class="plan">Llegada, paseo suave y ajuste horario.</span></li>
+            <li><span class="day">Dia 2</span><span class="plan">Templos y recorrido de baja intensidad.</span></li>
+            <li><span class="day">Dia 3</span><span class="plan">Tradiciones, mercado y ritual local.</span></li>
+            <li><span class="day">Dia 4</span><span class="plan">Sakura o naturaleza, segun estacion.</span></li>
+            <li><span class="day">Dia 5</span><span class="plan">Ciudad nocturna y fotografia urbana.</span></li>
+            <li><span class="day">Dia 6</span><span class="plan">Dia mixto: lo que mas te haya gustado.</span></li>
+            <li><span class="day">Dia 7</span><span class="plan">Cierre tranquilo y regreso.</span></li>
+          </ol>
+
+          <aside class="it-preview" aria-label="Resumen de ruta">
+            <p class="it-title">Orden recomendado</p>
+            <p class="it-sub">Templos &rarr; Tradiciones &rarr; Sakura &rarr; Ciudad</p>
+            <a class="btn btn-primary" href="index.html#estaciones">Volver a estaciones</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips" class="section section-pause" aria-label="Tips para ajustar">
+      <div class="container narrow">
+        <p class="home-quote">Plan flexible. <span>La calidad del viaje depende del ritmo.</span></p>
+        <div class="pause-details">
+          <details class="soft-detail"><summary>Si llueve</summary><p>Mueve exteriores a otro dia y prioriza museo, mercado cubierto y barrios con arcadas.</p></details>
+          <details class="soft-detail"><summary>Si tienes menos dias</summary><p>Reduce a 2 estaciones principales y evita cambios de alojamiento.</p></details>
+          <details class="soft-detail"><summary>Si viajas en temporada alta</summary><p>Reserva temprano y visita puntos mas populares en primera hora.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-inicio">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-kanji">&#24859;</span>
+        <div class="footer-brand-text">
+          <p class="footer-title">JAPON TRIP</p>
+          <p class="footer-sub">Itinerario &middot; ruta &middot; 7 dias</p>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Enlaces del sitio">
+        <a href="index.html" class="is-active">Inicio</a>
+        <a href="templos.html">Templos</a>
+        <a href="sakura.html">Sakura</a>
+        <a href="tradiciones.html">Tradiciones</a>
+        <a href="ciudad.html">Ciudad</a>
+      </nav>
+
+      <div class="footer-meta">
+        <a href="#top" class="footer-top">Volver arriba</a>
+        <p class="footer-copy">&copy; 2026 &middot; Jose Luis Aybar</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

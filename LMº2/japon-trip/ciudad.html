@@ -1,69 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Sakura</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Ciudad &middot; JAPON TRIP</title>
 </head>
-<body>
+<body class="page-ciudad">
   <div id="top"></div>
-    <header id="header-ciudad">
-  <a href="#top" id="logo">愛</a>
 
-  <nav id="nav-tren" aria-label="Navegación principal">
-    <a class="vagon cabina" href="index.html">
-      <img src="img/wagon-cabina.png" alt="Inicio: cabina del conductor">
-    </a>
+  <a href="#top" id="logo" aria-label="Volver arriba">&#24859;</a>
 
-    <a class="vagon" href="templos.html">
-      <img src="img/wagon-templos.png" alt="Templos">
-    </a>
+  <header class="topnav" aria-label="Navegacion superior">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label class="burger" for="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></label>
 
-    <a class="vagon" href="sakura.html">
-      <img src="img/wagon-sakura.png" alt="Sakura">
-    </a>
+    <nav class="kanji-nav" aria-label="Estaciones (kanji)">
+      <a class="kanji-link" href="index.html">&#24859;</a>
+      <a class="kanji-link" href="templos.html">&#23546;</a>
+      <a class="kanji-link" href="sakura.html">&#33457;</a>
+      <a class="kanji-link" href="tradiciones.html">&#31036;</a>
+      <a class="kanji-link is-active" href="ciudad.html" aria-current="page">&#22812;</a>
+    </nav>
 
-    <a class="vagon" href="tradiciones.html">
-      <img src="img/wagon-tradiciones.png" alt="Tradiciones">
-    </a>
+    <nav class="mobile-menu" aria-label="Menu movil">
+      <a class="m-item" href="index.html"><span class="m-kanji">&#24859;</span><span class="m-text">Inicio</span></a>
+      <a class="m-item" href="templos.html"><span class="m-kanji">&#23546;</span><span class="m-text">Templos</span></a>
+      <a class="m-item" href="sakura.html"><span class="m-kanji">&#33457;</span><span class="m-text">Sakura</span></a>
+      <a class="m-item" href="tradiciones.html"><span class="m-kanji">&#31036;</span><span class="m-text">Tradiciones</span></a>
+      <a class="m-item is-active" href="ciudad.html" aria-current="page"><span class="m-kanji">&#22812;</span><span class="m-text">Ciudad</span></a>
+    </nav>
+  </header>
 
-    <a class="vagon ultimo active" href="ciudad.html" aria-current="page">
-      <img src="img/wagon-ciudad.png" alt="Japón contemporáneo">
-    </a>
-  </nav>
-</header>
+  <section class="hero hero-ciudad" aria-label="Hero Ciudad">
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-<main>
+    <div class="hero-content">
+      <p class="hero-kicker">Ciudad</p>
+      <h1 class="hero-title">Neon, ritmo y contraste: <span>la capa contemporanea de Japon</span></h1>
+      <p class="hero-lead">La ciudad japonesa combina precision diaria y energia nocturna. El secreto es alternar intensidad con pausa.</p>
 
-</main>
-
-
-
-    <footer class="footer-ciudad">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="footer-kanji">C</span>
-      <div class="footer-brand-text">
-        <p class="footer-title">JAPON TRIP</p>
-        <p class="footer-sub">Ciudad - ritmo - tecnologia</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#barrios">Ver barrios</a>
+        <a class="btn btn-ghost" href="#noche">Ruta nocturna</a>
       </div>
     </div>
 
-    <nav class="footer-nav" aria-label="Enlaces del sitio">
-      <a href="index.html">Inicio</a>
-      <a href="templos.html">Templos</a>
-      <a href="sakura.html">Sakura</a>
-      <a href="tradiciones.html">Tradiciones</a>
-      <a href="ciudad.html" class="is-active">Ciudad</a>
-    </nav>
-
-    <div class="footer-meta">
-      <a href="#top" class="footer-top">Volver arriba</a>
-      <p class="footer-copy">(c) 2026 - Jose Luis Aybar</p>
+    <div class="hero-vagones" aria-label="Vagones">
+      <nav id="nav-tren" aria-label="Estaciones (vagones)">
+        <a class="vagon cabina" href="index.html"><img src="img/ui/wagon-cabina.png" alt="Inicio" /></a>
+        <a class="vagon" href="templos.html"><img src="img/ui/wagon-templos.png" alt="Templos" /></a>
+        <a class="vagon" href="sakura.html"><img src="img/ui/wagon-sakura.png" alt="Sakura" /></a>
+        <a class="vagon" href="tradiciones.html"><img src="img/ui/wagon-tradiciones.png" alt="Tradiciones" /></a>
+        <a class="vagon ultimo active" href="ciudad.html" aria-current="page"><img src="img/ui/wagon-ciudad.png" alt="Ciudad" /></a>
+      </nav>
     </div>
-  </div>
-</footer>
 
+    <a class="scroll-hint" href="#barrios" aria-label="Bajar">&darr;</a>
+  </section>
+
+  <main>
+    <section id="barrios" class="section" aria-label="Barrios recomendados">
+      <div class="section-head">
+        <h2 class="section-title">Tres barrios para leer la ciudad</h2>
+        <p class="section-subtitle">Cada zona tiene una energia distinta: combina dos por dia y deja tiempo para caminar.</p>
+      </div>
+
+      <div class="cards">
+        <details class="card">
+          <summary class="card-summary">
+            <div class="card-main">
+              <p class="card-tag">Tokio</p>
+              <h3 class="card-title">Shibuya</h3>
+              <p class="card-text">Cruce iconico, ritmo alto y capas visuales en todos los angulos.</p>
+            </div>
+            <span class="card-chevron" aria-hidden="true">&#8964;</span>
+          </summary>
+          <div class="card-body">
+            <ul class="card-list">
+              <li><strong>Mejor hora:</strong> tarde y noche.</li>
+              <li><strong>Clave:</strong> altura para panorama.</li>
+              <li><strong>Tip:</strong> alterna avenidas y calles secundarias.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card">
+          <summary class="card-summary">
+            <div class="card-main">
+              <p class="card-tag">Osaka</p>
+              <h3 class="card-title">Dotonbori</h3>
+              <p class="card-text">Carteles luminosos, canal y comida de calle en un radio corto.</p>
+            </div>
+            <span class="card-chevron" aria-hidden="true">&#8964;</span>
+          </summary>
+          <div class="card-body">
+            <ul class="card-list">
+              <li><strong>Mejor hora:</strong> noche.</li>
+              <li><strong>Clave:</strong> reflejos sobre el agua.</li>
+              <li><strong>Tip:</strong> llega con margen para evitar picos.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card">
+          <summary class="card-summary">
+            <div class="card-main">
+              <p class="card-tag">Tokio</p>
+              <h3 class="card-title">Asakusa + Sumida</h3>
+              <p class="card-text">Tradicion y skyline en una misma caminata.</p>
+            </div>
+            <span class="card-chevron" aria-hidden="true">&#8964;</span>
+          </summary>
+          <div class="card-body">
+            <ul class="card-list">
+              <li><strong>Mejor hora:</strong> tarde dorada.</li>
+              <li><strong>Clave:</strong> contraste templo y torre.</li>
+              <li><strong>Tip:</strong> cruza a pie para cerrar con vistas.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="noche" class="section section-pause" aria-label="Ruta nocturna">
+      <div class="container narrow">
+        <p class="home-quote">Ciudad intensa, ritmo inteligente. <span>Menos puntos, mejor experiencia.</span></p>
+        <div class="pause-details">
+          <details class="soft-detail"><summary>Ruta corta recomendada</summary><p>1 barrio principal + 1 secundario + regreso temprano para evitar saturacion.</p></details>
+          <details class="soft-detail"><summary>Transporte</summary><p>Prioriza metro y revisa ultimo tren antes de cenar.</p></details>
+          <details class="soft-detail"><summary>Seguridad y respeto</summary><p>Evita ruido en zonas residenciales y sigue senaletica local.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-ciudad">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-kanji">&#22812;</span>
+        <div class="footer-brand-text">
+          <p class="footer-title">JAPON TRIP</p>
+          <p class="footer-sub">Ciudad &middot; ritmo &middot; tecnologia</p>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Enlaces del sitio">
+        <a href="index.html">Inicio</a>
+        <a href="templos.html">Templos</a>
+        <a href="sakura.html">Sakura</a>
+        <a href="tradiciones.html">Tradiciones</a>
+        <a href="ciudad.html" class="is-active">Ciudad</a>
+      </nav>
+
+      <div class="footer-meta">
+        <a href="#top" class="footer-top">Volver arriba</a>
+        <p class="footer-copy">&copy; 2026 &middot; Jose Luis Aybar</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
