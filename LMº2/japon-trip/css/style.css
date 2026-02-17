@@ -1,8 +1,7 @@
 /* =========================================================
-   JAPÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œN TRIP ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â style.css (1 archivo)
    01 Reset / Base
    02 Variables
-   03 Global / TipografÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a
+   03 Global 
    04 Layout helpers
    05 Logo fijo
    06 Topnav Kanji + Hamburguesa (sin JS)
@@ -86,7 +85,7 @@ body{
   line-height: 1.6;
 }
 
-/* 05 Logo fijo (ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºnico que acompaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±a) */
+/* 05 Logo fijo */
 #logo{
   position: fixed;
   top: 14px;
@@ -141,8 +140,8 @@ body{
   display:none;
   align-items:center;
   justify-content:center;
-  flex-direction: column;   /* <-- CLAVE */
-  gap: 4px;                 /* <-- en vez de margin-top */
+  flex-direction: column;  
+  gap: 4px;               
   border-radius: var(--r1);
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(0,0,0,.22);
@@ -157,10 +156,9 @@ body{
   border-radius: 999px;
 }
 
-/* quita esto si lo tienes */
 .burger span + span{ margin-top: 0; }
 
-/* MenÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âº mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³vil (aquÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ sÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ hay panel) */
+/* menu */
 .mobile-menu{
   display:none;
   position: absolute;
@@ -210,14 +208,12 @@ body{
 
 #nav-tren::-webkit-scrollbar{ display:none; }
 
-/* En el hero, dale ancho real para que el scroll tenga sentido */
 .hero-vagones #nav-tren{
   width: 100%;
   max-width: min(980px, 92%);
   margin: 0 auto;
 }
 
-/* Indica que hay mas contenido a los lados (efecto fade) */
 .hero-vagones #nav-tren{
   -webkit-mask-image: linear-gradient(to right,
     transparent 0%,
@@ -243,7 +239,7 @@ body{
 .vagon:hover{ opacity:.85; }
 .vagon.active{ opacity: 1; filter: drop-shadow(0 10px 18px rgba(0,0,0,.28)); }
 
-/* Vagones al fondo del hero: SIN panel */
+/* Vagones al fondo del hero */
 .hero-vagones{
   position:absolute;
   left:0;
@@ -265,7 +261,7 @@ body{
 }
 
 
-/* Home: vagones mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s pequeÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±os */
+/* Home: vagones */
 .hero-vagones .vagon img{ height: 76px; }
 
 /* 08 Hero (base + home) */
@@ -318,7 +314,6 @@ body{
   flex-wrap:wrap;
 }
 
-/* HOME hero: sin ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“bandas rarasÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â */
 .hero-home{
   min-height: 92vh;
   background-image:
@@ -340,7 +335,7 @@ body{
     /* oscurece lateral izquierdo para texto legible */
     linear-gradient(to right, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%),
     /* imagen */
-    url(../img/templos/preview-templos.webp);
+    url(../img/templos/bg-templos-hero.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -390,7 +385,6 @@ body{
   background-repeat: no-repeat;
 }
 
-/* overlay: literalmente nada (evita texturas) */
 .hero-overlay{ display:none; }
 
 /* scroll hint */
@@ -907,18 +901,6 @@ body{
   --templo-tradicion-photo: none;
 }
 
-.page-templos .hero-templos{
-  min-height: 92vh;
-  background-image:
-    linear-gradient(to top, rgba(20,12,8,.88) 0%, rgba(38,23,14,.52) 54%, rgba(0,0,0,0) 84%),
-    linear-gradient(110deg, rgba(14,9,7,.86) 0%, rgba(53,31,19,.36) 48%, rgba(0,0,0,0) 78%),
-    radial-gradient(circle at 72% 32%, rgba(252,193,102,.19), rgba(0,0,0,0) 42%),
-    url(../img/templos/preview-templos.webp);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .page-templos .hero-vagones{
   bottom: 38px;
 }
@@ -1113,7 +1095,7 @@ body{
 }
 
 .page-templos .section-templos-closing{
-  min-height: 56vh;
+  min-height: 90vh;
   display: grid;
   place-items: center;
   text-align: center;
@@ -1140,7 +1122,7 @@ body{
 }
 
 /* =========================================================
-   14 Media queries (AL FINAL)
+   14 Media queries
    ========================================================= */
 
 @media (max-width: 1000px){
@@ -1213,7 +1195,6 @@ body{
   .vagon img{ height: 92px; }
   #logo{ font-size: 2.85rem; }
 
-  /* closing templos */
   .closing-box{ position: static; }
   .closing-templos{ padding: 4.2rem 1.2rem 4rem; }
   .closing-box.big, .closing-box.small{ width: 100%; margin-bottom: 1.2rem; }
