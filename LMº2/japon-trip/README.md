@@ -4,7 +4,9 @@ Proyecto web estático sobre un viaje temático por Japón, creado para presenta
 
 ## Ver la página principal
 
-feature/codex-add-readme-for-japon-trip-project-8m18gt
+[Ver página publicada (GitHub Pages)](https://TU_USUARIO.github.io/PRACTICAS_PEPELU/LM%C2%BA2/japon-trip/)
+
+Si todavía no está publicada, puedes abrirla en local desde el archivo `LMº2/japon-trip/index.html`.
 
 ## ¿De qué trata el proyecto?
 
