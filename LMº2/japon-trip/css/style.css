@@ -190,6 +190,36 @@ body{
 .m-kanji{ font-size: 1.35rem; width: 28px; text-align:center; }
 .m-text{ font-size: .98rem; }
 
+/* CTA superior a itinerario */
+.top-plan-link{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 9000;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: .55rem .9rem;
+  border-radius: var(--r1);
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.28);
+  backdrop-filter: blur(10px);
+  color: rgba(238,242,247,.95);
+  font-weight: 900;
+  font-size: .9rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.top-plan-link:hover{
+  background: rgba(0,0,0,.40);
+}
+
+.top-plan-link[aria-current="page"]{
+  border-color: rgba(107,213,255,.60);
+  box-shadow: 0 0 0 2px rgba(107,213,255,.14);
+}
+
 /* 07 Vagones (nav-tren) */
 #nav-tren{
   display:flex;
@@ -299,6 +329,14 @@ body{
   font-weight: 900;
 }
 .hero-title span{ color: var(--brass); }
+
+/* Color destacado del H1 por pagina */
+.page-home .hero-title span,
+.page-itinerario .hero-title span{ color: var(--brass); }
+.page-templos .hero-title span{ color: var(--temples); }
+.page-sakura .hero-title span{ color: var(--sakura); }
+.page-tradiciones .hero-title span{ color: var(--traditions); }
+.page-ciudad .hero-title span{ color: var(--city); }
 
 .hero-lead{
   color: rgba(238,242,247,.82);
@@ -1121,6 +1159,122 @@ body{
   margin-right: auto;
 }
 
+/* Itinerario: formulario de asesoria */
+.page-itinerario .section-itinerary-form{
+  background:
+    radial-gradient(circle at 14% 18%, rgba(107,213,255,.09), rgba(0,0,0,0) 42%),
+    linear-gradient(to bottom, rgba(255,255,255,.015), rgba(0,0,0,.20));
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.page-itinerario .trip-form{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.page-itinerario .trip-form-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .95rem;
+}
+
+.page-itinerario .trip-field{
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+
+.page-itinerario .trip-field > span,
+.page-itinerario .trip-field > legend{
+  font-weight: 900;
+  color: rgba(238,242,247,.88);
+  font-size: .95rem;
+}
+
+.page-itinerario .trip-field input:not([type="checkbox"]):not([type="radio"]),
+.page-itinerario .trip-field select,
+.page-itinerario .trip-field textarea{
+  width: 100%;
+  border-radius: var(--r1);
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: rgba(238,242,247,.94);
+  padding: .75rem .8rem;
+  font: inherit;
+  outline: none;
+}
+
+.page-itinerario .trip-field input:not([type="checkbox"]):not([type="radio"]):focus,
+.page-itinerario .trip-field select:focus,
+.page-itinerario .trip-field textarea:focus{
+  border-color: rgba(107,213,255,.62);
+  box-shadow: 0 0 0 2px rgba(107,213,255,.16);
+}
+
+.page-itinerario .trip-field textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+.page-itinerario .trip-field-full{
+  grid-column: 1 / -1;
+}
+
+.page-itinerario fieldset.trip-field{
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--r1);
+  padding: .75rem .85rem .85rem;
+  background: rgba(255,255,255,.03);
+}
+
+.page-itinerario fieldset.trip-field legend{
+  padding: 0 .25rem;
+}
+
+.page-itinerario .trip-checks{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .55rem .85rem;
+}
+
+.page-itinerario .trip-radios{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem 1rem;
+}
+
+.page-itinerario .trip-checks label,
+.page-itinerario .trip-radios label{
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: rgba(238,242,247,.84);
+}
+
+.page-itinerario .trip-consent{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: .55rem;
+  color: rgba(238,242,247,.80);
+}
+
+.page-itinerario .trip-consent input{
+  width: 18px;
+  height: 18px;
+  margin-top: .1rem;
+  padding: 0;
+}
+
+.page-itinerario .trip-form-actions{
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
 /* =========================================================
    14 Media queries
    ========================================================= */
@@ -1152,6 +1306,14 @@ body{
 }
 
 @media (max-width: 1000px){
+  .page-itinerario .trip-form-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .page-itinerario .trip-checks{
+    grid-template-columns: 1fr;
+  }
+
   .home-stations-grid{ grid-template-columns: 1fr 1fr; }
   .guide-grid{ grid-template-columns: 1fr 1fr; }
   .itinerary{ grid-template-columns: 1fr; }
@@ -1168,6 +1330,11 @@ body{
 }
 
 @media (max-width: 700px){
+  .page-itinerario .trip-radios{
+    flex-direction: column;
+    gap: .5rem;
+  }
+
   .page-templos .section-templos-tradicion::before,
   .page-templos .section-templos-tradicion::after{
     display: none;
@@ -1177,6 +1344,13 @@ body{
   .kanji-nav{ display:none; }
 
   #logo{ font-size: 3.0rem; }
+  .top-plan-link{
+    top: 12px;
+    right: 10px;
+    min-height: 38px;
+    padding: .45rem .65rem;
+    font-size: .8rem;
+  }
 
   .hero-vagones{ bottom: 22px; }
   .hero-vagones #nav-tren{ width: min(520px, 92%); }
@@ -1194,6 +1368,11 @@ body{
 
   .vagon img{ height: 92px; }
   #logo{ font-size: 2.85rem; }
+  .top-plan-link{
+    right: 8px;
+    padding: .4rem .55rem;
+    font-size: .74rem;
+  }
 
   .closing-box{ position: static; }
   .closing-templos{ padding: 4.2rem 1.2rem 4rem; }
@@ -1205,4 +1384,7 @@ body{
 
 @media (max-width: 900px){
   .station-previews{ grid-template-columns: 1fr; }
+}
+option{
+  color: #000;
 }
