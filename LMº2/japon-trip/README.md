@@ -4,9 +4,13 @@ Proyecto web estático sobre un viaje temático por Japón, creado para presenta
 
 ## Ver la página principal
 
+<<<<<<< HEAD
 [Ver página publicada (GitHub Pages)](https://TU_USUARIO.github.io/PRACTICAS_PEPELU/LM%C2%BA2/japon-trip/)
 
 Si todavía no está publicada, puedes abrirla en local desde el archivo `LMº2/japon-trip/index.html`.
+=======
+[Abrir `index.html` directamente](./index.html)
+>>>>>>> main
 
 ## ¿De qué trata el proyecto?
 
