@@ -4,7 +4,7 @@ Proyecto web estático sobre un viaje temático por Japón, creado para presenta
 
 ## Ver la página principal
 
-[Abrir `index.html` directamente](./index.html)
+feature/codex-add-readme-for-japon-trip-project-8m18gt
 
 ## ¿De qué trata el proyecto?
 
