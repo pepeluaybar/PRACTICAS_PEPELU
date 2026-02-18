@@ -4,32 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
-  <title>Itinerario &middot; JAPON TRIP</title>
+  <link rel="icon" type="image/png" href="./img/logo.png">
+  <title>Itinerario · JAPON TRIP</title>
 </head>
 <body class="page-itinerario">
   <div id="top"></div>
 
-  <a href="#top" id="logo" aria-label="Volver arriba">&#24859;</a>
+  <a href="#top" id="logo" aria-label="Volver arriba">愛</a>
 
   <header class="topnav" aria-label="Navegacion superior">
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
     <label class="burger" for="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></label>
 
     <nav class="kanji-nav" aria-label="Estaciones (kanji)">
-      <a class="kanji-link is-active" href="index.html" aria-current="page">&#24859;</a>
-      <a class="kanji-link" href="templos.html">&#23546;</a>
-      <a class="kanji-link" href="sakura.html">&#33457;</a>
-      <a class="kanji-link" href="tradiciones.html">&#31036;</a>
-      <a class="kanji-link" href="ciudad.html">&#22812;</a>
+      <a class="kanji-link is-active" href="index.html" aria-current="page">愛</a>
+      <a class="kanji-link" href="templos.html">寺</a>
+      <a class="kanji-link" href="sakura.html">花</a>
+      <a class="kanji-link" href="tradiciones.html">礼</a>
+      <a class="kanji-link" href="ciudad.html">夜</a>
     </nav>
 
     <nav class="mobile-menu" aria-label="Menu movil">
-      <a class="m-item is-active" href="index.html" aria-current="page"><span class="m-kanji">&#24859;</span><span class="m-text">Inicio</span></a>
-      <a class="m-item" href="templos.html"><span class="m-kanji">&#23546;</span><span class="m-text">Templos</span></a>
-      <a class="m-item" href="sakura.html"><span class="m-kanji">&#33457;</span><span class="m-text">Sakura</span></a>
-      <a class="m-item" href="tradiciones.html"><span class="m-kanji">&#31036;</span><span class="m-text">Tradiciones</span></a>
-      <a class="m-item" href="ciudad.html"><span class="m-kanji">&#22812;</span><span class="m-text">Ciudad</span></a>
+      <a class="m-item is-active" href="index.html" aria-current="page"><span class="m-kanji">愛</span><span class="m-text">Inicio</span></a>
+      <a class="m-item" href="templos.html"><span class="m-kanji">寺</span><span class="m-text">Templos</span></a>
+      <a class="m-item" href="sakura.html"><span class="m-kanji">花</span><span class="m-text">Sakura</span></a>
+      <a class="m-item" href="tradiciones.html"><span class="m-kanji">礼</span><span class="m-text">Tradiciones</span></a>
+      <a class="m-item" href="ciudad.html"><span class="m-kanji">夜</span><span class="m-text">Ciudad</span></a>
     </nav>
+    <a class="top-plan-link" href="itinerario.html" aria-current="page">Planificar viaje</a>
   </header>
 
   <section class="hero hero-itinerario" aria-label="Hero Itinerario">
@@ -42,7 +44,7 @@
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#plan-7">Ver plan</a>
-        <a class="btn btn-ghost" href="#tips">Tips de ajuste</a>
+        <a class="btn btn-ghost" href="#asesoria-viaje">Pedir asesoria</a>
       </div>
     </div>
 
@@ -79,20 +81,181 @@
 
           <aside class="it-preview" aria-label="Resumen de ruta">
             <p class="it-title">Orden recomendado</p>
-            <p class="it-sub">Templos &rarr; Tradiciones &rarr; Sakura &rarr; Ciudad</p>
+            <p class="it-sub">Templos → Tradiciones → Sakura → Ciudad</p>
             <a class="btn btn-primary" href="index.html#estaciones">Volver a estaciones</a>
           </aside>
         </div>
       </div>
     </section>
 
+    <section id="asesoria-viaje" class="section section-itinerary-form" aria-label="Formulario de asesoria de viaje">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Te disenamos un viaje segun tu perfil</h2>
+          <p class="section-subtitle">Cuanta mas informacion nos des, mejor afinaremos rutas, barrios y ritmo diario para tu viaje.</p>
+        </div>
+
+        <form class="trip-form" action="#" method="post">
+          <div class="trip-form-grid">
+            <label class="trip-field">
+              <span>Nombre completo</span>
+              <input type="text" name="nombre" autocomplete="name" required />
+            </label>
+
+            <label class="trip-field">
+              <span>Correo de contacto</span>
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+
+            <label class="trip-field">
+              <span>Aeropuerto de llegada</span>
+              <select name="aeropuerto_llegada" required>
+                <option value="">Selecciona uno</option>
+                <option value="nrt">Tokio Narita (NRT)</option>
+                <option value="hnd">Tokio Haneda (HND)</option>
+                <option value="kix">Osaka Kansai (KIX)</option>
+                <option value="itm">Osaka Itami (ITM)</option>
+                <option value="ngo">Nagoya Chubu (NGO)</option>
+                <option value="fuk">Fukuoka (FUK)</option>
+                <option value="otro">Otro</option>
+              </select>
+            </label>
+
+            <label class="trip-field">
+              <span>Presupuesto por persona</span>
+              <select name="presupuesto" required>
+                <option value="">Selecciona rango</option>
+                <option value="ajustado">Ajustado (60-110 EUR/dia)</option>
+                <option value="medio">Medio (110-190 EUR/dia)</option>
+                <option value="alto">Alto (190+ EUR/dia)</option>
+              </select>
+            </label>
+
+            <label class="trip-field">
+              <span>Fecha de llegada</span>
+              <input type="date" name="fecha_llegada" required />
+            </label>
+
+            <label class="trip-field">
+              <span>Fecha de salida</span>
+              <input type="date" name="fecha_salida" required />
+            </label>
+
+            <label class="trip-field">
+              <span>Dias disponibles</span>
+              <input type="number" name="dias_disponibles" min="3" max="30" step="1" required />
+            </label>
+
+            <label class="trip-field">
+              <span>Numero de viajeros</span>
+              <input type="number" name="viajeros" min="1" max="12" step="1" required />
+            </label>
+
+            <fieldset class="trip-field trip-field-full">
+              <legend>Intereses principales</legend>
+              <div class="trip-checks">
+                <label><input type="checkbox" name="intereses" value="templos" /> Templos y espiritualidad</label>
+                <label><input type="checkbox" name="intereses" value="sakura" /> Sakura y naturaleza</label>
+                <label><input type="checkbox" name="intereses" value="tradiciones" /> Tradiciones y rituales</label>
+                <label><input type="checkbox" name="intereses" value="ciudad" /> Vida urbana y noche</label>
+                <label><input type="checkbox" name="intereses" value="gastronomia" /> Gastronomia</label>
+                <label><input type="checkbox" name="intereses" value="compras" /> Compras y mercados</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="trip-field trip-field-full">
+              <legend>Ritmo de viaje</legend>
+              <div class="trip-radios">
+                <label><input type="radio" name="ritmo" value="tranquilo" required /> Tranquilo (pocas paradas al dia)</label>
+                <label><input type="radio" name="ritmo" value="equilibrado" /> Equilibrado</label>
+                <label><input type="radio" name="ritmo" value="intenso" /> Intenso (mas actividad)</label>
+              </div>
+            </fieldset>
+
+            <label class="trip-field trip-field-full">
+              <span>Notas extra (alergias, accesibilidad, prioridades)</span>
+              <textarea name="notas" rows="5" placeholder="Ejemplo: quiero incluir 2 noches en Kyoto y evitar cambios de hotel cada dia."></textarea>
+            </label>
+
+            <label class="trip-consent trip-field-full">
+              <input type="checkbox" name="consentimiento" required />
+              <span>Acepto que mis datos se usen solo para preparar una propuesta de itinerario personalizada.</span>
+            </label>
+          </div>
+
+          <div class="trip-form-actions">
+            <button class="btn btn-primary" type="submit">Solicitar propuesta</button>
+            <a class="btn btn-ghost" href="#tips">Ver tips de ajuste</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section id="tips" class="section section-pause" aria-label="Tips para ajustar">
       <div class="container narrow">
-        <p class="home-quote">Plan flexible. <span>La calidad del viaje depende del ritmo.</span></p>
+        <p class="home-quote">Plan flexible. <span>La calidad del viaje depende de como adaptas cada dia.</span></p>
+        <p class="section-subtitle">No hace falta rehacer toda la ruta cuando algo cambia. Ajusta por bloques: manana, tarde y noche. Conserva una actividad principal por franja y deja siempre una opcion B.</p>
         <div class="pause-details">
-          <details class="soft-detail"><summary>Si llueve</summary><p>Mueve exteriores a otro dia y prioriza museo, mercado cubierto y barrios con arcadas.</p></details>
-          <details class="soft-detail"><summary>Si tienes menos dias</summary><p>Reduce a 2 estaciones principales y evita cambios de alojamiento.</p></details>
-          <details class="soft-detail"><summary>Si viajas en temporada alta</summary><p>Reserva temprano y visita puntos mas populares en primera hora.</p></details>
+          <details class="soft-detail" open>
+            <summary>Si llueve o hace mal tiempo</summary>
+            <p>Mueve exteriores largos al siguiente hueco seco. Mantiene solo un paseo corto al aire libre para no perder la sensacion de ciudad.</p>
+            <ul class="card-list">
+              <li><strong>Manana:</strong> museo o templo con zonas cubiertas.</li>
+              <li><strong>Tarde:</strong> mercado techado, cafeteria o barrio con galerias.</li>
+              <li><strong>Noche:</strong> cena cerca del hotel para ahorrar traslados.</li>
+            </ul>
+          </details>
+
+          <details class="soft-detail">
+            <summary>Si tienes menos dias (4-5 dias)</summary>
+            <p>Reduce la ambicion geografica. Dos bases bien elegidas funcionan mejor que tres ciudades mal conectadas.</p>
+            <ul class="card-list">
+              <li><strong>Prioriza:</strong> Tokio + Kyoto o Kyoto + Osaka.</li>
+              <li><strong>Recorta:</strong> excursiones largas de ida y vuelta.</li>
+              <li><strong>Clave:</strong> evita cambiar de hotel cada noche.</li>
+            </ul>
+          </details>
+
+          <details class="soft-detail">
+            <summary>Si viajas en temporada alta</summary>
+            <p>En fechas de alta demanda, la hora de visita pesa mas que la lista de lugares.</p>
+            <ul class="card-list">
+              <li><strong>Primer turno:</strong> entra temprano a los puntos mas famosos.</li>
+              <li><strong>Bloque central:</strong> deja zonas menos turisticas.</li>
+              <li><strong>Reservas:</strong> confirma trenes y entradas 2-4 semanas antes.</li>
+            </ul>
+          </details>
+
+          <details class="soft-detail">
+            <summary>Si quieres bajar presupuesto</summary>
+            <p>No recortes experiencia, recorta friccion. El gasto suele subir por improvisacion y traslados mal encadenados.</p>
+            <ul class="card-list">
+              <li><strong>Comida:</strong> combina 1 comida objetivo + 1 comida local sencilla.</li>
+              <li><strong>Transporte:</strong> agrupa visitas por barrios cercanos el mismo dia.</li>
+              <li><strong>Entradas:</strong> alterna 1 pago + 1 plan gratuito por franja.</li>
+            </ul>
+          </details>
+
+          <details class="soft-detail">
+            <summary>Si quieres mas ciudad y menos templos</summary>
+            <p>Mantiene el contraste, pero cambia la proporcion: 70% urbano, 30% calma.</p>
+            <ul class="card-list">
+              <li><strong>Manana:</strong> barrio tradicional breve o parque.</li>
+              <li><strong>Tarde:</strong> zona comercial, arquitectura y cafes.</li>
+              <li><strong>Noche:</strong> mirador, neon y ruta gastronomica.</li>
+            </ul>
+          </details>
+
+          <details class="soft-detail">
+            <summary>Metodo rapido de replanificacion (10 minutos)</summary>
+            <ul class="card-list">
+              <li><strong>1.</strong> Elige una actividad ancla para manana.</li>
+              <li><strong>2.</strong> Ordena dos planes secundarios a menos de 20 min.</li>
+              <li><strong>3.</strong> Deja una reserva de energia de 90 min sin plan.</li>
+              <li><strong>4.</strong> Confirma transporte y horarios de cierre.</li>
+            </ul>
+            <p class="card-note">Regla final: si un ajuste te obliga a correr todo el dia, el ajuste no es bueno.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -101,10 +264,10 @@
   <footer class="footer footer-inicio">
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="footer-kanji">&#24859;</span>
+        <span class="footer-kanji">愛</span>
         <div class="footer-brand-text">
           <p class="footer-title">JAPON TRIP</p>
-          <p class="footer-sub">Itinerario &middot; ruta &middot; 7 dias</p>
+          <p class="footer-sub">Itinerario · ruta · 7 dias</p>
         </div>
       </div>
 
@@ -118,7 +281,7 @@
 
       <div class="footer-meta">
         <a href="#top" class="footer-top">Volver arriba</a>
-        <p class="footer-copy">&copy; 2026 &middot; Jose Luis Aybar</p>
+        <p class="footer-copy">© 2026 · Jose Luis Aybar</p>
       </div>
     </div>
   </footer>
