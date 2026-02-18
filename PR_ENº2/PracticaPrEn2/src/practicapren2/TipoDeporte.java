@@ -9,6 +9,6 @@ package practicapren2;
  *
  * @author EAG
  */
-public class Bronce {
+public class TipoDeporte {
     
 }
