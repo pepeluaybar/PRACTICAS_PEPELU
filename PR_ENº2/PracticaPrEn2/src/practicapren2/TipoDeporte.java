@@ -9,6 +9,7 @@ package practicapren2;
  *
  * @author EAG
  */
-public class TipoDeporte {
-    
+public enum TipoDeporte {
+    INDIVIDUAL,
+    EQUIPOS
 }

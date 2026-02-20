@@ -9,6 +9,8 @@ package practicapren2;
  *
  * @author EAG
  */
-public class TipoMedalla {
-    
+public enum TipoMedalla {
+    ORO,
+    PLATA,
+    BRONCE
 }
