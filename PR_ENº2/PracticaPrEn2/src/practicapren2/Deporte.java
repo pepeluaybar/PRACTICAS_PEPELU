@@ -1,14 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package practicapren2;
 
-/**
- *
- * @author EAG
- */
+import java.util.Objects;
+
 public class Deporte {
-    
+
+    private final String nombre;
+    private final TipoDeporte tipo;
+
+    public Deporte(String nombre, TipoDeporte tipo) {
+        this.nombre = Objects.requireNonNull(nombre, "El nombre del deporte es obligatorio");
+        this.tipo = Objects.requireNonNull(tipo, "El tipo de deporte es obligatorio");
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public TipoDeporte getTipo() {
+        return tipo;
+    }
 }
