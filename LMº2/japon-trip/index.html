@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Descubre Japón por atmósferas: templos, sakura, tradiciones, ciudad e itinerario visual de 7 días." />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="./img/logo.png">
+  <link rel="icon" type="image/png" href="./img/ui/logo-kanji.png">
 
   <title>JAPÓN TRIP</title>
 </head>
@@ -99,7 +100,7 @@
 
         <div class="pause-details">
           <details class="soft-detail">
-            <summary>¿Qué significa “capas”?</summary>
+            <summary>¿Qué significa "capas"?</summary>
             <p>Tradición, naturaleza, ritual y ciudad conviven a la vez. Aquí puedes explorarlos por separado o mezclarlos.</p>
           </details>
           <details class="soft-detail">
@@ -115,54 +116,76 @@
     </section>
 
     <!-- ELIGE TU ESTACIÓN -->
-    <section id="estaciones" class="section section-home-stations" aria-label="Estaciones">
+    <section id="estaciones" class="section section-home-stations" aria-label="Punto de partida">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">Elige tu estación</h2>
-          <p class="section-subtitle">No hay orden correcto. Hay una parte de Japón que te engancha primero.</p>
+          <h2 class="section-title">Empieza por una energia, no por una lista</h2>
+          <p class="section-subtitle">El primer dia define el viaje. Elige ritmo antes que cantidad.</p>
         </div>
 
-        <div class="home-stations-grid">
-          <a class="home-station is-templos" href="templos.html">
-            <span class="hs-kanji" aria-hidden="true">寺</span>
-            <div class="hs-text">
-              <h3>Templos</h3>
-              <p>Proporción, madera, sombra.</p>
-              <span class="hs-cta">Viajar →</span>
-            </div>
-          </a>
+        <div class="home-entry-layout">
+          <aside class="home-entry-intro" aria-label="Como elegir">
+            <p class="hei-kicker">Paso 1</p>
+            <h3 class="hei-title">Decide tu ritmo base</h3>
+            <p class="hei-text">Un buen comienzo reduce decisiones y evita cansancio temprano.</p>
+            <ul class="hei-list">
+              <li>Maximo 2 zonas por dia para no saturarte.</li>
+              <li>Alterna un bloque intenso con otro calmado.</li>
+              <li>Guarda 60-90 minutos libres para improvisar.</li>
+            </ul>
+            <a class="btn btn-ghost" href="#itinerario">Ver esquema de 7 dias</a>
+          </aside>
 
-          <a class="home-station is-sakura" href="sakura.html">
-            <span class="hs-kanji" aria-hidden="true">花</span>
-            <div class="hs-text">
-              <h3>Sakura</h3>
-              <p>Luz suave y tiempo breve.</p>
-              <span class="hs-cta">Viajar →</span>
-            </div>
-          </a>
+          <div class="home-entry-grid">
+            <a class="home-entry-card is-templos" href="templos.html">
+              <p class="hec-kicker">Templos</p>
+              <h3 class="hec-title">Calma arquitectonica</h3>
+              <p class="hec-text">Ideal para empezar con foco y bajar revoluciones.</p>
+              <dl class="hec-meta">
+                <div><dt>Mejor hora</dt><dd>08:00-11:00</dd></div>
+                <div><dt>Duracion</dt><dd>3-4 h</dd></div>
+              </dl>
+              <span class="hec-cta">Abrir estacion -></span>
+            </a>
 
-          <a class="home-station is-tradiciones" href="tradiciones.html">
-            <span class="hs-kanji" aria-hidden="true">礼</span>
-            <div class="hs-text">
-              <h3>Tradiciones</h3>
-              <p>Ritual vivo. Gestos.</p>
-              <span class="hs-cta">Viajar →</span>
-            </div>
-          </a>
+            <a class="home-entry-card is-sakura" href="sakura.html">
+              <p class="hec-kicker">Sakura</p>
+              <h3 class="hec-title">Naturaleza suave</h3>
+              <p class="hec-text">Parques, luz limpia y caminata sin prisa.</p>
+              <dl class="hec-meta">
+                <div><dt>Mejor hora</dt><dd>16:00-18:30</dd></div>
+                <div><dt>Duracion</dt><dd>2-3 h</dd></div>
+              </dl>
+              <span class="hec-cta">Abrir estacion -></span>
+            </a>
 
-          <a class="home-station is-ciudad" href="ciudad.html">
-            <span class="hs-kanji" aria-hidden="true">夜</span>
-            <div class="hs-text">
-              <h3>Ciudad</h3>
-              <p>Neón, ritmo, contraste.</p>
-              <span class="hs-cta">Viajar →</span>
-            </div>
-          </a>
+            <a class="home-entry-card is-tradiciones" href="tradiciones.html">
+              <p class="hec-kicker">Tradiciones</p>
+              <h3 class="hec-title">Ritual cotidiano</h3>
+              <p class="hec-text">Mercados, etiqueta y detalles que explican el contexto.</p>
+              <dl class="hec-meta">
+                <div><dt>Mejor hora</dt><dd>10:00-13:00</dd></div>
+                <div><dt>Duracion</dt><dd>3 h</dd></div>
+              </dl>
+              <span class="hec-cta">Abrir estacion -></span>
+            </a>
+
+            <a class="home-entry-card is-ciudad" href="ciudad.html">
+              <p class="hec-kicker">Ciudad</p>
+              <h3 class="hec-title">Impacto urbano</h3>
+              <p class="hec-text">Neon, densidad y contraste en tramos bien medidos.</p>
+              <dl class="hec-meta">
+                <div><dt>Mejor hora</dt><dd>18:30-22:30</dd></div>
+                <div><dt>Duracion</dt><dd>4 h</dd></div>
+              </dl>
+              <span class="hec-cta">Abrir estacion -></span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-home-guide" aria-label="Guía por estaciones">
+    <section class="section section-home-previews" aria-label="Guía visual por estaciones">
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">Guía rápida por estaciones</h2>
@@ -171,7 +194,7 @@
 
         <div class="station-previews" aria-label="Previews de estaciones">
           <a class="station-preview is-templos" href="templos.html">
-          <div class="sp-overlay" aria-hidden="true"></div>
+            <div class="sp-overlay" aria-hidden="true"></div>
             <div class="sp-content">
               <p class="sp-kanji">寺</p>
               <h3 class="sp-title">Templos</h3>
@@ -210,7 +233,135 @@
             </div>
           </a>
         </div>
+      </div>
+    </section>
 
+    <section class="section section-home-loop" aria-label="Galeria visual continua">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Flujo visual continuo del viaje</h2>
+          <p class="section-subtitle">Templos, sakura, tradiciones y ciudad en una cinta que recorre la web sin cortes.</p>
+        </div>
+      </div>
+
+      <div class="home-loop-wrap" aria-hidden="true">
+        <div class="home-loop-line">
+          <div class="home-loop-track">
+            <figure class="home-loop-item"><img src="img/home/tren-fuji-atardecer.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/Kiyomizu.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/ambiente.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/tradiciones/interior-tradicional-madera.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/tradiciones/preview-tradiciones.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/sakura/preview-sakura.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/sakura/panorama-sakura-montana.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/ciudad/avenida-hora-azul.jpg" alt=""></figure>
+          </div>
+          <div class="home-loop-track">
+            <figure class="home-loop-item"><img src="img/home/tren-fuji-atardecer.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/Kiyomizu.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/ambiente.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/tradiciones/interior-tradicional-madera.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/tradiciones/preview-tradiciones.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/sakura/preview-sakura.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/sakura/panorama-sakura-montana.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/ciudad/avenida-hora-azul.jpg" alt=""></figure>
+          </div>
+        </div>
+
+        <div class="home-loop-line is-reverse">
+          <div class="home-loop-track">
+            <figure class="home-loop-item"><img src="img/ciudad/shibuya-neon-lluvia.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/ciudad/preview.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/pagoda-fuji-primavera.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/sakura/preview-sakura.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/Todai-ji.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/tradiciones/tren-ventana-fuji.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/home/hero.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/pagoda-fuji-otono.jpg" alt=""></figure>
+          </div>
+          <div class="home-loop-track">
+            <figure class="home-loop-item"><img src="img/ciudad/shibuya-neon-lluvia.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/ciudad/preview.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/pagoda-fuji-primavera.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/sakura/preview-sakura.webp" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/Todai-ji.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/tradiciones/tren-ventana-fuji.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/home/hero.jpg" alt=""></figure>
+            <figure class="home-loop-item"><img src="img/templos/pagoda-fuji-otono.jpg" alt=""></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-home-guide" aria-label="Rutas rapidas">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Rutas listas para 1 o 2 dias</h2>
+          <p class="section-subtitle">Combinaciones reales para salir del modo lista infinita.</p>
+        </div>
+
+        <div class="home-routes-grid" aria-label="Rutas recomendadas">
+          <article class="home-route-card is-soft">
+            <header class="hr-head">
+              <p class="hr-kicker">Ruta 01</p>
+              <h3 class="hr-title">Calma + tradicion</h3>
+              <p class="hr-lead">Entrada suave para primer contacto.</p>
+            </header>
+
+            <ul class="hr-steps">
+              <li><span class="hr-slot">Manana</span><span class="hr-step"><a href="templos.html">Templos</a> en zona historica.</span></li>
+              <li><span class="hr-slot">Tarde</span><span class="hr-step"><a href="tradiciones.html">Tradiciones</a> y mercado local.</span></li>
+              <li><span class="hr-slot">Noche</span><span class="hr-step">Cena corta y regreso temprano.</span></li>
+            </ul>
+
+            <div class="hr-footer">
+              <p class="hr-total">Total estimado: 7 h</p>
+              <a class="hr-link" href="itinerario.html">Usar como base -></a>
+            </div>
+          </article>
+
+          <article class="home-route-card is-mix">
+            <header class="hr-head">
+              <p class="hr-kicker">Ruta 02</p>
+              <h3 class="hr-title">Natural + ciudad</h3>
+              <p class="hr-lead">Contraste claro sin cambiar de ritmo cada hora.</p>
+            </header>
+
+            <ul class="hr-steps">
+              <li><span class="hr-slot">Manana</span><span class="hr-step"><a href="sakura.html">Sakura</a> o parque principal.</span></li>
+              <li><span class="hr-slot">Tarde</span><span class="hr-step">Traslado corto y pausa en cafeteria.</span></li>
+              <li><span class="hr-slot">Noche</span><span class="hr-step"><a href="ciudad.html">Ciudad</a> en una sola zona neon.</span></li>
+            </ul>
+
+            <div class="hr-footer">
+              <p class="hr-total">Total estimado: 8 h</p>
+              <a class="hr-link" href="itinerario.html">Usar como base -></a>
+            </div>
+          </article>
+
+          <article class="home-route-card is-night">
+            <header class="hr-head">
+              <p class="hr-kicker">Ruta 03</p>
+              <h3 class="hr-title">Urbana de impacto</h3>
+              <p class="hr-lead">Para quien quiere ciudad sin perder control.</p>
+            </header>
+
+            <ul class="hr-steps">
+              <li><span class="hr-slot">Manana</span><span class="hr-step">Inicio tranquilo en barrio residencial.</span></li>
+              <li><span class="hr-slot">Tarde</span><span class="hr-step">Mirador + transicion lenta al centro.</span></li>
+              <li><span class="hr-slot">Noche</span><span class="hr-step"><a href="ciudad.html">Ciudad</a> + cierre con paseo corto.</span></li>
+            </ul>
+
+            <div class="hr-footer">
+              <p class="hr-total">Total estimado: 6-7 h</p>
+              <a class="hr-link" href="itinerario.html">Usar como base -></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="home-routes-note">
+          <p><strong>Regla simple:</strong> si dudas entre dos planes, elimina uno. Menos puntos suele dar una experiencia mejor.</p>
+        </div>
       </div>
     </section>
 
@@ -271,3 +422,4 @@
 
 </body>
 </html>
+
