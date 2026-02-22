@@ -7,49 +7,84 @@ import java.util.Objects;
 
 public class Deporte {
 
-    private final String id;
-    private final String nombre;
-    private final TipoDeporte tipo;
+    private String nombre;
+    private TipoDeporte tipo;
     private final List<Prueba> pruebas;
 
-    public Deporte(String id, String nombre, TipoDeporte tipo) {
-        this.id = validarTexto(id, "id");
-        this.nombre = validarTexto(nombre, "nombre");
-        this.tipo = Objects.requireNonNull(tipo, "El tipo de deporte no puede ser null");
+    public Deporte() {
         this.pruebas = new ArrayList<>();
     }
 
-    public String getId() {
-        return id;
+    public Deporte(String nombre, TipoDeporte tipo) {
+        this();
+        setNombre(nombre);
+        setTipo(tipo);
     }
 
     public String getNombre() {
         return nombre;
     }
 
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del deporte no puede ser nulo o vacío");
+        }
+        this.nombre = nombre.trim();
+    }
+
     public TipoDeporte getTipo() {
         return tipo;
+    }
+
+    public void setTipo(TipoDeporte tipo) {
+        if (tipo == null) {
+            throw new IllegalArgumentException("El tipo de deporte no puede ser nulo");
+        }
+        this.tipo = tipo;
     }
 
     public List<Prueba> getPruebas() {
         return Collections.unmodifiableList(pruebas);
     }
 
-    void agregarPruebaInterna(Prueba prueba) {
-        if (!pruebas.contains(prueba)) {
-            pruebas.add(prueba);
+    public boolean altaPrueba(Prueba prueba) {
+        if (prueba == null || pruebas.contains(prueba)) {
+            return false;
         }
+        return pruebas.add(prueba);
     }
 
-    void eliminarPruebaInterna(Prueba prueba) {
-        pruebas.remove(prueba);
+    public Prueba buscarPruebaPorCodigo(String codigo) {
+        if (codigo == null || codigo.trim().isEmpty()) {
+            return null;
+        }
+        for (Prueba prueba : pruebas) {
+            if (prueba.getCodigo().equalsIgnoreCase(codigo.trim())) {
+                return prueba;
+            }
+        }
+        return null;
     }
 
-    private static String validarTexto(String texto, String campo) {
-        Objects.requireNonNull(texto, "El campo " + campo + " no puede ser null");
-        if (texto.trim().isEmpty()) {
-            throw new IllegalArgumentException("El campo " + campo + " no puede estar vacío");
+    @Override
+    public String toString() {
+        return "Deporte{" + "nombre='" + nombre + '\'' + ", tipo=" + tipo + ", pruebas=" + pruebas + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
-        return texto.trim();
+        if (!(o instanceof Deporte)) {
+            return false;
+        }
+        Deporte deporte = (Deporte) o;
+        return Objects.equals(nombre, deporte.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
     }
 }

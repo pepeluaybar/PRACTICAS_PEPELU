@@ -8,8 +8,12 @@ public class Equipo extends Participante {
 
     private final List<Deportista> miembros;
 
-    public Equipo(String id, String nombre) {
-        super(id, nombre);
+    public Equipo() {
+        this.miembros = new ArrayList<>();
+    }
+
+    public Equipo(String nombre, String pais) {
+        super(nombre, pais);
         this.miembros = new ArrayList<>();
     }
 
@@ -17,22 +21,23 @@ public class Equipo extends Participante {
         return Collections.unmodifiableList(miembros);
     }
 
-    public void agregarMiembro(Deportista deportista) {
-        if (deportista == null) {
-            throw new IllegalArgumentException("El miembro no puede ser null");
+    public boolean altaMiembro(Deportista deportista) {
+        if (deportista == null || miembros.contains(deportista)) {
+            return false;
         }
-        if (miembros.contains(deportista)) {
-            throw new IllegalStateException("El deportista ya pertenece al equipo");
-        }
-        miembros.add(deportista);
+        return miembros.add(deportista);
     }
 
-    public void eliminarMiembro(Deportista deportista) {
+    public boolean bajaMiembro(Deportista deportista) {
         if (deportista == null) {
-            throw new IllegalArgumentException("El miembro no puede ser null");
+            return false;
         }
-        if (!miembros.remove(deportista)) {
-            throw new IllegalStateException("El deportista no pertenece al equipo");
-        }
+        return miembros.remove(deportista);
+    }
+
+    @Override
+    public String toString() {
+        return "Equipo{" + "nombre='" + getNombre() + '\'' + ", pais='" + getPais() + '\''
+                + ", miembros=" + miembros + '}';
     }
 }

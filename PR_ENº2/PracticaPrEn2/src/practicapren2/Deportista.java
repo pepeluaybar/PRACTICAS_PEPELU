@@ -1,25 +1,28 @@
 package practicapren2;
 
-import java.util.Objects;
-
 public class Deportista extends Participante {
 
-    private final String pais;
+    private String idDeportista;
 
-    public Deportista(String id, String nombre, String pais) {
-        super(id, nombre);
-        this.pais = validarPais(pais);
+    public Deportista() {
     }
 
-    public String getPais() {
-        return pais;
+    public Deportista(String idDeportista, String nombre, String pais) {
+        super(nombre, pais);
+        setIdDeportista(idDeportista);
     }
 
-    private static String validarPais(String pais) {
-        Objects.requireNonNull(pais, "El país no puede ser null");
-        if (pais.trim().isEmpty()) {
-            throw new IllegalArgumentException("El país no puede estar vacío");
-        }
-        return pais.trim();
+    public String getIdDeportista() {
+        return idDeportista;
+    }
+
+    public void setIdDeportista(String idDeportista) {
+        this.idDeportista = validarTexto(idDeportista, "idDeportista");
+    }
+
+    @Override
+    public String toString() {
+        return "Deportista{" + "idDeportista='" + idDeportista + '\'' + ", nombre='" + getNombre() + '\''
+                + ", pais='" + getPais() + '\'' + '}';
     }
 }
