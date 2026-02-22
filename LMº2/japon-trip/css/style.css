@@ -23,6 +23,13 @@ img{ max-width:100%; height:auto; display:block; }
 a{ color:inherit; text-decoration:none; }
 html{ scroll-behavior:smooth; }
 
+/* Tamaño de imagen de contenido gestionado por CSS */
+main figure img,
+main .card-body img{
+  width: 100%;
+  height: auto;
+}
+
 /* 02 Variables */
 :root{
   --bg-0:#07090c;
@@ -89,11 +96,6 @@ body{
   max-width:64ch;
   line-height: 1.72;
   font-size: clamp(.98rem, 1.3vw, 1.08rem);
-}
-
-:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible{
-  outline: 2px solid rgba(107,213,255,.90);
-  outline-offset: 2px;
 }
 
 /* 05 Logo fijo */
@@ -420,7 +422,8 @@ body{
   background-image:
     linear-gradient(to top, rgba(0,0,0,.84) 0%, rgba(0,0,0,.36) 56%, rgba(0,0,0,0) 82%),
     linear-gradient(to right, rgba(0,0,0,.78) 0%, rgba(0,0,0,.24) 56%, rgba(0,0,0,0) 80%),
-    url(../img/home/hero.jpg);
+    url(../img/home/tren-fuji-atardecer.jpg);
+  background-position: center 58%;
 }
 
 .hero-overlay{ display:none; }
@@ -756,6 +759,67 @@ body{
 .station-preview.is-tradiciones{ background-image: url(../img/tradiciones/preview-tradiciones.webp); }
 .station-preview.is-ciudad{ background-image: url(../img/ciudad/preview.webp); }
 
+.section-home-loop{
+  padding-top: clamp(2.8rem, 5.5vw, 4.4rem);
+  background:
+    radial-gradient(circle at 14% 18%, rgba(224,184,107,.13), rgba(0,0,0,0) 48%),
+    radial-gradient(circle at 86% 70%, rgba(107,213,255,.14), rgba(0,0,0,0) 45%),
+    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.52));
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.home-loop-wrap{
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display:grid;
+  gap: .85rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.home-loop-line{
+  width: max-content;
+  display:flex;
+  gap: .8rem;
+  animation: homeLoop 54s linear infinite;
+}
+
+.home-loop-line.is-reverse{
+  animation-direction: reverse;
+  animation-duration: 62s;
+}
+
+.home-loop-track{
+  display:flex;
+  gap: .8rem;
+  flex: 0 0 auto;
+}
+
+.home-loop-item{
+  margin: 0;
+  flex: 0 0 clamp(220px, 24vw, 330px);
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.36);
+  box-shadow: 0 12px 28px rgba(0,0,0,.28);
+}
+
+.home-loop-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes homeLoop{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(calc(-50% - .4rem)); }
+}
+
 .section-home-guide{
   background:
     radial-gradient(circle at 80% 18%, rgba(255,255,255,.035), rgba(0,0,0,0) 58%),
@@ -1015,7 +1079,7 @@ body{
   min-height: 200vh;
   margin: 0;
   background: rgba(0,0,0,.35);
-  background-image: url(../img/templos/bg-templos2.webp);
+  background-image: url(../img/templos/bg-templos2.jpg);
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
@@ -2160,6 +2224,13 @@ body{
   gap: .7rem;
 }
 
+@media (prefers-reduced-motion: reduce){
+  .home-loop-line{
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
 /* =========================================================
    14 Media queries
    ========================================================= */
@@ -2272,6 +2343,8 @@ body{
   .page-home .hero-vagones .vagon img{ height: 76px; }
   .home-entry-grid{ grid-template-columns: 1fr; }
   .hr-steps li{ grid-template-columns: 1fr; }
+  .home-loop-item{ flex-basis: clamp(190px, 72vw, 260px); }
+  .home-loop-line{ animation-duration: 44s; }
 
   .page-ciudad .cpt-stop{
     flex-direction: column;
@@ -2306,6 +2379,7 @@ body{
 
 @media (max-width: 520px){
   .home-entry-intro .btn{ width: 100%; justify-content: center; }
+  .home-loop-item{ flex-basis: clamp(170px, 78vw, 220px); }
 
   .page-sakura .sw-item,
   .page-tradiciones .tm-list-box,
