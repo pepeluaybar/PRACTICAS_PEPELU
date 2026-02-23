@@ -1,36 +1,22 @@
-/* =========================================================
-   01 Reset / Base
-   02 Variables
-   03 Global 
-   04 Layout helpers
-   05 Logo fijo
-   06 Topnav Kanji + Hamburguesa (sin JS)
-   07 Vagones (nav-tren)
-   08 Hero (Home + base)
-   09 Botones / Details
-   10 Home: secciones + grids
-   11 Cards (details)
-   12 Closing templos (si lo usas)
-   13 Footer
-   14 Media queries (AL FINAL)
-   ========================================================= */
+
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap");
 
-/* 01 Reset / Base */
+/* pendiente: quiero probar otra fuente cuando cierre el diseno */
+
 *{ margin:0; padding:0; box-sizing:border-box; }
 img{ max-width:100%; height:auto; display:block; }
 a{ color:inherit; text-decoration:none; }
 html{ scroll-behavior:smooth; }
 
-/* Tamaño de imagen de contenido gestionado por CSS */
+
 main figure img,
 main .card-body img{
   width: 100%;
   height: auto;
 }
 
-/* 02 Variables */
+
 :root{
   --bg-0:#07090c;
   --bg-1:#0c1016;
@@ -56,7 +42,7 @@ main .card-body img{
   --r3: 20px;
 }
 
-/* 03 Global / Tipografia */
+
 body{
   font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg-0);
@@ -67,7 +53,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 04 Layout helpers */
+
 .container{ width:min(1100px,100%); margin:0 auto; padding:0 1rem; }
 .container.narrow{ width:min(860px,100%); }
 
@@ -98,7 +84,7 @@ body{
   font-size: clamp(.98rem, 1.3vw, 1.08rem);
 }
 
-/* 05 Logo fijo */
+
 #logo{
   position: fixed;
   top: 14px;
@@ -111,7 +97,7 @@ body{
   text-decoration: none;
 }
 
-/* 06 Topnav Kanji + Hamburguesa (sin JS) */
+
 .topnav{
   position: fixed;
   top: 14px;
@@ -122,7 +108,7 @@ body{
   gap: .9rem;
 }
 
-/* Desktop kanji nav: SIN CAJA, SIN FONDO, SIN BLUR */
+
 .kanji-nav{
   display:flex;
   gap:.7rem;
@@ -144,7 +130,7 @@ body{
 .kanji-link:hover{ opacity: 1; }
 .kanji-link.is-active{ opacity: 1; }
 
-/* Burger */
+
 .nav-toggle{ position:absolute; left:-9999px; }
 
 .burger{
@@ -171,7 +157,7 @@ body{
 
 .burger span + span{ margin-top: 0; }
 
-/* menu */
+
 .mobile-menu{
   display:none;
   position: absolute;
@@ -186,6 +172,7 @@ body{
 }
 
 .nav-toggle:checked ~ .mobile-menu{ display:block; }
+/* aqui uso el checkbox como interruptor para abrir el menu sin JS */
 
 .m-item{
   display:flex;
@@ -203,7 +190,8 @@ body{
 .m-kanji{ font-size: 1.35rem; width: 28px; text-align:center; }
 .m-text{ font-size: .98rem; }
 
-/* CTA superior a itinerario */
+/* pendiente: quiero ajustar este boton en movil si lo veo muy cargado */
+
 .top-plan-link{
   position: fixed;
   top: 14px;
@@ -222,13 +210,36 @@ body{
   font-size: .9rem;
   line-height: 1;
   white-space: nowrap;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .15s ease;
 }
 
 .top-plan-link:hover{
-  background: rgba(0,0,0,.40);
+  background: rgba(202,168,106,.18);
+  border-color: rgba(202,168,106,.56);
+  color: #fff4df;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  transform: translateY(-1px);
 }
 
-/* 07 Vagones (nav-tren) */
+.top-plan-link:focus-visible{
+  outline: none;
+  border-color: rgba(202,168,106,.62);
+  box-shadow: 0 0 0 3px rgba(202,168,106,.28);
+}
+
+.top-plan-link[aria-current="page"]{
+  background: rgba(202,168,106,.24);
+  border-color: rgba(202,168,106,.64);
+  color: #fff4df;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
+
+.top-plan-link[aria-current="page"]:hover{
+  background: rgba(202,168,106,.32);
+  border-color: rgba(202,168,106,.76);
+}
+
+
 #nav-tren{
   display:flex;
   flex-wrap: nowrap;
@@ -239,6 +250,7 @@ body{
   max-width: 100%;
   overflow-x: auto;
   padding: 0 .6rem .25rem;
+  /* con esto hago que el scroll horizontal se enganche en cada vagon */
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -253,6 +265,7 @@ body{
 }
 
 .hero-vagones #nav-tren{
+  /* aqui hago fade en los extremos para que no corte brusco */
   -webkit-mask-image: linear-gradient(to right,
     transparent 0%,
     #000 6%,
@@ -277,7 +290,7 @@ body{
 .vagon:hover{ opacity:.85; }
 .vagon.active{ opacity: 1; filter: drop-shadow(0 10px 18px rgba(0,0,0,.28)); }
 
-/* Vagones al fondo del hero */
+
 .hero-vagones{
   position:absolute;
   left:0;
@@ -299,10 +312,10 @@ body{
 }
 
 
-/* Home: vagones */
+
 .hero-vagones .vagon img{ height: 76px; }
 
-/* 08 Hero (base + home) */
+
 .hero{
   height: clamp(500px, 78vh, 760px);
   min-height: clamp(500px, 78vh, 760px);
@@ -340,7 +353,7 @@ body{
 }
 .hero-title span{ color: var(--brass); }
 
-/* Color destacado del H1 por pagina */
+
 .page-home .hero-title span,
 .page-itinerario .hero-title span{ color: var(--brass); }
 .page-templos .hero-title span{ color: var(--temples); }
@@ -375,20 +388,20 @@ body{
 
 .hero-home{
   background-image:
-    /* oscurece esquina inferior (asienta tren + botones) */
+    
     linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.30) 55%, rgba(0,0,0,0) 80%),
-    /* oscurece lateral izquierdo para texto legible */
+    
     linear-gradient(to right, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%),
-    /* imagen */
-    url(../img/home/hero.jpg);
+    
+    url(../img/home/tren-fuji-atardecer.jpg);
 }
 .hero-templos{
   background-image:
-    /* oscurece esquina inferior (asienta tren + botones) */
+    
     linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.30) 55%, rgba(0,0,0,0) 80%),
-    /* oscurece lateral izquierdo para texto legible */
+    
     linear-gradient(to right, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%),
-    /* imagen */
+    
     url(../img/templos/bg-templos-hero.webp);
 }
 
@@ -417,13 +430,13 @@ body{
   background-image:
     linear-gradient(to top, rgba(0,0,0,.84) 0%, rgba(0,0,0,.36) 56%, rgba(0,0,0,0) 82%),
     linear-gradient(to right, rgba(0,0,0,.78) 0%, rgba(0,0,0,.24) 56%, rgba(0,0,0,0) 80%),
-    url(../img/home/tren-fuji-atardecer.jpg);
-  background-position: center 58%;
+    url(../img/header-home.webp);
+  background-position: center 52%;
 }
 
 .hero-overlay{ display:none; }
 
-/* scroll hint */
+
 .scroll-hint{
   position:absolute;
   left:50%;
@@ -447,7 +460,7 @@ body{
 }
 .scroll-hint:hover{ opacity: 1; }
 
-/* 09 Botones / Details */
+
 .btn{
   display:inline-flex;
   align-items:center;
@@ -495,7 +508,7 @@ body{
   line-height: 1.75;
 }
 
-/* 10 Home: secciones + grids */
+
 .section-pause{
   background:
     radial-gradient(circle at 50% 25%, rgba(255,255,255,.03), rgba(0,0,0,0) 62%),
@@ -771,11 +784,13 @@ body{
   display:grid;
   gap: .85rem;
   overflow: hidden;
+  /* uso mascara para que las imagenes entren y salgan suave */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
 }
 
 .home-loop-line{
+  /* muevo toda la linea de forma continua para simular cinta infinita */
   width: max-content;
   display:flex;
   gap: .8rem;
@@ -811,6 +826,7 @@ body{
 }
 
 @keyframes homeLoop{
+  /* desplazo media pista porque el contenido esta duplicado */
   from{ transform: translateX(0); }
   to{ transform: translateX(calc(-50% - .4rem)); }
 }
@@ -948,7 +964,7 @@ body{
 
 .home-routes-note strong{ color: rgba(238,242,247,.94); }
 
-/* itinerario */
+
 .section-itinerary{
   background: rgba(255,255,255,.02);
   border-top: 1px solid rgba(255,255,255,.06);
@@ -989,11 +1005,17 @@ body{
   background: rgba(255,255,255,.03);
   padding: 1rem;
 }
-.it-title{ font-weight: 950; font-size: 1.05rem; }
-.it-sub{ margin-top:.35rem; color: rgba(238,242,247,.72); line-height: 1.7; }
-.it-preview .btn{ margin-top: .8rem; }
+.it-title{
+  font-weight: 950; font-size: 1.05rem; 
+  }
+.it-sub{ 
+  margin-top:.35rem; color: rgba(238,242,247,.72); line-height: 1.7; 
+}
+.it-preview .btn{ 
+  margin-top: .8rem; 
+}
 
-/* 11 Cards (details) */
+
 .cards{
   width: min(1040px, 100%);
   margin: 0 auto;
@@ -1116,7 +1138,7 @@ body{
   max-width: 42ch;
 }
 
-/* 13 Footer */
+
 .footer{
   padding: 3.2rem 1rem 2rem;
   background: rgba(0,0,0,.55);
@@ -1181,14 +1203,14 @@ body{
 .footer-top:hover{ opacity: 1; }
 .footer-copy{ color: rgba(238,242,247,.60); font-size:.9rem; }
 
-/* acentos footer */
+
 .footer-inicio .footer-kanji{ color: var(--brass); }
 .footer-templos .footer-kanji{ color: var(--temples); }
 .footer-sakura .footer-kanji{ color: var(--sakura); }
 .footer-tradiciones .footer-kanji{ color: var(--traditions); }
 .footer-ciudad .footer-kanji{ color: var(--city); }
 
-/* 13.5 Templos (encapsulado para no afectar Home) */
+
 .page-templos{
   --templo-wood-dark: #2b1a11;
   --templo-wood-mid: #6f4729;
@@ -1322,7 +1344,7 @@ body{
   border-bottom: 1px solid rgba(255,214,168,.07);
 }
 
-/* Shared visual grids across station pages */
+
 .page-templos .templos-galeria-flow,
 .page-sakura .sakura-mosaic-flow,
 .page-tradiciones .tradiciones-escenas-flow,
@@ -1612,7 +1634,7 @@ body{
   gap: .65rem;
 }
 
-/* 13.6 Firmas por estacion */
+
 .page-sakura .feature-kicker,
 .page-tradiciones .feature-kicker,
 .page-ciudad .feature-kicker{
@@ -2103,7 +2125,7 @@ body{
     linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.50));
 }
 
-/* Itinerario: formulario de asesoria */
+
 .page-itinerario .section-itinerary-form{
   background:
     radial-gradient(circle at 14% 18%, rgba(107,213,255,.09), rgba(0,0,0,0) 42%),
@@ -2226,9 +2248,7 @@ body{
   }
 }
 
-/* =========================================================
-   14 Media queries
-   ========================================================= */
+
 
 @media (max-width: 1000px){
   .page-templos .section-templos-tradicion::before,
@@ -2334,6 +2354,12 @@ body{
 
   .hero-vagones{ bottom: 22px; }
   .hero-vagones #nav-tren{ width: min(520px, 92%); }
+  .page-templos .hero-vagones{ bottom: 22px; }
+  .page-templos .hero-vagones #nav-tren{
+    width: min(520px, 92%);
+    padding: 0 .6rem .25rem;
+    justify-content: flex-start;
+  }
 
   .page-home .hero-vagones .vagon img{ height: 76px; }
   .home-entry-grid{ grid-template-columns: 1fr; }
@@ -2370,6 +2396,7 @@ body{
 
 @media (max-width: 1200px){
   .hero-vagones #nav-tren{ justify-content:flex-start; }
+  .page-templos .hero-vagones #nav-tren{ justify-content:flex-start; }
 }
 
 @media (max-width: 520px){
@@ -2399,6 +2426,10 @@ body{
   .closing-text{ margin-top: 0; }
 
   #nav-tren{ justify-content:flex-start; }
+  .page-templos .hero-vagones #nav-tren{
+    width: min(460px, 92%);
+    padding: 0 .5rem .2rem;
+  }
 }
 
 option{
