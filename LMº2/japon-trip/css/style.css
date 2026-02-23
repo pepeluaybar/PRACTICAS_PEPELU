@@ -57,8 +57,27 @@ body{
 .container{ width:min(1100px,100%); margin:0 auto; padding:0 1rem; }
 .container.narrow{ width:min(860px,100%); }
 
+/* wrappers compartidos para secciones de contenido */
+.home-entry-layout,
+.station-previews,
+.home-routes-grid,
+.itinerary,
+.page-templos .templos-ritmo-wrap,
+.page-templos .templos-galeria-flow,
+.page-sakura .sakura-mosaic-flow,
+.page-tradiciones .tradiciones-escenas-flow,
+.page-ciudad .ciudad-panorama-flow,
+.page-sakura .sakura-sensorial-wrap,
+.page-tradiciones .tradiciones-manifiesto-wrap,
+.page-ciudad .ciudad-pulso-wrap,
+.page-itinerario .trip-form{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .section{
-  padding: clamp(3.8rem, 7vw, 7rem) 0;
+  padding: 4.5rem 0;
   position: relative;
 }
 
@@ -69,7 +88,7 @@ body{
 }
 
 .section-title{
-  font-size: clamp(1.65rem, 3.1vw, 2.55rem);
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: -.01em;
   line-height: 1.15;
@@ -81,7 +100,7 @@ body{
   color: var(--muted);
   max-width:64ch;
   line-height: 1.72;
-  font-size: clamp(.98rem, 1.3vw, 1.08rem);
+  font-size: 1rem;
 }
 
 
@@ -258,32 +277,12 @@ body{
 
 #nav-tren::-webkit-scrollbar{ display:none; }
 
-.hero-vagones #nav-tren{
-  width: 100%;
-  max-width: min(980px, 92%);
-  margin: 0 auto;
-}
-
-.hero-vagones #nav-tren{
-  /* aqui hago fade en los extremos para que no corte brusco */
-  -webkit-mask-image: linear-gradient(to right,
-    transparent 0%,
-    #000 6%,
-    #000 94%,
-    transparent 100%);
-  mask-image: linear-gradient(to right,
-    transparent 0%,
-    #000 6%,
-    #000 94%,
-    transparent 100%);
-}
-.vagon{ flex: 0 0 auto; scroll-snap-align: start; }
-
 .vagon{
+  flex: 0 0 auto;
+  scroll-snap-align: start;
   display:flex;
   align-items:flex-end;
   opacity:.55;
-  flex: 0 0 auto;
 }
 
 .vagon img{ height: 120px; width:auto; }
@@ -303,12 +302,25 @@ body{
 .hero-vagones #nav-tren{
   pointer-events: auto;
   width: min(980px, 92%);
+  max-width: min(980px, 92%);
   margin: 0 auto;
 
   padding: 0;
   border: 0;
   background: transparent;
   backdrop-filter: none;
+
+  /* aqui hago fade en los extremos para que no corte brusco */
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%);
+  mask-image: linear-gradient(to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%);
 }
 
 
@@ -317,9 +329,10 @@ body{
 
 
 .hero{
-  height: clamp(500px, 78vh, 760px);
-  min-height: clamp(500px, 78vh, 760px);
-  padding: clamp(1.1rem, 2.5vw, 2rem);
+  height: 78vh;
+  min-height: 500px;
+  max-height: 760px;
+  padding: 1.6rem;
   display:flex;
   align-items:center;
   position: relative;
@@ -345,7 +358,7 @@ body{
 }
 
 .hero-title{
-  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  font-size: 2.2rem;
   line-height: 1.08;
   font-weight: 900;
   text-wrap: balance;
@@ -518,7 +531,7 @@ body{
 }
 
 .home-quote{
-  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+  font-size: 1.6rem;
   font-weight: 900;
   line-height: 1.35;
   color: rgba(238,242,247,.90);
@@ -536,19 +549,21 @@ body{
 }
 
 .home-entry-layout{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
-
   display:grid;
   grid-template-columns: .85fr 1.15fr;
   gap: 1rem;
   align-items: stretch;
 }
 
-.home-entry-intro{
+.home-entry-intro,
+.home-entry-card,
+.home-route-card,
+.home-routes-note p{
   border-radius: var(--r2);
   border: 1px solid rgba(255,255,255,.11);
+}
+
+.home-entry-intro{
   background:
     radial-gradient(circle at 15% 10%, rgba(255,255,255,.06), rgba(0,0,0,0) 55%),
     linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.34));
@@ -559,7 +574,8 @@ body{
   gap: .85rem;
 }
 
-.hei-kicker{
+.hei-kicker,
+.hr-kicker{
   font-size: .72rem;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -567,7 +583,7 @@ body{
 }
 
 .hei-title{
-  font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+  font-size: 1.4rem;
   font-weight: 950;
   line-height: 1.2;
 }
@@ -600,8 +616,6 @@ body{
 }
 
 .home-entry-card{
-  border-radius: var(--r2);
-  border: 1px solid rgba(255,255,255,.11);
   background:
     radial-gradient(circle at 82% 16%, rgba(255,255,255,.06), rgba(0,0,0,0) 55%),
     linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.34));
@@ -684,10 +698,6 @@ body{
 }
 
 .station-previews{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
-
   display:flex;
   flex-wrap:wrap;
   gap: 1rem;
@@ -700,7 +710,7 @@ body{
   border: 1px solid rgba(10,14,20,.52);
   overflow:hidden;
 
-  height: clamp(30vh, 34vh, 40vh);
+  height: 34vh;
   min-height: 260px;
 
   display:flex;
@@ -768,7 +778,7 @@ body{
 .station-preview.is-ciudad{ background-image: url(../img/ciudad/preview.webp); }
 
 .section-home-loop{
-  padding-top: clamp(2.8rem, 5.5vw, 4.4rem);
+  padding-top: 3.6rem;
   background:
     radial-gradient(circle at 14% 18%, rgba(224,184,107,.13), rgba(0,0,0,0) 48%),
     radial-gradient(circle at 86% 70%, rgba(107,213,255,.14), rgba(0,0,0,0) 45%),
@@ -810,7 +820,7 @@ body{
 
 .home-loop-item{
   margin: 0;
-  flex: 0 0 clamp(220px, 24vw, 330px);
+  flex: 0 0 280px;
   aspect-ratio: 16 / 10;
   border-radius: 14px;
   overflow: hidden;
@@ -838,18 +848,12 @@ body{
 }
 
 .home-routes-grid{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
-
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .home-route-card{
-  border-radius: var(--r2);
-  border: 1px solid rgba(255,255,255,.11);
   background:
     radial-gradient(circle at 80% 12%, rgba(255,255,255,.05), rgba(0,0,0,0) 56%),
     linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.38));
@@ -859,13 +863,6 @@ body{
   gap: .9rem;
 
   box-shadow: 0 14px 32px rgba(0,0,0,.24);
-}
-
-.hr-kicker{
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: rgba(238,242,247,.62);
 }
 
 .hr-title{
@@ -954,8 +951,6 @@ body{
 }
 
 .home-routes-note p{
-  border-radius: var(--r2);
-  border: 1px solid rgba(255,255,255,.11);
   background: linear-gradient(to right, rgba(255,255,255,.045), rgba(0,0,0,.20));
   padding: .95rem 1rem;
   color: rgba(238,242,247,.78);
@@ -971,10 +966,6 @@ body{
 }
 
 .itinerary{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
-
   display:grid;
   grid-template-columns: 1.4fr .6fr;
   gap: 1rem;
@@ -1128,7 +1119,7 @@ body{
   text-align:left;
 }
 .closing-text h2{
-  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  font-size: 1.9rem;
   margin-bottom:.6rem;
   font-weight: 900;
 }
@@ -1225,17 +1216,8 @@ body{
 
 .page-templos .hero-vagones #nav-tren{
   width: min(980px, 94%);
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: flex-end;
-  gap: .35rem;
-  overflow-x: auto;
   overflow-y: hidden;
   padding: 0 1.1rem .3rem;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
 }
@@ -1252,10 +1234,6 @@ body{
 }
 
 .page-templos .templos-ritmo-wrap{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
-
   display:flex;
   flex-wrap:wrap;
   gap: 1rem;
@@ -1349,9 +1327,6 @@ body{
 .page-sakura .sakura-mosaic-flow,
 .page-tradiciones .tradiciones-escenas-flow,
 .page-ciudad .ciudad-panorama-flow{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
   display:flex;
   flex-wrap:wrap;
   gap: 1rem;
@@ -1418,8 +1393,8 @@ body{
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-top: clamp(2.6rem, 5vw, 4rem);
-  padding-bottom: clamp(1.4rem, 3vw, 2.4rem);
+  padding-top: 3.2rem;
+  padding-bottom: 1.8rem;
   border-top: 1px solid rgba(255,225,170,.10);
   border-bottom: 1px solid rgba(255,225,170,.06);
   background-image:
@@ -1500,7 +1475,7 @@ body{
   position: relative;
   z-index: 1;
   width: min(100%, 500px);
-  height: clamp(260px, 35vw, 460px);
+  height: 360px;
   object-fit: contain;
   object-position: bottom center;
   filter: drop-shadow(0 12px 26px rgba(0,0,0,.42)) saturate(1.05) contrast(1.02);
@@ -1509,7 +1484,7 @@ body{
 .page-templos .templos-tradicion-copy{
   flex: 1.1 1 420px;
   align-self: center;
-  padding: clamp(1rem, 2.2vw, 1.5rem);
+  padding: 1.2rem;
   border-radius: 18px;
   border: 1px solid rgba(255,228,180,.14);
   background: linear-gradient(135deg, rgba(16,10,8,.74), rgba(58,36,22,.52));
@@ -1596,7 +1571,9 @@ body{
 }
 
 .page-templos .section-templos-closing{
-  min-height: clamp(520px, 82vh, 900px);
+  min-height: 520px;
+  height: 82vh;
+  max-height: 900px;
   padding: 0;
   display:flex;
   align-items:center;
@@ -1613,11 +1590,11 @@ body{
 .page-templos .templos-closing-wrap{
   width: min(780px, 100%);
   margin: 0 auto;
-  padding: clamp(1.8rem, 4vw, 3.4rem) 1rem;
+  padding: 2.4rem 1rem;
 }
 
 .page-templos .section-templos-closing .section-title{
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 2.6rem;
   letter-spacing: .08em;
 }
 
@@ -1649,9 +1626,6 @@ body{
 .page-sakura .sakura-sensorial-wrap,
 .page-tradiciones .tradiciones-manifiesto-wrap,
 .page-ciudad .ciudad-pulso-wrap{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
   display:flex;
   flex-wrap:wrap;
   gap: 1rem;
@@ -1684,10 +1658,8 @@ body{
 
 .page-sakura .sakura-sensorial-copy{
   flex: 1 1 340px;
-  border-radius: var(--r2);
   border: 1px solid rgba(242,168,197,.24);
   background: linear-gradient(145deg, rgba(50,26,37,.64), rgba(23,16,28,.60));
-  padding: 1rem;
 }
 
 .page-sakura .sakura-sensorial-copy p{
@@ -1801,10 +1773,8 @@ body{
 
 .page-tradiciones .tm-copy{
   flex: 1.15 1 440px;
-  border-radius: var(--r2);
   border: 1px solid rgba(224,184,107,.24);
   background: linear-gradient(135deg, rgba(45,34,20,.66), rgba(18,15,12,.62));
-  padding: 1rem;
 }
 
 .page-tradiciones .tm-copy p{
@@ -1962,9 +1932,14 @@ body{
 
 .page-ciudad .ciudad-pulso-copy{
   flex: 1 1 350px;
-  border-radius: var(--r2);
   border: 1px solid rgba(107,213,255,.24);
   background: linear-gradient(150deg, rgba(11,20,30,.74), rgba(8,13,21,.60));
+}
+
+.page-sakura .sakura-sensorial-copy,
+.page-tradiciones .tm-copy,
+.page-ciudad .ciudad-pulso-copy{
+  border-radius: var(--r2);
   padding: 1rem;
 }
 
@@ -2134,12 +2109,6 @@ body{
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
-.page-itinerario .trip-form{
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
 .page-itinerario .trip-form-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2295,9 +2264,6 @@ body{
   .page-ciudad .ciudad-pulso-photo{
     flex: 1 1 100%;
   }
-}
-
-@media (max-width: 1000px){
   .page-itinerario .trip-form-grid{
     grid-template-columns: 1fr;
   }
@@ -2364,7 +2330,7 @@ body{
   .page-home .hero-vagones .vagon img{ height: 76px; }
   .home-entry-grid{ grid-template-columns: 1fr; }
   .hr-steps li{ grid-template-columns: 1fr; }
-  .home-loop-item{ flex-basis: clamp(190px, 72vw, 260px); }
+  .home-loop-item{ flex-basis: 220px; }
   .home-loop-line{ animation-duration: 44s; }
 
   .page-ciudad .cpt-stop{
@@ -2396,12 +2362,11 @@ body{
 
 @media (max-width: 1200px){
   .hero-vagones #nav-tren{ justify-content:flex-start; }
-  .page-templos .hero-vagones #nav-tren{ justify-content:flex-start; }
 }
 
 @media (max-width: 520px){
   .home-entry-intro .btn{ width: 100%; justify-content: center; }
-  .home-loop-item{ flex-basis: clamp(170px, 78vw, 220px); }
+  .home-loop-item{ flex-basis: 190px; }
 
   .page-sakura .sw-item,
   .page-tradiciones .tm-list-box,
