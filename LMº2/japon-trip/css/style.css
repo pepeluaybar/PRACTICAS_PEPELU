@@ -228,11 +228,6 @@ body{
   background: rgba(0,0,0,.40);
 }
 
-.top-plan-link[aria-current="page"]{
-  border-color: rgba(107,213,255,.60);
-  box-shadow: 0 0 0 2px rgba(107,213,255,.14);
-}
-
 /* 07 Vagones (nav-tren) */
 #nav-tren{
   display:flex;
@@ -784,7 +779,7 @@ body{
   width: max-content;
   display:flex;
   gap: .8rem;
-  animation: homeLoop 54s linear infinite;
+  animation: homeLoop 62s linear infinite;
 }
 
 .home-loop-line.is-reverse{
@@ -795,7 +790,7 @@ body{
 .home-loop-track{
   display:flex;
   gap: .8rem;
-  flex: 0 0 auto;
+  flex: 0 auto;
 }
 
 .home-loop-item{

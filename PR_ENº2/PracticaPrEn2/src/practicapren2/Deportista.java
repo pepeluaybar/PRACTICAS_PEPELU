@@ -1,28 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package practicapren2;
 
-public class Deportista extends Participante {
-
-    private String idDeportista;
-
-    public Deportista() {
-    }
-
-    public Deportista(String idDeportista, String nombre, String pais) {
-        super(nombre, pais);
-        setIdDeportista(idDeportista);
-    }
-
-    public String getIdDeportista() {
-        return idDeportista;
-    }
-
-    public void setIdDeportista(String idDeportista) {
-        this.idDeportista = validarTexto(idDeportista, "idDeportista");
-    }
-
-    @Override
-    public String toString() {
-        return "Deportista{" + "idDeportista='" + idDeportista + '\'' + ", nombre='" + getNombre() + '\''
-                + ", pais='" + getPais() + '\'' + '}';
-    }
+/**
+ *
+ * @author EAG
+ */
+public class Deportista {
+    
 }
