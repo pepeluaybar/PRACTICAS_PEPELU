@@ -1,39 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package practicapren2;
 
-/**
- *
- * @author EAG
- */
-    public abstract class Participante {
+public class Participante {
+
     protected String nombre;
     protected String pais;
-    protected int idOlimpico; 
+    protected int edad;
+    protected int idOlimpico;
     protected int totalMedallas;
 
-    public Participante(String nombre, String pais, int idOlimpico, int totalMedallas) {
-        this.nombre = nombre;
-        this.pais = pais;
-        this.idOlimpico = idOlimpico;
-        this.totalMedallas = totalMedallas;
+    public Participante() {
+        nombre = "";
+        pais = "";
+        edad = 0;
+        idOlimpico = 0;
+        totalMedallas = 0;
     }
-    
-    public Participante(){
-        this.nombre = "";
-        this.pais = "";
-        this.idOlimpico = 0;
-        this.totalMedallas = 0;
+
+    public Participante(String n, String p, int e, int id) {
+        nombre = n;
+        pais = p;
+        edad = e;
+        idOlimpico = id;
+        totalMedallas = 0;
     }
-    
-    public Participante(Participante pa){
-        this.nombre = pa.nombre;
-        this.pais = pa.pais;
-        this.idOlimpico = pa.idOlimpico;
-        this.totalMedallas = pa.totalMedallas;
+
+    public Participante(Participante pa) {
+        nombre = pa.nombre;
+        pais = pa.pais;
+        edad = pa.edad;
+        idOlimpico = pa.idOlimpico;
+        totalMedallas = pa.totalMedallas;
     }
 
     public String getNombre() {
@@ -44,6 +40,10 @@ package practicapren2;
         return pais;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
     public int getIdOlimpico() {
         return idOlimpico;
     }
@@ -52,21 +52,34 @@ package practicapren2;
         return totalMedallas;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String n) {
+        nombre = n;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setPais(String p) {
+        pais = p;
     }
 
-    public void setIdOlimpico(int idOlimpico) {
-        this.idOlimpico = idOlimpico;
+    public void setEdad(int e) {
+        edad = e;
+    }
+
+    public void setIdOlimpico(int id) {
+        idOlimpico = id;
     }
 
     public void setTotalMedallas(int totalMedallas) {
         this.totalMedallas = totalMedallas;
     }
-    
-    
+
+    public String mostrarInformacion() {
+        return "Nombre: " + nombre + ", País: " + pais + ", Edad: " + edad
+                + ", ID Olímpico: " + idOlimpico + ", Medallas: " + totalMedallas;
+    }
+
+    @Override
+    public String toString() {
+        return "Participante{" + "nombre=" + nombre + ", pais=" + pais + ", edad=" + edad
+                + ", idOlimpico=" + idOlimpico + ", totalMedallas=" + totalMedallas + '}';
+    }
 }

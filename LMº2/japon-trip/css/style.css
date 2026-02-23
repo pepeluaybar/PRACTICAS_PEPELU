@@ -77,7 +77,7 @@ body{
 }
 
 .section{
-  padding: 4.5rem 0;
+  padding: clamp(3.8rem, 7vw, 7rem) 0;
   position: relative;
 }
 
@@ -88,7 +88,7 @@ body{
 }
 
 .section-title{
-  font-size: 2rem;
+  font-size: clamp(1.65rem, 3.1vw, 2.55rem);
   font-weight: 900;
   letter-spacing: -.01em;
   line-height: 1.15;
@@ -100,7 +100,7 @@ body{
   color: var(--muted);
   max-width:64ch;
   line-height: 1.72;
-  font-size: 1rem;
+  font-size: clamp(.98rem, 1.3vw, 1.08rem);
 }
 
 
@@ -187,7 +187,7 @@ body{
   border-radius: var(--r2);
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(0,0,0,.40);
-  backdrop-filter: blur(12px);
+
 }
 
 .nav-toggle:checked ~ .mobile-menu{ display:block; }
@@ -223,11 +223,9 @@ body{
   border-radius: var(--r1);
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(0,0,0,.28);
-  backdrop-filter: blur(10px);
   color: rgba(238,242,247,.95);
   font-weight: 900;
   font-size: .9rem;
-  line-height: 1;
   white-space: nowrap;
   transition: background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .15s ease;
 }
@@ -329,10 +327,9 @@ body{
 
 
 .hero{
-  height: 78vh;
-  min-height: 500px;
-  max-height: 760px;
-  padding: 1.6rem;
+  height: clamp(500px, 78vh, 760px);
+  min-height: clamp(500px, 78vh, 760px);
+  padding: clamp(1.1rem, 2.5vw, 2rem);
   display:flex;
   align-items:center;
   position: relative;
@@ -358,7 +355,7 @@ body{
 }
 
 .hero-title{
-  font-size: 2.2rem;
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
   line-height: 1.08;
   font-weight: 900;
   text-wrap: balance;
@@ -531,7 +528,7 @@ body{
 }
 
 .home-quote{
-  font-size: 1.6rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
   font-weight: 900;
   line-height: 1.35;
   color: rgba(238,242,247,.90);
@@ -583,7 +580,7 @@ body{
 }
 
 .hei-title{
-  font-size: 1.4rem;
+  font-size: clamp(1.25rem, 2.1vw, 1.6rem);
   font-weight: 950;
   line-height: 1.2;
 }
@@ -710,7 +707,7 @@ body{
   border: 1px solid rgba(10,14,20,.52);
   overflow:hidden;
 
-  height: 34vh;
+  height: clamp(30vh, 34vh, 40vh);
   min-height: 260px;
 
   display:flex;
@@ -778,7 +775,7 @@ body{
 .station-preview.is-ciudad{ background-image: url(../img/ciudad/preview.webp); }
 
 .section-home-loop{
-  padding-top: 3.6rem;
+  padding-top: clamp(2.8rem, 5.5vw, 4.4rem);
   background:
     radial-gradient(circle at 14% 18%, rgba(224,184,107,.13), rgba(0,0,0,0) 48%),
     radial-gradient(circle at 86% 70%, rgba(107,213,255,.14), rgba(0,0,0,0) 45%),
@@ -820,7 +817,7 @@ body{
 
 .home-loop-item{
   margin: 0;
-  flex: 0 0 280px;
+  flex: 0 0 clamp(220px, 24vw, 330px);
   aspect-ratio: 16 / 10;
   border-radius: 14px;
   overflow: hidden;
@@ -1119,7 +1116,7 @@ body{
   text-align:left;
 }
 .closing-text h2{
-  font-size: 1.9rem;
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
   margin-bottom:.6rem;
   font-weight: 900;
 }
@@ -1393,8 +1390,8 @@ body{
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-top: 3.2rem;
-  padding-bottom: 1.8rem;
+  padding-top: clamp(2.6rem, 5vw, 4rem);
+  padding-bottom: clamp(1.4rem, 3vw, 2.4rem);
   border-top: 1px solid rgba(255,225,170,.10);
   border-bottom: 1px solid rgba(255,225,170,.06);
   background-image:
@@ -1475,7 +1472,7 @@ body{
   position: relative;
   z-index: 1;
   width: min(100%, 500px);
-  height: 360px;
+  height: clamp(260px, 35vw, 460px);
   object-fit: contain;
   object-position: bottom center;
   filter: drop-shadow(0 12px 26px rgba(0,0,0,.42)) saturate(1.05) contrast(1.02);
@@ -1484,7 +1481,7 @@ body{
 .page-templos .templos-tradicion-copy{
   flex: 1.1 1 420px;
   align-self: center;
-  padding: 1.2rem;
+  padding: clamp(1rem, 2.2vw, 1.5rem);
   border-radius: 18px;
   border: 1px solid rgba(255,228,180,.14);
   background: linear-gradient(135deg, rgba(16,10,8,.74), rgba(58,36,22,.52));
@@ -1571,9 +1568,7 @@ body{
 }
 
 .page-templos .section-templos-closing{
-  min-height: 520px;
-  height: 82vh;
-  max-height: 900px;
+  min-height: clamp(520px, 82vh, 900px);
   padding: 0;
   display:flex;
   align-items:center;
@@ -1590,11 +1585,11 @@ body{
 .page-templos .templos-closing-wrap{
   width: min(780px, 100%);
   margin: 0 auto;
-  padding: 2.4rem 1rem;
+  padding: clamp(1.8rem, 4vw, 3.4rem) 1rem;
 }
 
 .page-templos .section-templos-closing .section-title{
-  font-size: 2.6rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   letter-spacing: .08em;
 }
 
@@ -2109,6 +2104,9 @@ body{
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
+.page-itinerario .trip-form{
+}
+
 .page-itinerario .trip-form-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2330,7 +2328,7 @@ body{
   .page-home .hero-vagones .vagon img{ height: 76px; }
   .home-entry-grid{ grid-template-columns: 1fr; }
   .hr-steps li{ grid-template-columns: 1fr; }
-  .home-loop-item{ flex-basis: 220px; }
+  .home-loop-item{ flex-basis: clamp(190px, 72vw, 260px); }
   .home-loop-line{ animation-duration: 44s; }
 
   .page-ciudad .cpt-stop{
@@ -2366,7 +2364,7 @@ body{
 
 @media (max-width: 520px){
   .home-entry-intro .btn{ width: 100%; justify-content: center; }
-  .home-loop-item{ flex-basis: 190px; }
+  .home-loop-item{ flex-basis: clamp(170px, 78vw, 220px); }
 
   .page-sakura .sw-item,
   .page-tradiciones .tm-list-box,
