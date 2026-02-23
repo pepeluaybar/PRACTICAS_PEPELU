@@ -9,6 +9,9 @@ package practicapren2;
  *
  * @author EAG
  */
-public class Equipo {
+public class Equipo extends Participante {
+
+    private Deportista[] miembros;
+    private int numMiembros;
     
 }
