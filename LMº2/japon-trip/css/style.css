@@ -7,7 +7,6 @@
 *{ margin:0; padding:0; box-sizing:border-box; }
 img{ max-width:100%; height:auto; display:block; }
 a{ color:inherit; text-decoration:none; }
-html{ scroll-behavior:smooth; }
 
 
 main figure img,
@@ -48,13 +47,10 @@ body{
   background: var(--bg-0);
   color: var(--text);
   line-height: 1.5;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 
-.container{ width:min(1100px,100%); margin:0 auto; padding:0 1rem; }
+.container{ width:100%; max-width:1100px; margin:0 auto; padding:0 1rem; }
 .container.narrow{ width:min(860px,100%); }
 
 /* wrappers compartidos para secciones de contenido */
@@ -71,13 +67,14 @@ body{
 .page-tradiciones .tradiciones-manifiesto-wrap,
 .page-ciudad .ciudad-pulso-wrap,
 .page-itinerario .trip-form{
-  width: min(1100px, 100%);
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .section{
-  padding: clamp(3.8rem, 7vw, 7rem) 0;
+  padding: 5rem 0;
   position: relative;
 }
 
@@ -88,7 +85,7 @@ body{
 }
 
 .section-title{
-  font-size: clamp(1.65rem, 3.1vw, 2.55rem);
+  font-size: 2.2rem;
   font-weight: 900;
   letter-spacing: -.01em;
   line-height: 1.15;
@@ -100,7 +97,7 @@ body{
   color: var(--muted);
   max-width:64ch;
   line-height: 1.72;
-  font-size: clamp(.98rem, 1.3vw, 1.08rem);
+  font-size: 1rem;
 }
 
 
@@ -135,7 +132,6 @@ body{
   padding: 0;
   border: 0;
   background: transparent;
-  backdrop-filter: none;
 }
 
 .kanji-link{
@@ -285,7 +281,7 @@ body{
 
 .vagon img{ height: 120px; width:auto; }
 .vagon:hover{ opacity:.85; }
-.vagon.active{ opacity: 1; filter: drop-shadow(0 10px 18px rgba(0,0,0,.28)); }
+.vagon.active{ opacity: 1; }
 
 
 .hero-vagones{
@@ -306,7 +302,6 @@ body{
   padding: 0;
   border: 0;
   background: transparent;
-  backdrop-filter: none;
 
   /* aqui hago fade en los extremos para que no corte brusco */
   -webkit-mask-image: linear-gradient(to right,
@@ -327,16 +322,14 @@ body{
 
 
 .hero{
-  height: clamp(500px, 78vh, 760px);
-  min-height: clamp(500px, 78vh, 760px);
-  padding: clamp(1.1rem, 2.5vw, 2rem);
+  height: 640px;
+  min-height: 640px;
+  padding: 1.5rem;
   display:flex;
   align-items:center;
   position: relative;
 
-  background:
-    radial-gradient(circle at 20% 45%, rgba(0,0,0,.05), rgba(0,0,0,.55) 55%, rgba(0,0,0,.75) 100%),
-    linear-gradient(to right, rgba(0,0,0,.75) 0%, rgba(0,0,0,.35) 50%, rgba(0,0,0,0) 75%);
+  background-color: var(--bg-1);
 }
 
 .hero-content{
@@ -355,10 +348,9 @@ body{
 }
 
 .hero-title{
-  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  font-size: 2.6rem;
   line-height: 1.08;
   font-weight: 900;
-  text-wrap: balance;
   text-shadow: 0 6px 22px rgba(0,0,0,.38);
 }
 .hero-title span{ color: var(--brass); }
@@ -520,15 +512,13 @@ body{
 
 
 .section-pause{
-  background:
-    radial-gradient(circle at 50% 25%, rgba(255,255,255,.03), rgba(0,0,0,0) 62%),
-    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.72));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
 .home-quote{
-  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+  font-size: 1.6rem;
   font-weight: 900;
   line-height: 1.35;
   color: rgba(238,242,247,.90);
@@ -539,9 +529,7 @@ body{
 .pause-details{ display:grid; gap:.85rem; }
 
 .section-home-stations{
-  background:
-    radial-gradient(circle at 18% 18%, rgba(255,255,255,.03), rgba(0,0,0,0) 58%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.38));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(255,255,255,.05);
 }
 
@@ -561,9 +549,7 @@ body{
 }
 
 .home-entry-intro{
-  background:
-    radial-gradient(circle at 15% 10%, rgba(255,255,255,.06), rgba(0,0,0,0) 55%),
-    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.34));
+  background-color: var(--bg-1);
   padding: 1rem;
 
   display:flex;
@@ -580,7 +566,7 @@ body{
 }
 
 .hei-title{
-  font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+  font-size: 1.4rem;
   font-weight: 950;
   line-height: 1.2;
 }
@@ -613,9 +599,7 @@ body{
 }
 
 .home-entry-card{
-  background:
-    radial-gradient(circle at 82% 16%, rgba(255,255,255,.06), rgba(0,0,0,0) 55%),
-    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.34));
+  background-color: var(--bg-1);
   padding: 1rem;
   min-height: 220px;
 
@@ -689,9 +673,7 @@ body{
 .home-entry-card.is-ciudad{ border-color: rgba(107,213,255,.24); }
 
 .section-home-previews{
-  background:
-    radial-gradient(circle at 84% 18%, rgba(255,255,255,.032), rgba(0,0,0,0) 56%),
-    linear-gradient(to bottom, rgba(0,0,0,.38), rgba(0,0,0,.56));
+  background-color: var(--bg-1);
 }
 
 .station-previews{
@@ -707,7 +689,7 @@ body{
   border: 1px solid rgba(10,14,20,.52);
   overflow:hidden;
 
-  height: clamp(30vh, 34vh, 40vh);
+  height: 320px;
   min-height: 260px;
 
   display:flex;
@@ -775,11 +757,8 @@ body{
 .station-preview.is-ciudad{ background-image: url(../img/ciudad/preview.webp); }
 
 .section-home-loop{
-  padding-top: clamp(2.8rem, 5.5vw, 4.4rem);
-  background:
-    radial-gradient(circle at 14% 18%, rgba(224,184,107,.13), rgba(0,0,0,0) 48%),
-    radial-gradient(circle at 86% 70%, rgba(107,213,255,.14), rgba(0,0,0,0) 45%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.52));
+  padding-top: 3.4rem;
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
@@ -817,8 +796,8 @@ body{
 
 .home-loop-item{
   margin: 0;
-  flex: 0 0 clamp(220px, 24vw, 330px);
-  aspect-ratio: 16 / 10;
+  flex: 0 0 max(220px, min(24vw, 330px));
+  height: 180px;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.14);
@@ -839,9 +818,7 @@ body{
 }
 
 .section-home-guide{
-  background:
-    radial-gradient(circle at 80% 18%, rgba(255,255,255,.035), rgba(0,0,0,0) 58%),
-    linear-gradient(to bottom, rgba(0,0,0,.42), rgba(0,0,0,.62));
+  background-color: var(--bg-1);
 }
 
 .home-routes-grid{
@@ -851,9 +828,7 @@ body{
 }
 
 .home-route-card{
-  background:
-    radial-gradient(circle at 80% 12%, rgba(255,255,255,.05), rgba(0,0,0,0) 56%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.38));
+  background-color: var(--bg-1);
   padding: 1rem;
 
   display:grid;
@@ -942,7 +917,8 @@ body{
 .home-route-card.is-night{ border-color: rgba(107,213,255,.24); }
 
 .home-routes-note{
-  width: min(1100px, 100%);
+  width: 100%;
+  max-width: 1100px;
   margin: 1rem auto 0;
   padding: 0 1rem;
 }
@@ -1075,10 +1051,6 @@ body{
   transition: transform .15s ease, opacity .15s ease;
   opacity: .7;
 }
-.card[open] .card-chevron{
-  transform: rotate(180deg) translateY(-.15rem);
-  opacity: 1;
-}
 
 .templos{
   min-height: 200vh;
@@ -1116,7 +1088,7 @@ body{
   text-align:left;
 }
 .closing-text h2{
-  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  font-size: 1.9rem;
   margin-bottom:.6rem;
   font-weight: 900;
 }
@@ -1134,7 +1106,8 @@ body{
 }
 
 .footer-inner{
-  width: min(1100px, 100%);
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
 
   display:grid;
@@ -1224,9 +1197,7 @@ body{
 }
 
 .page-templos .section-templos-ritmo{
-  background:
-    radial-gradient(circle at 16% 18%, rgba(226,80,63,.16), rgba(0,0,0,0) 52%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.34));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(255,214,168,.08);
 }
 
@@ -1296,7 +1267,7 @@ body{
   font-weight: 900;
   color: rgba(255,238,212,.94);
   border: 1px solid rgba(255,228,188,.28);
-  background: radial-gradient(circle at 35% 30%, rgba(255,200,110,.55), rgba(88,52,28,.88));
+  background-color: var(--bg-1);
 }
 
 .page-templos .trf-item h3{
@@ -1312,9 +1283,7 @@ body{
 }
 
 .page-templos .section-templos-galeria{
-  background:
-    radial-gradient(circle at 82% 16%, rgba(226,80,63,.15), rgba(0,0,0,0) 54%),
-    linear-gradient(to bottom, rgba(255,255,255,.015), rgba(0,0,0,.30));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(255,214,168,.08);
   border-bottom: 1px solid rgba(255,214,168,.07);
 }
@@ -1363,7 +1332,7 @@ body{
 
 .page-templos .tg-card img{
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -1372,7 +1341,7 @@ body{
 }
 
 .page-templos .tg-main img{
-  aspect-ratio: 19 / 10;
+  height: 280px;
 }
 
 .page-templos .tg-label{
@@ -1390,15 +1359,11 @@ body{
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-top: clamp(2.6rem, 5vw, 4rem);
-  padding-bottom: clamp(1.4rem, 3vw, 2.4rem);
+  padding-top: 3.2rem;
+  padding-bottom: 2rem;
   border-top: 1px solid rgba(255,225,170,.10);
   border-bottom: 1px solid rgba(255,225,170,.06);
-  background-image:
-    radial-gradient(ellipse at 50% 14%, var(--templo-glow) 0%, rgba(255,200,110,.07) 38%, rgba(0,0,0,0) 70%),
-    linear-gradient(to top, rgba(102,65,35,.24) 0%, rgba(0,0,0,0) 25%),
-    linear-gradient(to bottom, rgba(18,12,9,.96), rgba(23,15,10,.82)),
-    var(--templo-tradicion-photo);
+  background-color: var(--bg-1);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1465,23 +1430,22 @@ body{
   height: 24px;
   border-radius: 999px;
   z-index: 0;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,.52) 0%, rgba(0,0,0,0) 70%);
+  background-color: var(--bg-1);
 }
 
 .page-templos .templos-tradicion-figure img{
   position: relative;
   z-index: 1;
   width: min(100%, 500px);
-  height: clamp(260px, 35vw, 460px);
+  height: 360px;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 12px 26px rgba(0,0,0,.42)) saturate(1.05) contrast(1.02);
 }
 
 .page-templos .templos-tradicion-copy{
   flex: 1.1 1 420px;
   align-self: center;
-  padding: clamp(1rem, 2.2vw, 1.5rem);
+  padding: 1.2rem;
   border-radius: 18px;
   border: 1px solid rgba(255,228,180,.14);
   background: linear-gradient(135deg, rgba(16,10,8,.74), rgba(58,36,22,.52));
@@ -1499,9 +1463,7 @@ body{
 }
 
 .page-templos .section-templos-feature{
-  background:
-    radial-gradient(circle at 75% 20%, rgba(226,80,63,.14), rgba(0,0,0,0) 55%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.30));
+  background-color: var(--bg-1);
 }
 
 .page-templos .templos-feature-grid{
@@ -1557,7 +1519,7 @@ body{
 .page-tradiciones .tradiciones-card-img,
 .page-ciudad .ciudad-card-img{
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
   margin-top: .8rem;
@@ -1568,7 +1530,7 @@ body{
 }
 
 .page-templos .section-templos-closing{
-  min-height: clamp(520px, 82vh, 900px);
+  min-height: 700px;
   padding: 0;
   display:flex;
   align-items:center;
@@ -1585,11 +1547,11 @@ body{
 .page-templos .templos-closing-wrap{
   width: min(780px, 100%);
   margin: 0 auto;
-  padding: clamp(1.8rem, 4vw, 3.4rem) 1rem;
+  padding: 2.4rem 1rem;
 }
 
 .page-templos .section-templos-closing .section-title{
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 2.8rem;
   letter-spacing: .08em;
 }
 
@@ -1644,9 +1606,7 @@ body{
 }
 
 .page-sakura .section-sakura-sensorial{
-  background:
-    radial-gradient(circle at 84% 14%, rgba(242,168,197,.20), rgba(0,0,0,0) 50%),
-    linear-gradient(to bottom, rgba(255,255,255,.018), rgba(0,0,0,.30));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(242,168,197,.20);
   border-bottom: 1px solid rgba(242,168,197,.14);
 }
@@ -1672,7 +1632,7 @@ body{
 
 .page-sakura .sakura-sensorial-photo img{
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 260px;
   object-fit: cover;
 }
 
@@ -1693,9 +1653,7 @@ body{
   flex: 1 1 150px;
   border-radius: 14px;
   border: 1px solid rgba(242,168,197,.22);
-  background:
-    radial-gradient(circle at 80% 14%, rgba(242,168,197,.20), rgba(0,0,0,0) 55%),
-    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.28));
+  background-color: var(--bg-1);
   padding: .8rem .75rem;
   min-height: 170px;
 }
@@ -1720,9 +1678,7 @@ body{
 }
 
 .page-sakura .section-sakura-mosaic{
-  background:
-    radial-gradient(circle at 18% 76%, rgba(242,168,197,.14), rgba(0,0,0,0) 48%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.32));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(242,168,197,.16);
   border-bottom: 1px solid rgba(242,168,197,.12);
 }
@@ -1739,7 +1695,7 @@ body{
 }
 
 .page-sakura .sm-wide img{
-  aspect-ratio: 18 / 10;
+  height: 290px;
 }
 
 .page-sakura .sm-label{
@@ -1753,15 +1709,11 @@ body{
 .page-sakura .card{ border-color: rgba(242,168,197,.22); }
 
 .page-sakura #hanami.section-pause{
-  background:
-    radial-gradient(circle at 78% 18%, rgba(242,168,197,.12), rgba(0,0,0,0) 52%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.54));
+  background-color: var(--bg-1);
 }
 
 .page-tradiciones .section-tradiciones-manifiesto{
-  background:
-    radial-gradient(circle at 18% 20%, rgba(224,184,107,.17), rgba(0,0,0,0) 55%),
-    linear-gradient(to bottom, rgba(255,255,255,.018), rgba(0,0,0,.34));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(224,184,107,.18);
   border-bottom: 1px solid rgba(224,184,107,.12);
 }
@@ -1804,7 +1756,7 @@ body{
 
 .page-tradiciones .tm-photo img{
   width: 100%;
-  aspect-ratio: 16 / 11;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -1862,9 +1814,7 @@ body{
 }
 
 .page-tradiciones .section-tradiciones-escenas{
-  background:
-    radial-gradient(circle at 82% 14%, rgba(224,184,107,.12), rgba(0,0,0,0) 52%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.32));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(224,184,107,.14);
   border-bottom: 1px solid rgba(224,184,107,.10);
 }
@@ -1873,7 +1823,7 @@ body{
 .page-tradiciones .te-card img,
 .page-ciudad .cp-card img{
   width: 100%;
-  aspect-ratio: 15 / 11;
+  height: 220px;
   object-fit: cover;
 }
 
@@ -1896,7 +1846,7 @@ body{
 }
 
 .page-tradiciones .te-main img{
-  aspect-ratio: 18 / 10;
+  height: 290px;
   object-position: center 34%;
 }
 
@@ -1911,16 +1861,11 @@ body{
 .page-tradiciones .card{ border-color: rgba(224,184,107,.20); }
 
 .page-tradiciones #codigo.section-pause{
-  background:
-    radial-gradient(circle at 82% 18%, rgba(224,184,107,.10), rgba(0,0,0,0) 54%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.56));
+  background-color: var(--bg-1);
 }
 
 .page-ciudad .section-ciudad-pulso{
-  background:
-    radial-gradient(circle at 86% 20%, rgba(107,213,255,.18), rgba(0,0,0,0) 52%),
-    radial-gradient(circle at 20% 75%, rgba(226,80,63,.10), rgba(0,0,0,0) 42%),
-    linear-gradient(to bottom, rgba(255,255,255,.018), rgba(0,0,0,.34));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(107,213,255,.20);
   border-bottom: 1px solid rgba(107,213,255,.14);
 }
@@ -1953,7 +1898,7 @@ body{
 
 .page-ciudad .ciudad-pulso-photo img{
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 260px;
   object-fit: cover;
 }
 
@@ -2002,9 +1947,7 @@ body{
 }
 
 .page-ciudad .section-ciudad-panorama{
-  background:
-    radial-gradient(circle at 84% 18%, rgba(107,213,255,.12), rgba(0,0,0,0) 52%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.35));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(107,213,255,.16);
   border-bottom: 1px solid rgba(107,213,255,.12);
 }
@@ -2020,7 +1963,7 @@ body{
 }
 
 .page-ciudad .cp-wide img{
-  aspect-ratio: 19 / 10;
+  height: 300px;
 }
 
 .page-ciudad .cp-label{
@@ -2034,9 +1977,7 @@ body{
 .page-ciudad .card{ border-color: rgba(107,213,255,.21); }
 
 .page-ciudad #noche.section-pause{
-  background:
-    radial-gradient(circle at 78% 16%, rgba(107,213,255,.10), rgba(0,0,0,0) 48%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.58));
+  background-color: var(--bg-1);
 }
 
 .station-cta{
@@ -2078,33 +2019,21 @@ body{
 }
 
 .station-cta-sakura{
-  background:
-    radial-gradient(circle at 78% 20%, rgba(242,168,197,.16), rgba(0,0,0,0) 54%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.46));
+  background-color: var(--bg-1);
 }
 
 .station-cta-tradiciones{
-  background:
-    radial-gradient(circle at 20% 18%, rgba(224,184,107,.15), rgba(0,0,0,0) 54%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.48));
+  background-color: var(--bg-1);
 }
 
 .station-cta-ciudad{
-  background:
-    radial-gradient(circle at 82% 16%, rgba(107,213,255,.16), rgba(0,0,0,0) 54%),
-    linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.50));
+  background-color: var(--bg-1);
 }
-
 
 .page-itinerario .section-itinerary-form{
-  background:
-    radial-gradient(circle at 14% 18%, rgba(107,213,255,.09), rgba(0,0,0,0) 42%),
-    linear-gradient(to bottom, rgba(255,255,255,.015), rgba(0,0,0,.20));
+  background-color: var(--bg-1);
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
-}
-
-.page-itinerario .trip-form{
 }
 
 .page-itinerario .trip-form-grid{
@@ -2207,15 +2136,6 @@ body{
   flex-wrap: wrap;
   gap: .7rem;
 }
-
-@media (prefers-reduced-motion: reduce){
-  .home-loop-line{
-    animation: none;
-    transform: translateX(0);
-  }
-}
-
-
 
 @media (max-width: 1000px){
   .page-templos .section-templos-tradicion::before,
@@ -2328,7 +2248,7 @@ body{
   .page-home .hero-vagones .vagon img{ height: 76px; }
   .home-entry-grid{ grid-template-columns: 1fr; }
   .hr-steps li{ grid-template-columns: 1fr; }
-  .home-loop-item{ flex-basis: clamp(190px, 72vw, 260px); }
+  .home-loop-item{ flex-basis: max(190px, min(72vw, 260px)); }
   .home-loop-line{ animation-duration: 44s; }
 
   .page-ciudad .cpt-stop{
@@ -2364,7 +2284,7 @@ body{
 
 @media (max-width: 520px){
   .home-entry-intro .btn{ width: 100%; justify-content: center; }
-  .home-loop-item{ flex-basis: clamp(170px, 78vw, 220px); }
+  .home-loop-item{ flex-basis: max(170px, min(78vw, 220px)); }
 
   .page-sakura .sw-item,
   .page-tradiciones .tm-list-box,
