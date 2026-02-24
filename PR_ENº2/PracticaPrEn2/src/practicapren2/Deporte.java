@@ -1,66 +1,62 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package practicapren2;
 
-/**
- *
- * @author EAG
- */
 public class Deporte {
+
+    private static final int MAX_PRUEBAS = 50; // decisión técnica
+
     private String nombre;
-    private TipoDeporte tipoD;
+    private TipoDeporte tipo;
+    private int maxParticipantesPorPrueba;
+
     private Prueba[] pruebas;
+    private int numPruebas;
 
-    public Deporte(String nombre, TipoDeporte tipoD, Prueba[] pruebas) {
+    public Deporte() {
+        nombre = "";
+        tipo = null;
+        maxParticipantesPorPrueba = 0;
+
+        pruebas = new Prueba[MAX_PRUEBAS];
+        numPruebas = 0;
+    }
+
+    public Deporte(String nombre, TipoDeporte tipo, int maxParticipantesPorPrueba) {
         this.nombre = nombre;
-        this.tipoD = tipoD;
-        this.pruebas = pruebas;
-    }
-    public Deporte(Deporte d){
-        this.nombre = d.nombre;
-        this.tipoD = d.tipoD;
-        this.pruebas = d.pruebas;    
-}
-    public Deporte(){
-        this.nombre = "";
-        this.tipoD = null;
-        this.pruebas = new Prueba[0]; 
+        this.tipo = tipo;
+        this.maxParticipantesPorPrueba = maxParticipantesPorPrueba;
+
+        pruebas = new Prueba[MAX_PRUEBAS];
+        numPruebas = 0;
     }
 
-    public String getNombre() {
-        return nombre;
+    public boolean agregarPrueba(Prueba p) {
+        if (p == null) return false;
+        if (numPruebas >= MAX_PRUEBAS) return false;
+
+        // tipo de la prueba igual al tipo del deporte
+        if (tipo != null && p.getTipo() != null && p.getTipo() != tipo) {
+            System.out.println("La prueba no coincide con el tipo del deporte.");
+            return false;
+        }
+
+        pruebas[numPruebas] = p;
+        numPruebas++;
+        return true;
     }
 
-    public TipoDeporte getTipoD() {
-        return tipoD;
-    }
+    public String getNombre() { return nombre; }
+    public TipoDeporte getTipo() { return tipo; }
+    public int getMaxParticipantesPorPrueba() { return maxParticipantesPorPrueba; }
+    public Prueba[] getPruebas() { return pruebas; }
+    public int getNumPruebas() { return numPruebas; }
 
-    public Prueba[] getPruebas() {
-        return pruebas;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setTipoD(TipoDeporte tipoD) {
-        this.tipoD = tipoD;
-    }
-
-    public void setPruebas(Prueba[] pruebas) {
-        this.pruebas = pruebas;
-    }
-    /*
-    Metodos
-    
-    */
-    
     @Override
     public String toString() {
-        return "Prueba{" + "nombre=" + nombre + ", tipoD=" + tipoD + ", pruebas=" + pruebas + '}';
+        return "Deporte{" +
+                "nombre='" + nombre + '\'' +
+                ", tipo=" + tipo +
+                ", maxParticipantesPorPrueba=" + maxParticipantesPorPrueba +
+                ", numPruebas=" + numPruebas +
+                '}';
     }
-    
 }

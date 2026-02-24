@@ -4,22 +4,19 @@ public class Participante {
 
     protected String nombre;
     protected String pais;
-    protected int edad;
     protected int idOlimpico;
     protected int totalMedallas;
 
     public Participante() {
         nombre = "";
         pais = "";
-        edad = 0;
         idOlimpico = 0;
         totalMedallas = 0;
     }
 
-    public Participante(String n, String p, int e, int id) {
+    public Participante(String n, String p, int id) {
         nombre = n;
         pais = p;
-        edad = e;
         idOlimpico = id;
         totalMedallas = 0;
     }
@@ -27,7 +24,6 @@ public class Participante {
     public Participante(Participante pa) {
         nombre = pa.nombre;
         pais = pa.pais;
-        edad = pa.edad;
         idOlimpico = pa.idOlimpico;
         totalMedallas = pa.totalMedallas;
     }
@@ -38,10 +34,6 @@ public class Participante {
 
     public String getPais() {
         return pais;
-    }
-
-    public int getEdad() {
-        return edad;
     }
 
     public int getIdOlimpico() {
@@ -60,10 +52,6 @@ public class Participante {
         pais = p;
     }
 
-    public void setEdad(int e) {
-        edad = e;
-    }
-
     public void setIdOlimpico(int id) {
         idOlimpico = id;
     }
@@ -73,13 +61,13 @@ public class Participante {
     }
 
     public String mostrarInformacion() {
-        return "Nombre: " + nombre + ", País: " + pais + ", Edad: " + edad
+        return "Nombre: " + nombre + ", País: " + pais
                 + ", ID Olímpico: " + idOlimpico + ", Medallas: " + totalMedallas;
     }
 
     @Override
     public String toString() {
-        return "Participante{" + "nombre=" + nombre + ", pais=" + pais + ", edad=" + edad
+        return "Participante{" + "nombre=" + nombre + ", pais=" + pais
                 + ", idOlimpico=" + idOlimpico + ", totalMedallas=" + totalMedallas + '}';
     }
 }

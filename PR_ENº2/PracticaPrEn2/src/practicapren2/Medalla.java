@@ -1,23 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package practicapren2;
 
-/**
- *
- * @author EAG
- */
 public class Medalla {
+
     private TipoMedalla tipo;
     private Participante ganador;
     private Prueba prueba;
     private static int totalOtorgadas;
-
-    public Medalla() {
-        
-    }
 
     public Medalla(TipoMedalla tipo, Participante ganador, Prueba prueba) {
         this.tipo = tipo;
@@ -25,7 +13,7 @@ public class Medalla {
         this.prueba = prueba;
         totalOtorgadas++;
     }
-    
+
     public TipoMedalla getTipo() {
         return tipo;
     }
@@ -52,10 +40,6 @@ public class Medalla {
 
     public void setPrueba(Prueba prueba) {
         this.prueba = prueba;
-    }
-
-    public static void setTotalOtorgadas(int totalOtorgadas) {
-        Medalla.totalOtorgadas = totalOtorgadas;
     }
 
     @Override
