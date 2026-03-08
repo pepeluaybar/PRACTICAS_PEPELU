@@ -82,58 +82,58 @@ public class JJOO {
         return numDeportes;
     }
 
-    public boolean registrarNuevoDeporte(Deporte d) {
+    // +registrarNuevoDeporte(d: Deporte): void
+    public void registrarNuevoDeporte(Deporte d) {
+
         if (d == null) {
             System.out.println("No se puede registrar un deporte nulo");
-            return false;
+            return;
         }
 
         if (numDeportes >= MAX_DEPORTES) {
             System.out.println("No hay más espacio para deportes");
-            return false;
+            return;
         }
 
         for (int i = 0; i < numDeportes; i++) {
             if (deportes[i] != null && deportes[i].getNombre() != null
                     && deportes[i].getNombre().equals(d.getNombre())) {
                 System.out.println("Ese deporte ya está registrado");
-                return false;
+                return;
             }
         }
 
         deportes[numDeportes] = d;
         numDeportes++;
-        return true;
     }
 
-    public boolean registrarNuevoParticipante(Participante p) {
-        if (p == null) {
-            System.out.println("No se puede registrar un participante nulo");
-            return false;
+    // +registrarNuevoDeportista(d: Deportista): void
+    public void registrarNuevoDeportista(Deportista d) {
+
+        if (d == null) {
+            System.out.println("No se puede registrar un deportista nulo");
+            return;
         }
 
         if (numParticipantes >= MAX_PARTICIPANTES) {
-            System.out.println("No hay más espacio para participantes");
-            return false;
+            System.out.println("No hay más espacio para registrar participantes");
+            return;
         }
 
         for (int i = 0; i < numParticipantes; i++) {
-            if (participantes[i] != null && participantes[i].getIdOlimpico() == p.getIdOlimpico()) {
+            if (participantes[i] != null && participantes[i].getIdOlimpico() == d.getIdOlimpico()) {
                 System.out.println("Ya existe un participante con ese id olímpico");
-                return false;
+                return;
             }
         }
 
-        participantes[numParticipantes] = p;
+        participantes[numParticipantes] = d;
         numParticipantes++;
-        return true;
     }
 
-    public boolean registrarNuevoDeportista(Deportista d) {
-        return registrarNuevoParticipante(d);
-    }
-
+    // +crearEquipo(nombre: String, miembros: Deportista[]): Equipo
     public Equipo crearEquipo(String nombreEquipo, Deportista[] miembros) {
+
         if (nombreEquipo == null || nombreEquipo.equals("")) {
             System.out.println("El equipo debe tener nombre");
             return null;
@@ -145,49 +145,53 @@ public class JJOO {
         }
 
         if (numParticipantes >= MAX_PARTICIPANTES) {
-            System.out.println("No hay espacio para más equipos");
+            System.out.println("No hay espacio para más participantes");
             return null;
         }
 
-        String paisBase = null;
+        if (miembros[0] == null) {
+            System.out.println("Hay un miembro nulo en el equipo");
+            return null;
+        }
+
+        String paisBase = miembros[0].getPais();
 
         for (int i = 0; i < miembros.length; i++) {
             if (miembros[i] == null) {
                 System.out.println("Hay un miembro nulo en el equipo");
                 return null;
             }
-
-            if (i == 0) {
-                paisBase = miembros[i].getPais();
-            } else {
-                if (paisBase != null && !miembros[i].getPais().equals(paisBase)) {
-                    System.out.println("Todos los miembros del equipo deben ser del mismo país");
-                    return null;
-                }
+            if (miembros[i].getPais() == null || !miembros[i].getPais().equals(paisBase)) {
+                System.out.println("Todos los miembros del equipo deben ser del mismo país");
+                return null;
             }
-        }
-
-        Deportista[] copia = new Deportista[miembros.length];
-        for (int i = 0; i < miembros.length; i++) {
-            copia[i] = miembros[i];
+            if (miembros[i].getEquipo() != null) {
+                System.out.println("Un deportista ya pertenece a un equipo");
+                return null;
+            }
         }
 
         int nuevoId = 10000 + numParticipantes + 1;
 
-        Equipo equipo = new Equipo(nombreEquipo, paisBase, nuevoId, copia, copia.length);
+        Equipo equipo = new Equipo(nombreEquipo, paisBase, nuevoId);
 
-        if (!registrarNuevoParticipante(equipo)) {
-            return null;
+        for (int i = 0; i < miembros.length; i++) {
+            if (!equipo.agregarMiembro(miembros[i])) {
+                System.out.println("No se pudo crear el equipo (falló al añadir miembros)");
+                return null;
+            }
         }
 
-        for (int i = 0; i < copia.length; i++) {
-            copia[i].setEquipo(equipo);
-        }
+        // Registrar como participante
+        participantes[numParticipantes] = equipo;
+        numParticipantes++;
 
         return equipo;
     }
 
+    // +inscribirEnPrueba(par: Participante, pr: Prueba): boolean
     public boolean inscribirEnPrueba(Participante par, Prueba pr) {
+
         if (par == null || pr == null) {
             System.out.println("Participante o prueba no válidos");
             return false;
@@ -196,10 +200,17 @@ public class JJOO {
         return pr.inscribirParticipante(par);
     }
 
-    public String mostrarMedalleroPorPais() {
-        // Máximo de países <= participantes (en el peor caso, todos de países distintos)
-        String[] paises = new String[MAX_PARTICIPANTES];
-        int[] cantidad = new int[MAX_PARTICIPANTES];
+    // +mostrarMedalleroPorPais(participantes: Participante[]): String
+    // (la firma del diagrama lleva parámetro; usamos el array que nos pasen)
+    public String mostrarMedalleroPorPais(Participante[] participantesEntrada) {
+
+        if (participantesEntrada == null) {
+            return "No hay participantes.";
+        }
+
+        // Máximo países <= participantesEntrada.length
+        String[] paises = new String[participantesEntrada.length];
+        int[] cantidad = new int[participantesEntrada.length];
         int numPaises = 0;
 
         for (int i = 0; i < numDeportes; i++) {
@@ -254,7 +265,9 @@ public class JJOO {
         return texto;
     }
 
+    // +participanteConMasMedallas(): Participante
     public Participante participanteConMasMedallas() {
+
         if (numParticipantes == 0) {
             return null;
         }

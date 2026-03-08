@@ -14,6 +14,7 @@ public class Participante {
         totalMedallas = 0;
     }
 
+    // Antes te equivocaste metiendo edad; ahora se quita
     public Participante(String n, String p, int id) {
         nombre = n;
         pais = p;
@@ -54,10 +55,6 @@ public class Participante {
 
     public void setIdOlimpico(int id) {
         idOlimpico = id;
-    }
-
-    public void setTotalMedallas(int totalMedallas) {
-        this.totalMedallas = totalMedallas;
     }
 
     public String mostrarInformacion() {

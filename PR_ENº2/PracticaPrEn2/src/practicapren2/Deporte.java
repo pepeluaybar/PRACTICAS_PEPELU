@@ -2,10 +2,10 @@ package practicapren2;
 
 public class Deporte {
 
-    private static final int MAX_PRUEBAS = 50; // decisión técnica
+    private static final int MAX_PRUEBAS = 50;
 
     private String nombre;
-    private TipoDeporte tipo;
+    private TipoDeporte tipoD;
     private int maxParticipantesPorPrueba;
 
     private Prueba[] pruebas;
@@ -13,30 +13,75 @@ public class Deporte {
 
     public Deporte() {
         nombre = "";
-        tipo = null;
+        tipoD = null;
         maxParticipantesPorPrueba = 0;
 
         pruebas = new Prueba[MAX_PRUEBAS];
         numPruebas = 0;
     }
 
-    public Deporte(String nombre, TipoDeporte tipo, int maxParticipantesPorPrueba) {
+    public Deporte(String nombre, TipoDeporte tipoD, int maxParticipantesPorPrueba) {
         this.nombre = nombre;
-        this.tipo = tipo;
+        this.tipoD = tipoD;
         this.maxParticipantesPorPrueba = maxParticipantesPorPrueba;
 
         pruebas = new Prueba[MAX_PRUEBAS];
         numPruebas = 0;
     }
 
-    public boolean agregarPrueba(Prueba p) {
-        if (p == null) return false;
-        if (numPruebas >= MAX_PRUEBAS) return false;
+    public String getNombre() {
+        return nombre;
+    }
 
-        // tipo de la prueba igual al tipo del deporte
-        if (tipo != null && p.getTipo() != null && p.getTipo() != tipo) {
-            System.out.println("La prueba no coincide con el tipo del deporte.");
+    public TipoDeporte getTipoD() {
+        return tipoD;
+    }
+
+    public int getMaxParticipantesPorPrueba() {
+        return maxParticipantesPorPrueba;
+    }
+
+    public Prueba[] getPruebas() {
+        return pruebas;
+    }
+
+    public int getNumPruebas() {
+        return numPruebas;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setTipoD(TipoDeporte tipoD) {
+        this.tipoD = tipoD;
+    }
+
+    public void setMaxParticipantesPorPrueba(int maxParticipantesPorPrueba) {
+        this.maxParticipantesPorPrueba = maxParticipantesPorPrueba;
+    }
+
+    public boolean agregarPrueba(Prueba p) {
+        if (p == null) {
+            System.out.println("Prueba no válida");
             return false;
+        }
+
+        if (numPruebas >= MAX_PRUEBAS) {
+            System.out.println("No hay más espacio para pruebas");
+            return false;
+        }
+
+        // Coherencia de tipo
+        if (tipoD != null && p.getTipo() != null && p.getTipo() != tipoD) {
+            System.out.println("La prueba no coincide con el tipo del deporte");
+            return false;
+        }
+
+        // Coherencia de max (opcional): si el deporte define max, la prueba debería respetarlo
+        if (maxParticipantesPorPrueba > 0 && p.getMaxParticipantes() != maxParticipantesPorPrueba) {
+            // No lo bloqueo, pero aviso:
+            System.out.println("Aviso: maxParticipantes de la prueba no coincide con el del deporte");
         }
 
         pruebas[numPruebas] = p;
@@ -44,19 +89,10 @@ public class Deporte {
         return true;
     }
 
-    public String getNombre() { return nombre; }
-    public TipoDeporte getTipo() { return tipo; }
-    public int getMaxParticipantesPorPrueba() { return maxParticipantesPorPrueba; }
-    public Prueba[] getPruebas() { return pruebas; }
-    public int getNumPruebas() { return numPruebas; }
-
     @Override
     public String toString() {
-        return "Deporte{" +
-                "nombre='" + nombre + '\'' +
-                ", tipo=" + tipo +
-                ", maxParticipantesPorPrueba=" + maxParticipantesPorPrueba +
-                ", numPruebas=" + numPruebas +
-                '}';
+        return "Deporte{" + "nombre=" + nombre + ", tipoD=" + tipoD
+                + ", maxParticipantesPorPrueba=" + maxParticipantesPorPrueba
+                + ", numPruebas=" + numPruebas + '}';
     }
 }

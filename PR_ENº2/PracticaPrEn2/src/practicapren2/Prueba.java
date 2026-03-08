@@ -12,7 +12,7 @@ public class Prueba {
     private Participante[] participantes;
     private int numParticipantes;
 
-    private String[] resultados; // simple
+    private String[] resultados;
     private boolean resultadoFinalRegistrado;
 
     private Medalla[] medallas;
@@ -24,7 +24,7 @@ public class Prueba {
         tipo = null;
         maxParticipantes = 0;
 
-        participantes = null;     // se creará cuando haya maxParticipantes válido
+        participantes = null;
         numParticipantes = 0;
 
         resultados = null;
@@ -54,57 +54,111 @@ public class Prueba {
         numMedallas = 0;
     }
 
-    public boolean inscribirParticipante(Participante p) {
-
-    if (p == null) {
-        System.out.println("Participante no válido");
-        return false;
+    public String getCodigo() {
+        return codigo;
     }
 
-    if (maxParticipantes <= 0) {
-        System.out.println("La prueba no tiene máximo de participantes válido");
-        return false;
+    public String getNombre() {
+        return nombre;
     }
 
-    if (participantes == null) {
-        participantes = new Participante[maxParticipantes];
+    public TipoDeporte getTipo() {
+        return tipo;
     }
 
-    // Comprobar tipo compatible
-    if (tipo == TipoDeporte.INDIVIDUAL && !(p instanceof Deportista)) {
-        System.out.println("Esta prueba es individual");
-        return false;
+    public int getMaxParticipantes() {
+        return maxParticipantes;
     }
 
-    if (tipo == TipoDeporte.EQUIPO && !(p instanceof Equipo)) {
-        System.out.println("Esta prueba es por equipos");
-        return false;
+    public Participante[] getParticipantes() {
+        return participantes;
     }
 
-    // Comprobar duplicado
-    for (int i = 0; i < numParticipantes; i++) {
-        if (participantes[i].getIdOlimpico() == p.getIdOlimpico()) {
-            System.out.println("El participante ya está inscrito");
-            return false;
+    public int getNumParticipantes() {
+        return numParticipantes;
+    }
+
+    public String[] getResultados() {
+        return resultados;
+    }
+
+    public Medalla[] getMedallas() {
+        return medallas;
+    }
+
+    public int getNumMedallas() {
+        return numMedallas;
+    }
+
+    public boolean isResultadoFinalRegistrado() {
+        return resultadoFinalRegistrado;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setTipo(TipoDeporte tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setMaxParticipantes(int maxParticipantes) {
+        this.maxParticipantes = maxParticipantes;
+        if (maxParticipantes > 0) {
+            this.participantes = new Participante[maxParticipantes];
+            this.numParticipantes = 0;
+        } else {
+            this.participantes = null;
+            this.numParticipantes = 0;
         }
     }
 
-    // Comprobar máximo
-    if (numParticipantes >= maxParticipantes) {
-        System.out.println("Se alcanzó el máximo de participantes");
-        return false;
-    }
+    // --- MÉTODOS DEL DIAGRAMA / ENUNCIADO ---
 
-    participantes[numParticipantes] = p;
-    numParticipantes++;
+    public boolean inscribirParticipante(Participante p) {
 
-    return true;
-}
+        if (p == null) {
+            System.out.println("Participante no válido");
+            return false;
+        }
 
-    private boolean esCompatible(Participante p) {
-        if (tipo == TipoDeporte.INDIVIDUAL && p instanceof Deportista) return true;
-        if (tipo == TipoDeporte.EQUIPO && p instanceof Equipo) return true;
-        return false;
+        if (maxParticipantes <= 0 || participantes == null) {
+            System.out.println("La prueba no tiene maxParticipantes válido");
+            return false;
+        }
+
+        // Compatibilidad de tipo
+        if (tipo == TipoDeporte.INDIVIDUAL && !(p instanceof Deportista)) {
+            System.out.println("Esta prueba es individual");
+            return false;
+        }
+
+        if (tipo == TipoDeporte.EQUIPO && !(p instanceof Equipo)) {
+            System.out.println("Esta prueba es por equipos");
+            return false;
+        }
+
+        // Duplicado
+        for (int i = 0; i < numParticipantes; i++) {
+            if (participantes[i] != null && participantes[i].getIdOlimpico() == p.getIdOlimpico()) {
+                System.out.println("El participante ya está inscrito");
+                return false;
+            }
+        }
+
+        // Máximo
+        if (numParticipantes >= maxParticipantes) {
+            System.out.println("Se alcanzó el máximo de participantes");
+            return false;
+        }
+
+        participantes[numParticipantes] = p;
+        numParticipantes++;
+        return true;
     }
 
     public void registrarResultadoFinal(String[] resultados) {
@@ -113,17 +167,28 @@ public class Prueba {
     }
 
     public boolean asignarMedalla(TipoMedalla tipoMedalla, Participante ganador) {
+
         if (!resultadoFinalRegistrado) {
-            System.out.println("No se pueden asignar medallas sin resultado final.");
+            System.out.println("No se pueden asignar medallas sin resultado final");
             return false;
         }
+
         if (tipoMedalla == null || ganador == null) {
-            System.out.println("Tipo de medalla o ganador no válido.");
+            System.out.println("Tipo de medalla o ganador no válido");
             return false;
         }
+
         if (numMedallas >= MAX_MEDALLAS) {
-            System.out.println("No se pueden asignar más de 3 medallas.");
+            System.out.println("No se pueden asignar más de 3 medallas");
             return false;
+        }
+
+        // Evitar repetir el mismo tipo
+        for (int i = 0; i < numMedallas; i++) {
+            if (medallas[i] != null && medallas[i].getTipo() == tipoMedalla) {
+                System.out.println("Esa medalla ya fue asignada");
+                return false;
+            }
         }
 
         medallas[numMedallas] = new Medalla(tipoMedalla, ganador, this);
@@ -131,54 +196,22 @@ public class Prueba {
         return true;
     }
 
-    // --- GETTERS/SETTERS básicos ---
+    public String mostrarClasificacion() {
+        if (!resultadoFinalRegistrado || resultados == null || resultados.length == 0) {
+            return "No hay clasificación registrada.";
+        }
 
-    public String getCodigo() { 
-        return codigo;
-    }
-    
-    public String getNombre() {
-        return nombre; 
-    }
-    
-    public TipoDeporte getTipo() { 
-        return tipo; 
-    }
-    
-    public int getMaxParticipantes() { 
-        return maxParticipantes; 
-    }
-    
-    public Participante[] getParticipantes() { 
-        return participantes; 
-    }
-    
-    public int getNumParticipantes() { 
-        return numParticipantes; 
-    }
-    
-    public Medalla[] getMedallas() { 
-        return medallas;
-    }
-    
-    public int getNumMedallas() { 
-        return numMedallas;
-    }
-    
-    public boolean isResultadoFinalRegistrado() {
-        return resultadoFinalRegistrado; 
+        String texto = "Clasificación (" + nombre + "):\n";
+        for (int i = 0; i < resultados.length; i++) {
+            texto += resultados[i] + "\n";
+        }
+        return texto;
     }
 
     @Override
     public String toString() {
-        return "Prueba{" +
-                "codigo='" + codigo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", tipo=" + tipo +
-                ", maxParticipantes=" + maxParticipantes +
-                ", numParticipantes=" + numParticipantes +
-                ", resultadoFinalRegistrado=" + resultadoFinalRegistrado +
-                ", numMedallas=" + numMedallas +
-                '}';
+        return "Prueba{" + "codigo=" + codigo + ", nombre=" + nombre + ", tipo=" + tipo
+                + ", maxParticipantes=" + maxParticipantes + ", numParticipantes=" + numParticipantes
+                + ", numMedallas=" + numMedallas + ", resultadoFinalRegistrado=" + resultadoFinalRegistrado + '}';
     }
 }
